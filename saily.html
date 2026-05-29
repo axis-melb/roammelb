@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-i18n-title="zh-Hans">Saily eSIM — 旅行上网 + 隐私保护 | RoamMelb</title>
+  <meta name="description" content="Saily eSIM by NordVPN — 200+国家覆盖，内置虚拟IP、广告拦截、恶意网站防护。"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #04080f; --surface: #0b1220; --surface2: #111c2e;
+      --border: rgba(99,179,237,0.12);
+      --blue: #63b3ed; --blue-bright: #90cdf4;
+      --cyan: #4fd1c5; --green: #68d391;
+      --white: #f0f4ff;
+      --muted: rgba(240,244,255,0.45); --muted2: rgba(240,244,255,0.2);
+      --radius: 18px; --radius-sm: 10px;
+      --font-display: 'Clash Display', 'Syne', sans-serif;
+      --font-body: 'Noto Sans SC', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--white); overflow-x: hidden; }
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(4,8,15,0.75); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); gap: 16px;
+    }
+    .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em; color: var(--white); text-decoration: none; }
+    .logo span { color: #c8f135; }
+    .nav-center { display: flex; align-items: center; gap: 4px; }
+    .lang-btn {
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.45); padding: 5px 10px; border-radius: 6px;
+      font-size: 0.75rem; cursor: pointer; font-family: var(--font-body); transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .lang-btn.active { background: rgba(99,179,237,0.12); border-color: rgba(99,179,237,0.4); color: var(--blue-bright); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-back { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--white); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue); color: var(--bg);
+      padding: 10px 22px; border-radius: 100px;
+      font-weight: 500; font-size: 0.85rem; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--blue-bright); transform: translateY(-1px); }
+
+    /* DISCOUNT BANNER */
+    .discount-bar {
+      position: fixed; top: 64px; left: 0; right: 0; z-index: 99;
+      background: linear-gradient(90deg, rgba(99,179,237,0.15), rgba(79,209,197,0.15));
+      border-bottom: 1px solid rgba(99,179,237,0.25);
+      padding: 10px 40px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      font-size: 0.82rem;
+    }
+    .discount-code {
+      font-family: var(--font-mono); font-size: 0.85rem; font-weight: 500;
+      background: var(--blue); color: var(--bg);
+      padding: 3px 12px; border-radius: 6px; letter-spacing: 0.05em;
+    }
+    .discount-bar span { color: var(--muted); }
+    .discount-bar strong { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; padding: 170px 40px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px; animation: gridSlide 20s linear infinite;
+    }
+    @keyframes gridSlide { from { background-position: 0 0; } to { background-position: 48px 48px; } }
+    .hero-glow {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 70% 30%, rgba(99,179,237,0.15) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 45% at 20% 75%, rgba(79,209,197,0.1) 0%, transparent 60%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em;
+      color: var(--cyan); margin-bottom: 28px; animation: fadeUp 0.5s ease both;
+    }
+    .hero-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--cyan); }
+    h1 { font-family: var(--font-display); font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.04em; animation: fadeUp 0.5s 0.1s ease both; }
+    h1 .line2 { color: var(--blue); }
+    h1 .line3 { color: var(--muted); font-weight: 500; }
+    .hero-sub { margin-top: 24px; font-size: 1.1rem; color: var(--muted); line-height: 1.75; max-width: 560px; animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; animation: fadeUp 0.5s 0.25s ease both; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(99,179,237,0.08); border: 1px solid rgba(99,179,237,0.2); color: var(--blue-bright); padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; font-family: var(--font-mono); }
+    .badge.green { background: rgba(104,211,145,0.08); border-color: rgba(104,211,145,0.2); color: var(--green); }
+    .badge.cyan  { background: rgba(79,209,197,0.08);  border-color: rgba(79,209,197,0.2);  color: var(--cyan); }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 40px; animation: fadeUp 0.5s 0.3s ease both; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--blue); color: var(--bg); padding: 16px 32px; border-radius: 100px; font-weight: 600; font-size: 1rem; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+    .btn-primary:hover { background: var(--blue-bright); transform: translateY(-2px); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid var(--border); color: var(--white); padding: 16px 32px; border-radius: 100px; font-size: 1rem; text-decoration: none; transition: border-color 0.2s, background 0.2s, transform 0.2s; }
+    .btn-ghost:hover { border-color: rgba(99,179,237,0.4); background: rgba(99,179,237,0.06); transform: translateY(-2px); }
+    .disclaimer { margin-top: 20px; font-size: 0.75rem; color: var(--muted2); font-family: var(--font-mono); animation: fadeUp 0.5s 0.35s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .trust-banner { position: relative; z-index: 1; display: flex; align-items: center; gap: 16px; margin-top: 56px; padding: 20px 28px; background: rgba(99,179,237,0.06); border: 1px solid rgba(99,179,237,0.18); border-radius: var(--radius-sm); max-width: 560px; animation: fadeUp 0.5s 0.4s ease both; }
+    .trust-banner .nord-dot { width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, #4687ff, #336bcc); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .trust-banner p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+    .trust-banner strong { color: var(--blue-bright); font-weight: 500; }
+
+    /* SECTIONS */
+    .section { padding: 96px 40px; position: relative; z-index: 1; }
+    .section-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); margin-bottom: 14px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 16px; }
+    .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 560px; margin-bottom: 56px; }
+
+    /* FEATURES */
+    .features-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: var(--radius); overflow: hidden; }
+    .feature-card { background: var(--surface); padding: 44px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
+    .feature-card:hover { background: var(--surface2); }
+    .feature-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--blue), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+    .feature-card:hover::after { transform: scaleX(1); }
+    .feat-icon { font-size: 2.4rem; margin-bottom: 24px; display: block; filter: drop-shadow(0 0 12px rgba(99,179,237,0.4)); }
+    .feat-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: var(--white); }
+    .feat-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+    .feat-tag { display: inline-block; margin-top: 20px; font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan); background: rgba(79,209,197,0.1); border: 1px solid rgba(79,209,197,0.2); padding: 4px 10px; border-radius: 6px; }
+
+    /* COMPARE */
+    .compare-section { background: var(--bg); }
+    .compare-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .compare-table { width: 100%; border-collapse: collapse; }
+    .compare-table th { padding: 20px 28px; text-align: left; background: var(--surface2); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .compare-table th.highlight { color: var(--blue-bright); background: rgba(99,179,237,0.06); }
+    .compare-table td { padding: 18px 28px; font-size: 0.9rem; border-bottom: 1px solid rgba(99,179,237,0.06); color: var(--muted); }
+    .compare-table td:first-child { color: var(--white); font-weight: 500; }
+    .compare-table td.highlight { color: var(--white); background: rgba(99,179,237,0.04); }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .check { color: var(--green); font-size: 1.1rem; }
+    .cross { color: rgba(240,244,255,0.2); font-size: 1.1rem; }
+    .partial { color: #f6ad55; font-size: 0.82rem; }
+
+    /* PLANS */
+    .plans-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .plan-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; position: relative; overflow: hidden; transition: border-color 0.25s, transform 0.25s; }
+    .plan-card:hover { border-color: rgba(99,179,237,0.35); transform: translateY(-4px); }
+    .plan-card.featured { border-color: rgba(99,179,237,0.4); background: linear-gradient(145deg, rgba(99,179,237,0.06), var(--bg)); }
+    .plan-badge-top { position: absolute; top: 0; right: 0; background: var(--blue); color: var(--bg); font-size: 0.68rem; font-weight: 600; padding: 5px 14px; border-radius: 0 var(--radius) 0 10px; font-family: var(--font-mono); }
+    .plan-region { font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan); letter-spacing: 0.1em; margin-bottom: 10px; }
+    .plan-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 6px; }
+    .plan-price { font-family: var(--font-mono); font-size: 2rem; font-weight: 500; color: var(--blue-bright); margin: 16px 0 4px; }
+    .plan-price span { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
+    .plan-details { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .plan-btn { display: block; text-align: center; background: rgba(99,179,237,0.12); color: var(--blue-bright); border: 1px solid rgba(99,179,237,0.25); padding: 12px; border-radius: var(--radius-sm); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: background 0.2s, border-color 0.2s; }
+    .plan-btn:hover { background: rgba(99,179,237,0.22); border-color: rgba(99,179,237,0.45); }
+    .plan-card.featured .plan-btn { background: var(--blue); color: var(--bg); border-color: var(--blue); }
+    .plan-card.featured .plan-btn:hover { background: var(--blue-bright); }
+    .plans-note { margin-top: 24px; font-size: 0.78rem; color: var(--muted2); font-family: var(--font-mono); }
+
+    /* USE CASES */
+    .use-section { background: var(--bg); }
+    .use-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .use-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; display: flex; gap: 20px; align-items: flex-start; transition: border-color 0.25s; }
+    .use-card:hover { border-color: rgba(99,179,237,0.3); }
+    .use-num { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted2); flex-shrink: 0; padding-top: 4px; }
+    .use-content h3 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
+    .use-content p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-section { background: var(--surface); border-top: 1px solid var(--border); }
+    .faq-list { max-width: 720px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 28px 0; }
+    .faq-item:first-child { padding-top: 0; }
+    .faq-q { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-q .arrow { color: var(--muted2); font-size: 1.2rem; transition: transform 0.3s, color 0.2s; flex-shrink: 0; }
+    .faq-item.open .faq-q .arrow { transform: rotate(45deg); color: var(--cyan); }
+    .faq-a { font-size: 0.9rem; color: var(--muted); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+    .faq-item.open .faq-a { max-height: 300px; padding-top: 16px; }
+
+    /* CTA */
+    .cta-section { padding: 96px 40px; background: var(--bg); text-align: center; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(99,179,237,0.12), transparent 70%); pointer-events: none; }
+    .cta-section h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; position: relative; z-index: 1; margin-bottom: 16px; }
+    .cta-section p { font-size: 1rem; color: var(--muted); margin-bottom: 12px; position: relative; z-index: 1; }
+    .cta-code-box { display: inline-flex; align-items: center; gap: 12px; background: rgba(99,179,237,0.08); border: 1px solid rgba(99,179,237,0.25); border-radius: var(--radius-sm); padding: 12px 24px; margin-bottom: 32px; position: relative; z-index: 1; }
+    .cta-code-box span { font-size: 0.85rem; color: var(--muted); }
+    .cta-code-box strong { font-family: var(--font-mono); font-size: 1.1rem; color: var(--blue-bright); letter-spacing: 0.08em; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+    /* FOOTER */
+    footer { padding: 40px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: #c8f135; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted2); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted2); font-family: var(--font-mono); width: 100%; }
+
+    @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } .use-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; } .nav-center { display: none; }
+      .hero { padding: 155px 20px 64px; }
+      .section { padding: 64px 20px; } .cta-section { padding: 64px 20px; } footer { padding: 32px 20px; }
+      .compare-table th, .compare-table td { padding: 14px 16px; font-size: 0.82rem; }
+      .discount-bar { padding: 10px 20px; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Roam<span>Melb</span></a>
+  <div class="nav-center">
+    <button class="lang-btn active" onclick="setLang('zh-Hans',event)">简体</button>
+    <button class="lang-btn" onclick="setLang('zh-Hant',event)">繁體</button>
+    <button class="lang-btn" onclick="setLang('en',event)">EN</button>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back" data-i18n="nav_back">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      返回主页
+    </a>
+    <a href="#plans" class="nav-cta" data-i18n="nav_cta">立即购买</a>
+  </div>
+</nav>
+
+<!-- DISCOUNT BANNER -->
+<div class="discount-bar">
+  <span data-i18n="discount_text">读者专属优惠码，购买立减 10%：</span>
+  <span class="discount-code">Special10</span>
+  <span data-i18n="discount_note">结账时输入即可</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">BY NORD SECURITY · 200+ COUNTRIES</div>
+    <h1>
+      <span data-i18n="hero_h1_1">出行上网</span><br/>
+      <span class="line2" data-i18n="hero_h1_2">换IP · 挡广告</span><br/>
+      <span class="line3" data-i18n="hero_h1_3">保护隐私</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero_sub">
+      Saily eSIM 由 NordVPN 母公司 Nord Security 出品。<br/>
+      全球 200+ 国家覆盖，三大内置安全功能零额外费用。<br/>
+      INS、YouTube、Google、ChatGPT 访问更顺畅。
+    </p>
+    <div class="hero-badges">
+      <span class="badge" data-i18n="badge1">🌐 虚拟IP切换</span>
+      <span class="badge cyan" data-i18n="badge2">🛡️ 恶意网站拦截</span>
+      <span class="badge green" data-i18n="badge3">🚫 广告屏蔽</span>
+      <span class="badge" data-i18n="badge4">📍 115+ 虚拟地点</span>
+      <span class="badge cyan" data-i18n="badge5">⚡ 5G / 4G 支持</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#plans" class="btn-primary">
+        <span data-i18n="hero_cta1">查看套餐价格</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#features" class="btn-ghost" data-i18n="hero_cta2">了解安全功能</a>
+    </div>
+    <p class="disclaimer" data-i18n="disclaimer">* 本页包含 Saily 联盟推广链接，点击购买我们可能获得佣金，不影响您的价格。</p>
+    <div class="trust-banner">
+      <div class="nord-dot">🔵</div>
+      <p data-i18n="trust_text">由 <strong>Nord Security</strong> 出品 — NordVPN 同一团队。成立于 2012 年，全球超过 1400 万用户信赖的网络安全品牌。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features-section" id="features">
+  <div class="section-eyebrow" data-i18n="feat_label">BUILT-IN SECURITY</div>
+  <div class="section-title" data-i18n="feat_title">三大安全功能<br/>全部免费内置</div>
+  <p class="section-sub" data-i18n="feat_sub">其他eSIM没有的功能，Saily全部内置，无需额外安装任何APP。</p>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="feat-icon">🌐</span>
+      <div class="feat-title" data-i18n="feat1_title">虚拟IP / 位置切换</div>
+      <div class="feat-desc" data-i18n="feat1_desc">在115+个虚拟地点之间切换，让你的网络流量从另一个国家经过。访问 Instagram、YouTube、Google、ChatGPT 等受地区限制的服务更顺畅。隐藏真实IP地址，更私密地浏览网页。</div>
+      <span class="feat-tag">Virtual Location · 115+ servers</span>
+    </div>
+    <div class="feature-card">
+      <span class="feat-icon">🚫</span>
+      <div class="feat-title" data-i18n="feat2_title">广告拦截</div>
+      <div class="feat-desc" data-i18n="feat2_desc">网络层面直接屏蔽广告域名，不仅减少烦人广告，还能节省最多 28.6% 的流量用量。广告加载本身消耗数据，拦截后浏览更快，套餐也用得更久。</div>
+      <span class="feat-tag">Ad Blocker · Save up to 28.6% data</span>
+    </div>
+    <div class="feature-card">
+      <span class="feat-icon">🛡️</span>
+      <div class="feat-title" data-i18n="feat3_title">网络安全防护</div>
+      <div class="feat-desc" data-i18n="feat3_desc">自动识别并屏蔽恶意网站、钓鱼页面，同时限制第三方追踪器收集你的浏览数据。在陌生的酒店或机场WiFi下尤其重要，一层网络级别的保护。</div>
+      <span class="feat-tag">Web Protection · Block malicious sites</span>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="section compare-section" id="compare">
+  <div class="section-eyebrow" data-i18n="cmp_label">COMPARISON</div>
+  <div class="section-title" data-i18n="cmp_title">Saily vs 普通eSIM</div>
+  <p class="section-sub" data-i18n="cmp_sub">同样是旅行eSIM，Saily多了哪些？</p>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th data-i18n="cmp_col1">功能</th>
+          <th class="highlight">✦ Saily</th>
+          <th data-i18n="cmp_col3">普通eSIM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td data-i18n="cmp_r1">全球数据覆盖（200+国）</td><td class="highlight"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td data-i18n="cmp_r2">5G / 4G 支持</td><td class="highlight"><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+        <tr><td data-i18n="cmp_r3">虚拟IP / 位置切换</td><td class="highlight"><span class="check" data-i18n="cmp_free">✓ 免费内置</span></td><td><span class="cross">✗</span></td></tr>
+        <tr><td data-i18n="cmp_r4">广告拦截</td><td class="highlight"><span class="check" data-i18n="cmp_free2">✓ 免费内置</span></td><td><span class="cross">✗</span></td></tr>
+        <tr><td data-i18n="cmp_r5">恶意网站 / 钓鱼防护</td><td class="highlight"><span class="check" data-i18n="cmp_free3">✓ 免费内置</span></td><td><span class="cross">✗</span></td></tr>
+        <tr><td data-i18n="cmp_r6">限制用户追踪器</td><td class="highlight"><span class="check" data-i18n="cmp_free4">✓ 免费内置</span></td><td><span class="cross">✗</span></td></tr>
+        <tr><td data-i18n="cmp_r7">Nord Security 品牌背书</td><td class="highlight"><span class="check">✓</span></td><td><span class="cross">✗</span></td></tr>
+        <tr><td data-i18n="cmp_r8">无需另装VPN APP</td><td class="highlight"><span class="check">✓</span></td><td><span class="cross" data-i18n="cmp_need_app">需要另装</span></td></tr>
+        <tr><td data-i18n="cmp_r9">传统电话/短信</td><td class="highlight"><span class="partial" data-i18n="cmp_data_only">仅数据</span></td><td><span class="partial" data-i18n="cmp_varies">视运营商</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="section plans-section" id="plans">
+  <div class="section-eyebrow" data-i18n="plan_label">DATA PLANS</div>
+  <div class="section-title" data-i18n="plan_title">选择适合你的套餐</div>
+  <p class="section-sub" data-i18n="plan_sub">按目的地购买，用多少买多少，同一eSIM可以续充。结账时输入 <strong style="color:var(--blue-bright);font-family:var(--font-mono);">Special10</strong> 享受专属九折优惠。</p>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-region">GLOBAL</div>
+      <div class="plan-name" data-i18n="plan1_name">全球通用</div>
+      <div class="plan-price">$5 <span data-i18n="plan1_from">起 / 1GB</span></div>
+      <div class="plan-details" data-i18n="plan1_detail">200+ 国家可用<br/>7天有效期起<br/>含三大安全功能</div>
+      <a href="https://go.saily.site/aff_c?offer_id=101&aff_id=14385" target="_blank" rel="noopener" class="plan-btn" data-i18n="plan_btn">查看套餐 →</a>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-badge-top" data-i18n="plan_popular">最受欢迎</div>
+      <div class="plan-region">ASIA / 亚洲</div>
+      <div class="plan-name" data-i18n="plan2_name">亚洲区域包</div>
+      <div class="plan-price">$12 <span data-i18n="plan2_from">起 / 5GB</span></div>
+      <div class="plan-details" data-i18n="plan2_detail">日本、韩国、泰国、新加坡等<br/>30天有效期<br/>含全部安全功能 + 虚拟IP</div>
+      <a href="https://go.saily.site/aff_c?offer_id=101&aff_id=14385" target="_blank" rel="noopener" class="plan-btn" data-i18n="plan_btn_buy">立即购买 →</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-region">EUROPE / 欧洲</div>
+      <div class="plan-name" data-i18n="plan3_name">欧洲区域包</div>
+      <div class="plan-price">$15 <span data-i18n="plan3_from">起 / 5GB</span></div>
+      <div class="plan-details" data-i18n="plan3_detail">申根区 + 英国等 30+ 国<br/>30天有效期<br/>申根签证配套使用</div>
+      <a href="https://go.saily.site/aff_c?offer_id=101&aff_id=14385" target="_blank" rel="noopener" class="plan-btn" data-i18n="plan_btn">查看套餐 →</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-region">CHINA / 中国大陆</div>
+      <div class="plan-name" data-i18n="plan4_name">中国大陆专线</div>
+      <div class="plan-price">$18 <span data-i18n="plan4_from">起 / 5GB</span></div>
+      <div class="plan-details" data-i18n="plan4_detail">中国大陆本地网络<br/>配合虚拟IP访问境外服务<br/>30天有效期</div>
+      <a href="https://go.saily.site/aff_c?offer_id=101&aff_id=14385" target="_blank" rel="noopener" class="plan-btn" data-i18n="plan_btn">查看套餐 →</a>
+    </div>
+  </div>
+  <p class="plans-note" data-i18n="plan_note">* 价格仅供参考，实际以 saily.com 官网为准。点击按钮跳转至 Saily 官网购买。</p>
+</section>
+
+<!-- USE CASES -->
+<section class="section use-section">
+  <div class="section-eyebrow" data-i18n="use_label">WHO IS IT FOR</div>
+  <div class="section-title" data-i18n="use_title">适合哪些人</div>
+  <div class="use-grid">
+    <div class="use-card"><div class="use-num">01</div><div class="use-content"><h3 data-i18n="use1_title">🇨🇳 回国探亲 / 出差</h3><p data-i18n="use1_desc">回中国大陆需要访问 Google、INS、YouTube？Saily 内置虚拟IP切换，不用另外买VPN，一张eSIM全搞定。</p></div></div>
+    <div class="use-card"><div class="use-num">02</div><div class="use-content"><h3 data-i18n="use2_title">🌍 欧洲旅行 / 申根签证</h3><p data-i18n="use2_desc">申请申根签证需要旅行保险，在欧洲境内用Saily上网更安全，公共WiFi下的虚拟IP和防护功能保护你的网银和个人信息。</p></div></div>
+    <div class="use-card"><div class="use-num">03</div><div class="use-content"><h3 data-i18n="use3_title">💼 商务出行 / 数字游民</h3><p data-i18n="use3_desc">频繁跨国出行？Saily Ultra 月度滚动套餐适合长期旅行者，一张eSIM多国切换，不用每次重新买卡。</p></div></div>
+    <div class="use-card"><div class="use-num">04</div><div class="use-content"><h3 data-i18n="use4_title">🔒 注重隐私的用户</h3><p data-i18n="use4_desc">不想被广告追踪？不想点开钓鱼网站？Saily 的广告拦截和网络防护在网络层面运行，不需要在手机上安装任何额外APP。</p></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-eyebrow">FAQ</div>
+  <div class="section-title" data-i18n="faq_title">常见问题</div>
+  <div class="faq-list">
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq1_q">Saily 和 NordVPN 是同一家公司吗？</span><span class="arrow">+</span></div><div class="faq-a" data-i18n="faq1_a">是的。Saily 由 Nord Security 出品，与 NordVPN 是同一个母公司。Nord Security 成立于2012年，是全球知名的网络安全公司，旗下产品包括 NordVPN、NordPass 密码管理器等。Saily 于2024年推出，将 Nord 的安全技术内置于eSIM服务中。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq2_q">虚拟IP功能是完整的VPN吗？</span><span class="arrow">+</span></div><div class="faq-a" data-i18n="faq2_a">Saily 的虚拟位置功能可以让你切换IP地址和显示位置，访问受地区限制的服务。它在网络层面运行，无需额外APP。需要注意：它与完整的NordVPN并非完全相同，但对于大多数旅行场景（访问INS、YouTube、Google等）已经足够。如需更高级的隐私保护，可以同时配合使用NordVPN。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq3_q">安全功能会影响网速吗？</span><span class="arrow">+</span></div><div class="faq-a" data-i18n="faq3_a">开启网络防护和广告拦截后，Ping 值可能从约60ms上升至80ms左右，日常浏览和流媒体影响不大。广告拦截还能减少不必要的数据加载，实测可节省约28.6%的流量，整体上对大多数用户是净收益。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq4_q">Saily 支持通话和短信吗？</span><span class="arrow">+</span></div><div class="faq-a" data-i18n="faq4_a">Saily 目前是纯数据eSIM，不支持传统电话和短信。但你可以通过 WhatsApp、FaceTime、微信等应用进行语音和视频通话，功能上完全够用。出行时建议保留原手机号的SIM卡用于接收验证码。</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq5_q">哪些设备支持 Saily eSIM？</span><span class="arrow">+</span></div><div class="faq-a" data-i18n="faq5_a">Saily 支持所有兼容eSIM的设备，包括 iPhone XS 及以上、近几年的 Samsung Galaxy、Google Pixel 等。购买前建议在 Saily 官网确认你的设备型号是否支持。国行版iPhone部分型号不支持eSIM，海外版和澳洲版iPhone通常都支持。</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <h2 data-i18n="cta_title">下次出行<br/>带上 Saily</h2>
+  <p data-i18n="cta_sub">安全上网 · 虚拟IP · 广告拦截 · 全部免费内置</p>
+  <div class="cta-code-box">
+    <span data-i18n="cta_code_label">专属折扣码：</span>
+    <strong>Special10</strong>
+    <span data-i18n="cta_code_save">立减 10%</span>
+  </div>
+  <div class="cta-actions">
+    <a href="https://go.saily.site/aff_c?offer_id=101&aff_id=14385" target="_blank" rel="noopener" class="btn-primary">
+      <span data-i18n="cta_btn">前往 Saily 官网购买</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="/insurance" class="btn-ghost" data-i18n="cta_btn2">搭配旅行保险 →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Roam<span>Melb</span></a>
+  <ul class="footer-links">
+    <li><a href="/shop" data-i18n="footer_esim">购买eSIM</a></li>
+    <li><a href="/vpn" data-i18n="footer_vpn">NordVPN</a></li>
+    <li><a href="/insurance" data-i18n="footer_ins">旅行保险</a></li>
+    <li><a href="/flights" data-i18n="footer_flights">机票攻略</a></li>
+    <li><a href="/blog" data-i18n="footer_blog">出行攻略</a></li>
+  </ul>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 RoamMelb. 本页包含联盟推广链接。All Rights Reserved.</p>
+</footer>
+
+<script>
+const i18n = {
+  'zh-Hans': {
+    nav_back:'返回主页', nav_cta:'立即购买',
+    discount_text:'读者专属优惠码，购买立减 10%：', discount_note:'结账时输入即可',
+    hero_eyebrow:'BY NORD SECURITY · 200+ COUNTRIES',
+    hero_h1_1:'出行上网', hero_h1_2:'换IP · 挡广告', hero_h1_3:'保护隐私',
+    hero_sub:'Saily eSIM 由 NordVPN 母公司 Nord Security 出品。<br/>全球 200+ 国家覆盖，三大内置安全功能零额外费用。<br/>INS、YouTube、Google、ChatGPT 访问更顺畅。',
+    badge1:'🌐 虚拟IP切换', badge2:'🛡️ 恶意网站拦截', badge3:'🚫 广告屏蔽', badge4:'📍 115+ 虚拟地点', badge5:'⚡ 5G / 4G 支持',
+    hero_cta1:'查看套餐价格', hero_cta2:'了解安全功能',
+    disclaimer:'* 本页包含 Saily 联盟推广链接，点击购买我们可能获得佣金，不影响您的价格。',
+    trust_text:'由 <strong>Nord Security</strong> 出品 — NordVPN 同一团队。成立于 2012 年，全球超过 1400 万用户信赖的网络安全品牌。',
+    feat_label:'内置安全功能', feat_title:'三大安全功能<br/>全部免费内置', feat_sub:'其他eSIM没有的功能，Saily全部内置，无需额外安装任何APP。',
+    feat1_title:'虚拟IP / 位置切换', feat1_desc:'在115+个虚拟地点之间切换，让你的网络流量从另一个国家经过。访问 Instagram、YouTube、Google、ChatGPT 等受地区限制的服务更顺畅。隐藏真实IP地址，更私密地浏览网页。',
+    feat2_title:'广告拦截', feat2_desc:'网络层面直接屏蔽广告域名，不仅减少烦人广告，还能节省最多 28.6% 的流量用量。广告加载本身消耗数据，拦截后浏览更快，套餐也用得更久。',
+    feat3_title:'网络安全防护', feat3_desc:'自动识别并屏蔽恶意网站、钓鱼页面，同时限制第三方追踪器收集你的浏览数据。在陌生的酒店或机场WiFi下尤其重要，一层网络级别的保护。',
+    cmp_label:'功能对比', cmp_title:'Saily vs 普通eSIM', cmp_sub:'同样是旅行eSIM，Saily多了哪些？',
+    cmp_col1:'功能', cmp_col3:'普通eSIM',
+    cmp_r1:'全球数据覆盖（200+国）', cmp_r2:'5G / 4G 支持', cmp_r3:'虚拟IP / 位置切换', cmp_r4:'广告拦截', cmp_r5:'恶意网站 / 钓鱼防护', cmp_r6:'限制用户追踪器', cmp_r7:'Nord Security 品牌背书', cmp_r8:'无需另装VPN APP', cmp_r9:'传统电话/短信',
+    cmp_free:'✓ 免费内置', cmp_free2:'✓ 免费内置', cmp_free3:'✓ 免费内置', cmp_free4:'✓ 免费内置', cmp_need_app:'需要另装', cmp_data_only:'仅数据', cmp_varies:'视运营商',
+    plan_label:'数据套餐', plan_title:'选择适合你的套餐', plan_sub:'按目的地购买，用多少买多少，同一eSIM可以续充。结账时输入 <strong style="color:var(--blue-bright);font-family:var(--font-mono);">Special10</strong> 享受专属九折优惠。',
+    plan1_name:'全球通用', plan1_from:'起 / 1GB', plan1_detail:'200+ 国家可用<br/>7天有效期起<br/>含三大安全功能',
+    plan2_name:'亚洲区域包', plan2_from:'起 / 5GB', plan2_detail:'日本、韩国、泰国、新加坡等<br/>30天有效期<br/>含全部安全功能 + 虚拟IP',
+    plan3_name:'欧洲区域包', plan3_from:'起 / 5GB', plan3_detail:'申根区 + 英国等 30+ 国<br/>30天有效期<br/>申根签证配套使用',
+    plan4_name:'中国大陆专线', plan4_from:'起 / 5GB', plan4_detail:'中国大陆本地网络<br/>配合虚拟IP访问境外服务<br/>30天有效期',
+    plan_popular:'最受欢迎', plan_btn:'查看套餐 →', plan_btn_buy:'立即购买 →',
+    plan_note:'* 价格仅供参考，实际以 saily.com 官网为准。',
+    use_label:'适合人群', use_title:'适合哪些人',
+    use1_title:'🇨🇳 回国探亲 / 出差', use1_desc:'回中国大陆需要访问 Google、INS、YouTube？Saily 内置虚拟IP切换，不用另外买VPN，一张eSIM全搞定。',
+    use2_title:'🌍 欧洲旅行 / 申根签证', use2_desc:'申请申根签证需要旅行保险，在欧洲境内用Saily上网更安全，公共WiFi下的虚拟IP和防护功能保护你的网银和个人信息。',
+    use3_title:'💼 商务出行 / 数字游民', use3_desc:'频繁跨国出行？Saily Ultra 月度滚动套餐适合长期旅行者，一张eSIM多国切换，不用每次重新买卡。',
+    use4_title:'🔒 注重隐私的用户', use4_desc:'不想被广告追踪？不想点开钓鱼网站？Saily 的广告拦截和网络防护在网络层面运行，不需要在手机上安装任何额外APP。',
+    faq_title:'常见问题',
+    faq1_q:'Saily 和 NordVPN 是同一家公司吗？', faq1_a:'是的。Saily 由 Nord Security 出品，与 NordVPN 是同一个母公司。Nord Security 成立于2012年，是全球知名的网络安全公司，旗下产品包括 NordVPN、NordPass 密码管理器等。Saily 于2024年推出，将 Nord 的安全技术内置于eSIM服务中。',
+    faq2_q:'虚拟IP功能是完整的VPN吗？', faq2_a:'Saily 的虚拟位置功能可以让你切换IP地址和显示位置，访问受地区限制的服务。它在网络层面运行，无需额外APP。需要注意：它与完整的NordVPN并非完全相同，但对于大多数旅行场景（访问INS、YouTube、Google等）已经足够。如需更高级的隐私保护，可以同时配合使用NordVPN。',
+    faq3_q:'安全功能会影响网速吗？', faq3_a:'开启网络防护和广告拦截后，Ping 值可能从约60ms上升至80ms左右，日常浏览和流媒体影响不大。广告拦截还能减少不必要的数据加载，实测可节省约28.6%的流量，整体上对大多数用户是净收益。',
+    faq4_q:'Saily 支持通话和短信吗？', faq4_a:'Saily 目前是纯数据eSIM，不支持传统电话和短信。但你可以通过 WhatsApp、FaceTime、微信等应用进行语音和视频通话，功能上完全够用。出行时建议保留原手机号的SIM卡用于接收验证码。',
+    faq5_q:'哪些设备支持 Saily eSIM？', faq5_a:'Saily 支持所有兼容eSIM的设备，包括 iPhone XS 及以上、近几年的 Samsung Galaxy、Google Pixel 等。购买前建议在 Saily 官网确认你的设备型号是否支持。国行版iPhone部分型号不支持eSIM，海外版和澳洲版iPhone通常都支持。',
+    cta_title:'下次出行<br/>带上 Saily', cta_sub:'安全上网 · 虚拟IP · 广告拦截 · 全部免费内置',
+    cta_code_label:'专属折扣码：', cta_code_save:'立减 10%',
+    cta_btn:'前往 Saily 官网购买', cta_btn2:'搭配旅行保险 →',
+    footer_esim:'购买eSIM', footer_vpn:'NordVPN', footer_ins:'旅行保险', footer_flights:'机票攻略', footer_blog:'出行攻略',
+    footer_copy:'© 2026 RoamMelb. 本页包含联盟推广链接。All Rights Reserved.',
+  },
+  'zh-Hant': {
+    nav_back:'返回主頁', nav_cta:'立即購買',
+    discount_text:'讀者專屬優惠碼，購買立減 10%：', discount_note:'結帳時輸入即可',
+    hero_eyebrow:'BY NORD SECURITY · 200+ COUNTRIES',
+    hero_h1_1:'出行上網', hero_h1_2:'換IP · 擋廣告', hero_h1_3:'保護隱私',
+    hero_sub:'Saily eSIM 由 NordVPN 母公司 Nord Security 出品。<br/>全球 200+ 國家覆蓋，三大內置安全功能零額外費用。<br/>INS、YouTube、Google、ChatGPT 訪問更順暢。',
+    badge1:'🌐 虛擬IP切換', badge2:'🛡️ 惡意網站攔截', badge3:'🚫 廣告屏蔽', badge4:'📍 115+ 虛擬地點', badge5:'⚡ 5G / 4G 支援',
+    hero_cta1:'查看套餐價格', hero_cta2:'了解安全功能',
+    disclaimer:'* 本頁包含 Saily 聯盟推廣連結，點擊購買我們可能獲得佣金，不影響您的價格。',
+    trust_text:'由 <strong>Nord Security</strong> 出品 — NordVPN 同一團隊。成立於 2012 年，全球超過 1400 萬用戶信賴的網路安全品牌。',
+    feat_label:'內置安全功能', feat_title:'三大安全功能<br/>全部免費內置', feat_sub:'其他eSIM沒有的功能，Saily全部內置，無需額外安裝任何APP。',
+    feat1_title:'虛擬IP / 位置切換', feat1_desc:'在115+個虛擬地點之間切換，讓你的網路流量從另一個國家經過。訪問 Instagram、YouTube、Google、ChatGPT 等受地區限制的服務更順暢。隱藏真實IP地址，更私密地瀏覽網頁。',
+    feat2_title:'廣告攔截', feat2_desc:'網路層面直接屏蔽廣告域名，不僅減少煩人廣告，還能節省最多 28.6% 的流量用量。廣告加載本身消耗數據，攔截後瀏覽更快，套餐也用得更久。',
+    feat3_title:'網路安全防護', feat3_desc:'自動識別並屏蔽惡意網站、釣魚頁面，同時限制第三方追蹤器收集你的瀏覽數據。在陌生的酒店或機場WiFi下尤其重要，一層網路級別的保護。',
+    cmp_label:'功能對比', cmp_title:'Saily vs 普通eSIM', cmp_sub:'同樣是旅行eSIM，Saily多了哪些？',
+    cmp_col1:'功能', cmp_col3:'普通eSIM',
+    cmp_r1:'全球數據覆蓋（200+國）', cmp_r2:'5G / 4G 支援', cmp_r3:'虛擬IP / 位置切換', cmp_r4:'廣告攔截', cmp_r5:'惡意網站 / 釣魚防護', cmp_r6:'限制用戶追蹤器', cmp_r7:'Nord Security 品牌背書', cmp_r8:'無需另裝VPN APP', cmp_r9:'傳統電話/短訊',
+    cmp_free:'✓ 免費內置', cmp_free2:'✓ 免費內置', cmp_free3:'✓ 免費內置', cmp_free4:'✓ 免費內置', cmp_need_app:'需要另裝', cmp_data_only:'僅數據', cmp_varies:'視運營商',
+    plan_label:'數據套餐', plan_title:'選擇適合你的套餐', plan_sub:'按目的地購買，用多少買多少，同一eSIM可以續充。結帳時輸入 <strong style="color:var(--blue-bright);font-family:var(--font-mono);">Special10</strong> 享受專屬九折優惠。',
+    plan1_name:'全球通用', plan1_from:'起 / 1GB', plan1_detail:'200+ 國家可用<br/>7天有效期起<br/>含三大安全功能',
+    plan2_name:'亞洲區域包', plan2_from:'起 / 5GB', plan2_detail:'日本、韓國、泰國、新加坡等<br/>30天有效期<br/>含全部安全功能 + 虛擬IP',
+    plan3_name:'歐洲區域包', plan3_from:'起 / 5GB', plan3_detail:'申根區 + 英國等 30+ 國<br/>30天有效期<br/>申根簽證配套使用',
+    plan4_name:'中國大陸專線', plan4_from:'起 / 5GB', plan4_detail:'中國大陸本地網路<br/>配合虛擬IP訪問境外服務<br/>30天有效期',
+    plan_popular:'最受歡迎', plan_btn:'查看套餐 →', plan_btn_buy:'立即購買 →',
+    plan_note:'* 價格僅供參考，實際以 saily.com 官網為準。',
+    use_label:'適合人群', use_title:'適合哪些人',
+    use1_title:'🇨🇳 回國探親 / 出差', use1_desc:'回中國大陸需要訪問 Google、INS、YouTube？Saily 內置虛擬IP切換，不用另外買VPN，一張eSIM全搞定。',
+    use2_title:'🌍 歐洲旅行 / 申根簽證', use2_desc:'申請申根簽證需要旅行保險，在歐洲境內用Saily上網更安全，公共WiFi下的虛擬IP和防護功能保護你的網銀和個人信息。',
+    use3_title:'💼 商務出行 / 數字遊民', use3_desc:'頻繁跨國出行？Saily Ultra 月度滾動套餐適合長期旅行者，一張eSIM多國切換，不用每次重新買卡。',
+    use4_title:'🔒 注重隱私的用戶', use4_desc:'不想被廣告追蹤？不想點開釣魚網站？Saily 的廣告攔截和網路防護在網路層面運行，不需要在手機上安裝任何額外APP。',
+    faq_title:'常見問題',
+    faq1_q:'Saily 和 NordVPN 是同一家公司嗎？', faq1_a:'是的。Saily 由 Nord Security 出品，與 NordVPN 是同一個母公司。Nord Security 成立於2012年，是全球知名的網路安全公司，旗下產品包括 NordVPN、NordPass 密碼管理器等。Saily 於2024年推出，將 Nord 的安全技術內置於eSIM服務中。',
+    faq2_q:'虛擬IP功能是完整的VPN嗎？', faq2_a:'Saily 的虛擬位置功能可以讓你切換IP地址和顯示位置，訪問受地區限制的服務。它在網路層面運行，無需額外APP。需要注意：它與完整的NordVPN並非完全相同，但對於大多數旅行場景（訪問INS、YouTube、Google等）已經足夠。如需更高級的隱私保護，可以同時配合使用NordVPN。',
+    faq3_q:'安全功能會影響網速嗎？', faq3_a:'開啟網路防護和廣告攔截後，Ping 值可能從約60ms上升至80ms左右，日常瀏覽和串流影響不大。廣告攔截還能減少不必要的數據加載，實測可節省約28.6%的流量，整體上對大多數用戶是淨收益。',
+    faq4_q:'Saily 支援通話和短訊嗎？', faq4_a:'Saily 目前是純數據eSIM，不支援傳統電話和短訊。但你可以通過 WhatsApp、FaceTime、微信等應用進行語音和視訊通話，功能上完全夠用。出行時建議保留原手機號的SIM卡用於接收驗證碼。',
+    faq5_q:'哪些裝置支援 Saily eSIM？', faq5_a:'Saily 支援所有兼容eSIM的裝置，包括 iPhone XS 及以上、近幾年的 Samsung Galaxy、Google Pixel 等。購買前建議在 Saily 官網確認你的裝置型號是否支援。國行版iPhone部分型號不支援eSIM，海外版和澳洲版iPhone通常都支援。',
+    cta_title:'下次出行<br/>帶上 Saily', cta_sub:'安全上網 · 虛擬IP · 廣告攔截 · 全部免費內置',
+    cta_code_label:'專屬折扣碼：', cta_code_save:'立減 10%',
+    cta_btn:'前往 Saily 官網購買', cta_btn2:'搭配旅行保險 →',
+    footer_esim:'購買eSIM', footer_vpn:'NordVPN', footer_ins:'旅行保險', footer_flights:'機票攻略', footer_blog:'出行攻略',
+    footer_copy:'© 2026 RoamMelb. 本頁包含聯盟推廣連結。All Rights Reserved.',
+  },
+  'en': {
+    nav_back:'Back to Home', nav_cta:'Buy Now',
+    discount_text:'Exclusive reader discount — 10% off:', discount_note:'Enter at checkout',
+    hero_eyebrow:'BY NORD SECURITY · 200+ COUNTRIES',
+    hero_h1_1:'Travel Data', hero_h1_2:'Switch IP · Block Ads', hero_h1_3:'Stay Private',
+    hero_sub:'Saily eSIM is built by Nord Security — the team behind NordVPN.<br/>200+ countries covered, with three built-in security features at no extra cost.<br/>Access Instagram, YouTube, Google, and ChatGPT with fewer restrictions.',
+    badge1:'🌐 Virtual IP Switch', badge2:'🛡️ Malicious Site Blocking', badge3:'🚫 Ad Blocker', badge4:'📍 115+ Virtual Locations', badge5:'⚡ 5G / 4G Ready',
+    hero_cta1:'View Plans', hero_cta2:'Explore Security Features',
+    disclaimer:'* This page contains Saily affiliate links. We may earn a commission at no extra cost to you.',
+    trust_text:'Made by <strong>Nord Security</strong> — same team as NordVPN. Founded in 2012, trusted by 14M+ users worldwide.',
+    feat_label:'BUILT-IN SECURITY', feat_title:'3 Security Features,<br/>All Free & Built In', feat_sub:'Features other eSIMs don\'t have — Saily includes them all with no extra app needed.',
+    feat1_title:'Virtual IP / Location Switch', feat1_desc:'Route your traffic through one of 115+ virtual locations, masking your real IP. Access geo-restricted services like Instagram, YouTube, Google, and ChatGPT more freely while browsing more privately.',
+    feat2_title:'Ad Blocker', feat2_desc:'Blocks ad domains at the network level — fewer ads and up to 28.6% data savings. Ads take data to load; blocking them means your plan lasts longer and pages load faster.',
+    feat3_title:'Web Protection', feat3_desc:'Automatically blocks malicious sites and phishing pages, and limits third-party trackers from profiling you. Especially useful on unfamiliar hotel or airport Wi-Fi.',
+    cmp_label:'COMPARISON', cmp_title:'Saily vs Standard eSIM', cmp_sub:'Same travel eSIM concept — here\'s what Saily adds.',
+    cmp_col1:'Feature', cmp_col3:'Standard eSIM',
+    cmp_r1:'Global data coverage (200+ countries)', cmp_r2:'5G / 4G support', cmp_r3:'Virtual IP / location switch', cmp_r4:'Ad blocker', cmp_r5:'Malicious site / phishing protection', cmp_r6:'Tracker limiting', cmp_r7:'Nord Security brand backing', cmp_r8:'No separate VPN app needed', cmp_r9:'Calls / SMS',
+    cmp_free:'✓ Free & built in', cmp_free2:'✓ Free & built in', cmp_free3:'✓ Free & built in', cmp_free4:'✓ Free & built in', cmp_need_app:'Separate app needed', cmp_data_only:'Data only', cmp_varies:'Depends on carrier',
+    plan_label:'DATA PLANS', plan_title:'Choose Your Plan', plan_sub:'Buy by destination, top up the same eSIM anytime. Enter <strong style="color:var(--blue-bright);font-family:var(--font-mono);">Special10</strong> at checkout for 10% off.',
+    plan1_name:'Global', plan1_from:'from $5 / 1GB', plan1_detail:'200+ countries<br/>From 7-day validity<br/>All 3 security features included',
+    plan2_name:'Asia Region', plan2_from:'from $12 / 5GB', plan2_detail:'Japan, Korea, Thailand, Singapore & more<br/>30-day validity<br/>Full security features + virtual IP',
+    plan3_name:'Europe Region', plan3_from:'from $15 / 5GB', plan3_detail:'Schengen area + UK & 30+ countries<br/>30-day validity<br/>Pairs with Schengen travel insurance',
+    plan4_name:'China Mainland', plan4_from:'from $18 / 5GB', plan4_detail:'Local China mainland network<br/>Use virtual IP for overseas services<br/>30-day validity',
+    plan_popular:'Most Popular', plan_btn:'View Plans →', plan_btn_buy:'Buy Now →',
+    plan_note:'* Prices are indicative. Actual pricing at saily.com.',
+    use_label:'WHO IS IT FOR', use_title:'Who Is Saily For?',
+    use1_title:'🇨🇳 Visiting China', use1_desc:'Need to access Google, Instagram, or YouTube in mainland China? Saily\'s built-in virtual IP handles it — no separate VPN purchase needed.',
+    use2_title:'🌍 Europe Travel / Schengen Visa', use2_desc:'Pair Saily with Schengen travel insurance for a complete trip setup. Web protection and virtual IP keep you safe on unfamiliar public Wi-Fi across Europe.',
+    use3_title:'💼 Business Travel / Digital Nomads', use3_desc:'Frequent traveller? The Saily Ultra monthly rolling plan suits long-haul travelers — one eSIM, multiple countries, no card swapping.',
+    use4_title:'🔒 Privacy-Conscious Users', use4_desc:'Don\'t want to be tracked by ads or stumble on phishing sites? Saily\'s ad blocker and web protection run at the network level — no extra app installation required.',
+    faq_title:'FAQ',
+    faq1_q:'Is Saily made by the same team as NordVPN?', faq1_a:'Yes. Saily is made by Nord Security, the same parent company as NordVPN. Founded in 2012 and trusted by 14M+ users, Nord Security is one of the world\'s leading cybersecurity companies. Saily was launched in 2024, bringing Nord\'s security expertise to a travel eSIM.',
+    faq2_q:'Is the virtual IP feature a full VPN?', faq2_a:'Saily\'s virtual location feature reroutes your traffic through a server in another location, changing your apparent IP address. It runs at the network level with no extra app. It\'s not identical to full NordVPN, but for most travel use cases (Instagram, YouTube, Google) it works well. For advanced privacy, you can run NordVPN alongside Saily.',
+    faq3_q:'Does enabling security features slow down speeds?', faq3_a:'With web protection and ad blocking on, ping may rise from ~60ms to ~80ms — negligible for browsing and streaming. The ad blocker also saves up to 28.6% data by not loading ads, so the net effect is positive for most users.',
+    faq4_q:'Does Saily support calls and SMS?', faq4_a:'Saily is a data-only eSIM. Traditional calls and SMS aren\'t supported, but WhatsApp, FaceTime, and WeChat work perfectly over data. Keep your regular SIM for verification codes.',
+    faq5_q:'Which devices support Saily eSIM?', faq5_a:'Saily supports all eSIM-compatible devices including iPhone XS and later, recent Samsung Galaxy, and Google Pixel models. Check your device compatibility at saily.com before purchasing. Australian-market and international iPhones typically support eSIM; mainland China market iPhones may not.',
+    cta_title:'Next Trip?<br/>Bring Saily', cta_sub:'Secure data · Virtual IP · Ad blocker · All free & built in',
+    cta_code_label:'Your discount code:', cta_code_save:'10% off',
+    cta_btn:'Shop Saily Plans', cta_btn2:'Add Travel Insurance →',
+    footer_esim:'Buy eSIM', footer_vpn:'NordVPN', footer_ins:'Travel Insurance', footer_flights:'Flight Tips', footer_blog:'Travel Guides',
+    footer_copy:'© 2026 RoamMelb. This page contains affiliate links. All Rights Reserved.',
+  }
+};
+
+let currentLang = 'zh-Hans';
+
+function setLang(lang, e) {
+  currentLang = lang;
+  const t = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.target) e.target.classList.add('active');
+  const titles = {
+    'zh-Hans': 'Saily eSIM — 旅行上网 + 隐私保护 | RoamMelb',
+    'zh-Hant': 'Saily eSIM — 旅行上網 + 隱私保護 | RoamMelb',
+    'en': 'Saily eSIM — Travel Data + Privacy Protection | RoamMelb'
+  };
+  document.title = titles[lang];
+}
+
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
