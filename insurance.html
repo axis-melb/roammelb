@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>旅行保险 & 香港保险咨询 | RoamMelb</title>
+  <meta name="description" content="旅行保险比较（AXA申根险、Cover-More、SafetyWing）+ 香港持牌顾问咨询：人寿危疾、年金、MPF、投连险（New CIES合资格）"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #faf9f6;
+      --bg2: #f2f0eb;
+      --surface: #ffffff;
+      --ink: #1a1714;
+      --ink2: #4a4540;
+      --ink3: #8a8480;
+      --gold: #b8860b;
+      --gold-light: #d4a017;
+      --gold-pale: #f5f0e0;
+      --teal: #2a6b6b;
+      --teal-light: #3d8a8a;
+      --teal-pale: #e8f4f4;
+      --red: #c0392b;
+      --border: rgba(26,23,20,0.1);
+      --border2: rgba(26,23,20,0.06);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', 'Noto Sans SC', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--ink); overflow-x: hidden; }
+
+    /* LANG SWITCHER */
+    .lang-switcher { display: flex; gap: 4px; }
+    .lang-btn {
+      background: none; border: 1px solid var(--border);
+      color: var(--ink3); padding: 5px 10px; border-radius: 6px;
+      font-size: 0.75rem; cursor: pointer; font-family: var(--font-body);
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--ink); border-color: var(--ink3); }
+    .lang-btn.active { background: var(--gold-pale); border-color: var(--gold); color: var(--gold); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(250,249,246,0.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border2); gap: 16px;
+    }
+    .logo { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; }
+    .logo span { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-back { display: inline-flex; align-items: center; gap: 6px; color: var(--ink3); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--ink); }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--teal); color: white;
+      padding: 10px 22px; border-radius: 100px;
+      font-size: 0.85rem; font-weight: 500; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh; display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 120px 48px 72px;
+      position: relative; overflow: hidden;
+      background: var(--ink);
+    }
+    .hero-pattern {
+      position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+      background-image: repeating-linear-gradient(
+        45deg, #fff 0, #fff 1px, transparent 0, transparent 50%
+      );
+      background-size: 20px 20px;
+    }
+    .hero-gradient {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(184,134,11,0.2) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 10% 80%, rgba(42,107,107,0.18) 0%, transparent 55%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold-light); margin-bottom: 24px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-label::before { content: ''; width: 28px; height: 1px; background: var(--gold-light); }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 700; line-height: 1.08; letter-spacing: -0.02em;
+      color: white; animation: fadeUp 0.6s 0.1s ease both;
+    }
+    h1 em { color: var(--gold-light); font-style: normal; }
+    h1 .dim { color: rgba(255,255,255,0.4); font-weight: 400; }
+    .hero-sub {
+      margin-top: 24px; font-size: 1.05rem; color: rgba(255,255,255,0.55);
+      line-height: 1.75; max-width: 540px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.7); padding: 7px 16px; border-radius: 100px;
+      font-size: 0.8rem;
+    }
+    .pill.gold { background: rgba(184,134,11,0.15); border-color: rgba(212,160,23,0.4); color: var(--gold-light); }
+    .pill.teal { background: rgba(42,107,107,0.15); border-color: rgba(61,138,138,0.4); color: #5bbfbf; }
+    .hero-actions {
+      display: flex; gap: 14px; flex-wrap: wrap; margin-top: 40px;
+      animation: fadeUp 0.6s 0.35s ease both;
+    }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: white;
+      padding: 15px 30px; border-radius: 100px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.8); padding: 15px 30px; border-radius: 100px;
+      font-size: 0.95rem; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    /* CONTACT BANNER — prominent */
+    .contact-banner {
+      background: linear-gradient(135deg, var(--teal) 0%, #1d5050 100%);
+      padding: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .contact-banner-text h2 {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+      color: white; line-height: 1.3; margin-bottom: 8px;
+    }
+    .contact-banner-text p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 480px; }
+    .contact-methods { display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0; }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+      color: white; padding: 14px 24px; border-radius: var(--radius-sm);
+      text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-btn:hover { background: rgba(255,255,255,0.22); transform: translateY(-2px); }
+    .contact-btn.whatsapp { background: rgba(37,211,102,0.2); border-color: rgba(37,211,102,0.4); }
+    .contact-btn.whatsapp:hover { background: rgba(37,211,102,0.32); }
+    .contact-btn-icon { font-size: 1.2rem; }
+    .contact-hours {
+      margin-top: 12px; font-size: 0.78rem; color: rgba(255,255,255,0.45);
+      font-family: var(--font-mono);
+    }
+
+    /* SECTIONS */
+    .section { padding: 88px 48px; }
+    .section.alt { background: var(--bg2); }
+    .section-label {
+      font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.1;
+      color: var(--ink); margin-bottom: 14px;
+    }
+    .section-sub { font-size: 1rem; color: var(--ink2); line-height: 1.75; max-width: 600px; margin-bottom: 52px; }
+
+    /* TWO-COLUMN INTRO */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .two-col-sticky { position: sticky; top: 100px; }
+
+    /* TRAVEL INSURANCE CARDS */
+    .insurer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .insurer-card {
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 36px 28px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .insurer-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); transform: translateY(-4px); }
+    .insurer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .insurer-card.axa::before { background: #00008b; }
+    .insurer-card.covermore::before { background: var(--teal); }
+    .insurer-card.safetywing::before { background: #e85d4a; }
+    .insurer-logo { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; margin-bottom: 6px; }
+    .insurer-logo.axa { color: #00008b; }
+    .insurer-logo.covermore { color: var(--teal); }
+    .insurer-logo.safetywing { color: #e85d4a; }
+    .insurer-tag { display: inline-block; font-size: 0.7rem; font-family: var(--font-mono); color: var(--ink3); background: var(--bg2); border: 1px solid var(--border); padding: 3px 10px; border-radius: 100px; margin-bottom: 20px; }
+    .insurer-desc { font-size: 0.88rem; color: var(--ink2); line-height: 1.75; margin-bottom: 20px; }
+    .insurer-features { list-style: none; }
+    .insurer-features li { display: flex; align-items: flex-start; gap: 8px; font-size: 0.83rem; color: var(--ink2); padding: 6px 0; border-bottom: 1px solid var(--border2); line-height: 1.5; }
+    .insurer-features li:last-child { border-bottom: none; }
+    .insurer-features li::before { content: '✓'; color: var(--teal); font-weight: 700; flex-shrink: 0; }
+    .insurer-cta {
+      display: block; text-align: center; margin-top: 24px;
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--ink); padding: 11px; border-radius: var(--radius-sm);
+      text-decoration: none; font-size: 0.85rem; font-weight: 500;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .insurer-cta:hover { background: var(--bg); border-color: var(--ink3); }
+    .affiliate-note { margin-top: 20px; font-size: 0.75rem; color: var(--ink3); font-family: var(--font-mono); text-align: center; }
+
+    /* HK INSURANCE SECTION */
+    .hk-section { background: var(--ink); }
+    .hk-section .section-label { color: var(--gold-light); }
+    .hk-section .section-title { color: white; }
+    .hk-section .section-sub { color: rgba(255,255,255,0.5); }
+
+    .hk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255,255,255,0.06); border-radius: var(--radius); overflow: hidden; }
+    .hk-card { background: #1e1c18; padding: 40px 32px; position: relative; transition: background 0.3s; }
+    .hk-card:hover { background: #252320; }
+    .hk-card-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+    .hk-card-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: white; margin-bottom: 10px; }
+    .hk-card-desc { font-size: 0.86rem; color: rgba(255,255,255,0.45); line-height: 1.75; }
+    .hk-card-tag { display: inline-block; margin-top: 16px; font-family: var(--font-mono); font-size: 0.68rem; color: var(--gold-light); background: rgba(184,134,11,0.12); border: 1px solid rgba(184,134,11,0.25); padding: 4px 10px; border-radius: 6px; }
+    .hk-card.featured { background: linear-gradient(145deg, #252118, #1e1c18); border: 1px solid rgba(184,134,11,0.2); }
+    .hk-card.featured .hk-card-title { color: var(--gold-light); }
+
+    /* CIES BOX */
+    .cies-box {
+      margin-top: 48px;
+      background: rgba(184,134,11,0.08);
+      border: 1px solid rgba(184,134,11,0.25);
+      border-radius: var(--radius); padding: 40px;
+      display: flex; gap: 32px; align-items: flex-start;
+    }
+    .cies-icon { font-size: 2.4rem; flex-shrink: 0; }
+    .cies-content h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: white; margin-bottom: 12px; }
+    .cies-content p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 12px; }
+    .cies-content p:last-child { margin-bottom: 0; }
+    .cies-content strong { color: var(--gold-light); font-weight: 500; }
+    .cies-disclaimer { margin-top: 12px; font-size: 0.75rem; color: rgba(255,255,255,0.25); font-family: var(--font-mono); }
+
+    /* CONTACT SECTION (full) */
+    .contact-full-section { background: var(--bg2); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .contact-card {
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 40px; overflow: hidden;
+      position: relative;
+    }
+    .contact-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--teal); }
+    .contact-card h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+    .contact-card p { font-size: 0.88rem; color: var(--ink2); line-height: 1.7; margin-bottom: 28px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 0; border-bottom: 1px solid var(--border2);
+    }
+    .contact-item:last-of-type { border-bottom: none; }
+    .contact-item-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .ci-email { background: var(--teal-pale); }
+    .ci-wa { background: rgba(37,211,102,0.1); }
+    .contact-item-text .label { font-size: 0.72rem; font-family: var(--font-mono); color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 3px; }
+    .contact-item-text a { font-size: 0.95rem; font-weight: 500; color: var(--ink); text-decoration: none; }
+    .contact-item-text a:hover { color: var(--teal); }
+    .hours-box { background: var(--gold-pale); border: 1px solid rgba(184,134,11,0.2); border-radius: var(--radius-sm); padding: 20px 24px; margin-top: 28px; }
+    .hours-box .hours-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .hours-box .hours-time { font-size: 1rem; font-weight: 600; color: var(--ink); }
+    .hours-box .hours-sub { font-size: 0.82rem; color: var(--ink2); margin-top: 4px; }
+    .hours-box .hours-reply { font-size: 0.8rem; color: var(--ink3); margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(184,134,11,0.15); }
+
+    .process-box {
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: var(--radius); padding: 40px; overflow: hidden;
+      position: relative;
+    }
+    .process-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gold); }
+    .process-box h3 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+    .process-box p { font-size: 0.88rem; color: var(--ink2); line-height: 1.7; margin-bottom: 28px; }
+    .process-step { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--border2); }
+    .process-step:last-child { border-bottom: none; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--gold-pale); border: 1px solid rgba(184,134,11,0.3); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.72rem; color: var(--gold); flex-shrink: 0; }
+    .step-content h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; }
+    .step-content p { font-size: 0.82rem; color: var(--ink2); margin: 0; line-height: 1.6; }
+
+    /* FOOTER */
+    footer { padding: 48px; border-top: 1px solid var(--border2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; background: var(--surface); }
+    .footer-logo { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .footer-logo span { color: var(--gold); }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: var(--ink3); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-size: 0.78rem; color: var(--ink3); font-family: var(--font-mono); width: 100%; }
+    .footer-legal-note { font-size: 0.72rem; color: var(--ink3); font-family: var(--font-mono); width: 100%; line-height: 1.6; padding-top: 12px; border-top: 1px solid var(--border2); }
+
+    @media (max-width: 960px) { .insurer-grid { grid-template-columns: 1fr; } .hk-grid { grid-template-columns: 1fr; } .contact-grid { grid-template-columns: 1fr; } .two-col { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { nav { padding: 16px 20px; } .hero { padding: 120px 20px 56px; } .section { padding: 64px 20px; } .contact-banner { padding: 36px 20px; } footer { padding: 36px 20px; } .cies-box { flex-direction: column; gap: 16px; padding: 28px; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Roam<span>Melb</span></a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="setLang('zh-Hans',event)">简体</button>
+    <button class="lang-btn" onclick="setLang('zh-Hant',event)">繁體</button>
+    <button class="lang-btn" onclick="setLang('en',event)">EN</button>
+  </div>
+  <div class="nav-right">
+    <a href="/" class="nav-back" data-i18n="nav_back">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      返回主页
+    </a>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">联系我们</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="hero-label" data-i18n="hero_label">ROAMMELB INSURANCE</div>
+    <h1>
+      <span data-i18n="hero_h1_1">旅行保险</span><br/>
+      <em data-i18n="hero_h1_2">一站比较</em><br/>
+      <span class="dim" data-i18n="hero_h1_3">香港保险咨询</span>
+    </h1>
+    <p class="hero-sub" data-i18n="hero_sub">
+      出行前找对保险，不只是省钱，更是保障。<br/>
+      我们提供旅行保险比较推荐，以及香港持牌保险顾问专业咨询服务。
+    </p>
+    <div class="hero-pills">
+      <span class="pill teal" data-i18n="pill1">🌍 申根签证必备险</span>
+      <span class="pill" data-i18n="pill2">🛡️ 普通旅行险比较</span>
+      <span class="pill gold" data-i18n="pill3">🏛️ 香港持牌顾问</span>
+      <span class="pill gold" data-i18n="pill4">💼 New CIES 投连险</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#travel-insurance" class="btn-outline-white" data-i18n="hero_cta1">旅行保险比较</a>
+      <a href="#hk-insurance" class="btn-gold" data-i18n="hero_cta2">香港保险咨询 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMINENT CONTACT BANNER -->
+<div class="contact-banner" id="contact-top">
+  <div class="contact-banner-text">
+    <h2 data-i18n="banner_title">有保险问题？直接联系我们</h2>
+    <p data-i18n="banner_sub">旅行保险推荐、香港人寿危疾年金MPF投连险咨询，我们均可协助。所有查询99%在24小时内回复。</p>
+    <div class="contact-hours" data-i18n="banner_hours">服务时间：香港时间 周一至周日 10:00 AM – 7:00 PM</div>
+  </div>
+  <div class="contact-methods">
+    <a href="mailto:contact@roammelb.com" class="contact-btn">
+      <span class="contact-btn-icon">✉️</span>
+      <span>contact@roammelb.com</span>
+    </a>
+    <a href="https://wa.me/85266610289" target="_blank" rel="noopener" class="contact-btn whatsapp">
+      <span class="contact-btn-icon">💬</span>
+      <span>WhatsApp +852 6661 0289</span>
+    </a>
+  </div>
+</div>
+
+<!-- TRAVEL INSURANCE SECTION -->
+<section class="section" id="travel-insurance">
+  <div class="section-label" data-i18n="ti_label">TRAVEL INSURANCE</div>
+  <div class="section-title" data-i18n="ti_title">旅行保险比较</div>
+  <p class="section-sub" data-i18n="ti_sub">我们精选三家适合澳洲出发旅客的保险，覆盖不同需求。点击链接可前往各品牌官网购买，或联系我们咨询。</p>
+
+  <div class="insurer-grid">
+    <!-- AXA -->
+    <div class="insurer-card axa">
+      <div class="insurer-logo axa">AXA Schengen</div>
+      <div class="insurer-tag" data-i18n="axa_tag">申根签证专用险</div>
+      <div class="insurer-desc" data-i18n="axa_desc">申请欧洲申根签证必须提交旅行医疗保险。AXA Schengen 是业内最受领馆认可的品牌之一，覆盖全部27个申根国，中文客服支持。</div>
+      <ul class="insurer-features">
+        <li data-i18n="axa_f1">符合申根签证保险要求（最低3万欧保额）</li>
+        <li data-i18n="axa_f2">覆盖全部27个申根国家及地区</li>
+        <li data-i18n="axa_f3">医疗紧急救援及遣返</li>
+        <li data-i18n="axa_f4">支持中文客服</li>
+      </ul>
+      <a href="YOUR_AXA_AFFILIATE_LINK" target="_blank" rel="noopener" class="insurer-cta" data-i18n="axa_cta">前往 AXA 购买 →</a>
+    </div>
+
+    <!-- Cover-More -->
+    <div class="insurer-card covermore">
+      <div class="insurer-logo covermore">Cover-More</div>
+      <div class="insurer-tag" data-i18n="cm_tag">澳洲本地旅行险首选</div>
+      <div class="insurer-desc" data-i18n="cm_desc">澳洲最大旅行保险品牌，每年逾730万人使用。从澳洲出发的旅程最适合，理赔流程熟悉，中英双语服务。</div>
+      <ul class="insurer-features">
+        <li data-i18n="cm_f1">澳洲出发旅程全覆盖</li>
+        <li data-i18n="cm_f2">行李损失、航班延误赔偿</li>
+        <li data-i18n="cm_f3">紧急医疗及撤离</li>
+        <li data-i18n="cm_f4">取消及缩短行程保障</li>
+      </ul>
+      <a href="YOUR_COVERMORE_AFFILIATE_LINK" target="_blank" rel="noopener" class="insurer-cta" data-i18n="cm_cta">前往 Cover-More 购买 →</a>
+    </div>
+
+    <!-- SafetyWing -->
+    <div class="insurer-card safetywing">
+      <div class="insurer-logo safetywing">SafetyWing</div>
+      <div class="insurer-tag" data-i18n="sw_tag">长期旅行 / 数字游民</div>
+      <div class="insurer-desc" data-i18n="sw_desc">按月订阅模式，适合长期出行、打工度假、多国流动的旅行者。无需固定行程，全球大部分国家均覆盖。</div>
+      <ul class="insurer-features">
+        <li data-i18n="sw_f1">按月订阅，随时暂停</li>
+        <li data-i18n="sw_f2">适合打工度假及长期旅行</li>
+        <li data-i18n="sw_f3">覆盖全球185+个国家</li>
+        <li data-i18n="sw_f4">无需预先定好行程</li>
+      </ul>
+      <a href="https://safetywing.com/?referenceID=26536176&utm_source=26536176&utm_medium=Ambassador" target="_blank" rel="noopener" class="insurer-cta" data-i18n="sw_cta">前往 SafetyWing 购买 →</a>
+    </div>
+  </div>
+  <p class="affiliate-note" data-i18n="affiliate_note">* 以上链接为联盟推广链接，点击购买我们可能获得佣金，不影响您的购买价格。</p>
+</section>
+
+<!-- HK INSURANCE SECTION -->
+<section class="section hk-section" id="hk-insurance">
+  <div class="section-label" data-i18n="hk_label">HONG KONG LICENSED ADVISOR</div>
+  <div class="section-title" data-i18n="hk_title">香港保险专业咨询</div>
+  <p class="section-sub" data-i18n="hk_sub">我们持有香港保险业监管局（IA）颁发的全牌照，为您提供专业香港保险咨询服务。所有产品均由香港持牌保险公司发行，受香港法律规管。</p>
+
+  <div class="hk-grid">
+    <div class="hk-card">
+      <span class="hk-card-icon">❤️</span>
+      <div class="hk-card-title" data-i18n="hk1_title">人寿 · 危疾</div>
+      <div class="hk-card-desc" data-i18n="hk1_desc">长期人寿保险及危疾保障计划。为家庭提供财务保障，涵盖重大疾病、身故赔偿等保障，适合有高净值保障需求的客户。</div>
+      <span class="hk-card-tag">Long-term Life & CI</span>
+    </div>
+    <div class="hk-card">
+      <span class="hk-card-icon">📈</span>
+      <div class="hk-card-title" data-i18n="hk2_title">年金 · MPF强积金</div>
+      <div class="hk-card-desc" data-i18n="hk2_desc">香港年金计划及强积金（Mandatory Provident Fund）咨询。退休规划、MPF选择及转换策略，为您的退休生活做好准备。</div>
+      <span class="hk-card-tag">Annuity & MPF</span>
+    </div>
+    <div class="hk-card featured">
+      <span class="hk-card-icon">🏛️</span>
+      <div class="hk-card-title" data-i18n="hk3_title">投连险 · New CIES</div>
+      <div class="hk-card-desc" data-i18n="hk3_desc">投资相连保险计划（ILAS）属香港政府「新资本投资者入境计划」（New CIES）下的合资格投资资产，可用于3,000万港元投资移民申请。详情请联系我们面谈。</div>
+      <span class="hk-card-tag">ILAS · New CIES Eligible</span>
+    </div>
+    <div class="hk-card">
+      <span class="hk-card-icon">✈️</span>
+      <div class="hk-card-title" data-i18n="hk4_title">短期旅游险</div>
+      <div class="hk-card-desc" data-i18n="hk4_desc">香港本地旅游保险产品（如蓝十字等），适合香港出发或需要香港保单的旅客。可联系我们查询适合您行程的方案。</div>
+      <span class="hk-card-tag">HK Travel Insurance</span>
+    </div>
+    <div class="hk-card">
+      <span class="hk-card-icon">🏠</span>
+      <div class="hk-card-title" data-i18n="hk5_title">财产险</div>
+      <div class="hk-card-desc" data-i18n="hk5_desc">香港财产及家居保险咨询，保障个人或商业物业。适合在香港持有资产并需要合适保障方案的客户。</div>
+      <span class="hk-card-tag">Property Insurance</span>
+    </div>
+    <div class="hk-card">
+      <span class="hk-card-icon">💬</span>
+      <div class="hk-card-title" data-i18n="hk6_title">预约咨询</div>
+      <div class="hk-card-desc" data-i18n="hk6_desc">香港保险须面谈或视频会议完成，不能在线直接购买。请通过邮件或 WhatsApp 联系我们，安排专属顾问时间。</div>
+      <span class="hk-card-tag">By Appointment</span>
+    </div>
+  </div>
+
+  <!-- CIES CALLOUT -->
+  <div class="cies-box">
+    <div class="cies-icon">🏛️</div>
+    <div class="cies-content">
+      <h3 data-i18n="cies_title">关于「新资本投资者入境计划」（New CIES）投连险</h3>
+      <p data-i18n="cies_p1">
+        香港特别行政区政府于<strong>2024年3月1日</strong>正式推出「新资本投资者入境计划」（New Capital Investment Entrant Scheme，简称 New CIES），容许合资格人士通过投资<strong>3,000万港元或以上</strong>的金融资产，取得居港资格。
+      </p>
+      <p data-i18n="cies_p2">
+        在计划的合资格投资资产中，<strong>「合资格集体投资计划」</strong>涵盖由香港获授权保险公司发行、经证监会认可的<strong>投资相连保险计划（ILAS）</strong>。相关产品须列于证监会发布的《「新资本投资者入境计划」下的合资格集体投资计划列表》之内，方属合资格投资资产。
+      </p>
+      <p data-i18n="cies_p3">
+        我们持有香港保监局颁发的<strong>第5类保险牌照（投资相连长期保险顾问）</strong>，可为有意通过 ILAS 参与 New CIES 的客户提供专业咨询。<strong>此类产品须面谈，不可在线购买。</strong>如有查询，请通过以下方式联系我们。
+      </p>
+      <p class="cies-disclaimer" data-i18n="cies_disclaimer">免责声明：以上资讯仅供一般参考，不构成投资或移民建议。New CIES 申请资格及规则以香港入境事务处及证监会最新公告为准。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FULL SECTION -->
+<section class="section contact-full-section" id="contact">
+  <div class="section-label" data-i18n="contact_label">CONTACT US</div>
+  <div class="section-title" data-i18n="contact_title">联系我们</div>
+  <p class="section-sub" data-i18n="contact_sub">无论是旅行保险推荐还是香港保险咨询，欢迎随时联络。</p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3 data-i18n="cc1_title">联系方式</h3>
+      <p data-i18n="cc1_sub">旅行保险及香港保险查询均可。首次咨询免费。</p>
+      <div class="contact-item">
+        <div class="contact-item-icon ci-email">✉️</div>
+        <div class="contact-item-text">
+          <div class="label" data-i18n="label_email">电子邮件</div>
+          <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon ci-wa">💬</div>
+        <div class="contact-item-text">
+          <div class="label">WhatsApp</div>
+          <a href="https://wa.me/85266610289" target="_blank" rel="noopener">+852 6661 0289</a>
+        </div>
+      </div>
+      <div class="hours-box">
+        <div class="hours-label" data-i18n="hours_label">服务时间</div>
+        <div class="hours-time" data-i18n="hours_time">香港时间 10:00 AM – 7:00 PM</div>
+        <div class="hours-sub" data-i18n="hours_sub">周一至周日（包括公众假期）</div>
+        <div class="hours-reply" data-i18n="hours_reply">📩 99% 的查询将于 24 小时内回复</div>
+      </div>
+    </div>
+
+    <div class="process-box">
+      <h3 data-i18n="proc_title">咨询流程</h3>
+      <p data-i18n="proc_sub">香港保险产品须经面谈或视频会议完成，以下是一般流程：</p>
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h4 data-i18n="step1_title">发送查询</h4>
+          <p data-i18n="step1_desc">通过邮件或 WhatsApp 告知您的需求（旅行险推荐 / 人寿危疾 / New CIES投连险等）</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h4 data-i18n="step2_title">顾问回复</h4>
+          <p data-i18n="step2_desc">我们将于24小时内回复，了解您的情况，并安排合适的咨询时间</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h4 data-i18n="step3_title">专属咨询</h4>
+          <p data-i18n="step3_desc">面谈或视频会议，提供适合您需求的方案分析及建议</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h4 data-i18n="step4_title">跟进服务</h4>
+          <p data-i18n="step4_desc">投保后持续跟进，保单管理及年度检视</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Roam<span>Melb</span></a>
+  <ul class="footer-links">
+    <li><a href="/shop" data-i18n="footer_esim">购买eSIM</a></li>
+    <li><a href="/saily" data-i18n="footer_saily">Saily eSIM</a></li>
+    <li><a href="/vpn" data-i18n="footer_vpn">VPN</a></li>
+    <li><a href="/flights" data-i18n="footer_flights">机票攻略</a></li>
+    <li><a href="/blog" data-i18n="footer_blog">签证&出行攻略</a></li>
+    <li><a href="/privacy" data-i18n="footer_privacy">隐私政策</a></li>
+  </ul>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 Juliet and Roland Hong Kong Limited. All rights reserved.<br/>
+      Roammelb is a registered trading brand of Juliet and Roland Hong Kong Limited.</p>
+  <p class="footer-legal-note" data-i18n="footer_legal">本页旅行保险比较内容包含联盟推广链接。香港保险咨询服务由持有香港保险业监管局牌照的顾问提供，受香港《保险业条例》规管。以上内容仅供参考，不构成投资、财务或移民建议。New CIES 相关规则以香港入境事务处及证监会最新公告为准。</p>
+</footer>
+
+<script>
+const t = {
+  'zh-Hans': {
+    nav_back:'返回主页', nav_cta:'联系我们',
+    hero_label:'ROAMMELB INSURANCE',
+    hero_h1_1:'旅行保险', hero_h1_2:'一站比较', hero_h1_3:'香港保险咨询',
+    hero_sub:'出行前找对保险，不只是省钱，更是保障。<br/>我们提供旅行保险比较推荐，以及香港持牌保险顾问专业咨询服务。',
+    pill1:'🌍 申根签证必备险', pill2:'🛡️ 普通旅行险比较', pill3:'🏛️ 香港持牌顾问', pill4:'💼 New CIES 投连险',
+    hero_cta1:'旅行保险比较', hero_cta2:'香港保险咨询 →',
+    banner_title:'有保险问题？直接联系我们',
+    banner_sub:'旅行保险推荐、香港人寿危疾年金MPF投连险咨询，我们均可协助。所有查询99%在24小时内回复。',
+    banner_hours:'服务时间：香港时间 周一至周日 10:00 AM – 7:00 PM',
+    ti_label:'TRAVEL INSURANCE', ti_title:'旅行保险比较',
+    ti_sub:'我们精选三家适合澳洲出发旅客的保险，覆盖不同需求。点击链接可前往各品牌官网购买，或联系我们咨询。',
+    axa_tag:'申根签证专用险', axa_desc:'申请欧洲申根签证必须提交旅行医疗保险。AXA Schengen 是业内最受领馆认可的品牌之一，覆盖全部27个申根国，中文客服支持。',
+    axa_f1:'符合申根签证保险要求（最低3万欧保额）', axa_f2:'覆盖全部27个申根国家及地区', axa_f3:'医疗紧急救援及遣返', axa_f4:'支持中文客服', axa_cta:'前往 AXA 购买 →',
+    cm_tag:'澳洲本地旅行险首选', cm_desc:'澳洲最大旅行保险品牌，每年逾730万人使用。从澳洲出发的旅程最适合，理赔流程熟悉，中英双语服务。',
+    cm_f1:'澳洲出发旅程全覆盖', cm_f2:'行李损失、航班延误赔偿', cm_f3:'紧急医疗及撤离', cm_f4:'取消及缩短行程保障', cm_cta:'前往 Cover-More 购买 →',
+    sw_tag:'长期旅行 / 数字游民', sw_desc:'按月订阅模式，适合长期出行、打工度假、多国流动的旅行者。无需固定行程，全球大部分国家均覆盖。',
+    sw_f1:'按月订阅，随时暂停', sw_f2:'适合打工度假及长期旅行', sw_f3:'覆盖全球185+个国家', sw_f4:'无需预先定好行程', sw_cta:'前往 SafetyWing 购买 →',
+    affiliate_note:'* 以上链接为联盟推广链接，点击购买我们可能获得佣金，不影响您的购买价格。',
+    hk_label:'HONG KONG LICENSED ADVISOR', hk_title:'香港保险专业咨询',
+    hk_sub:'我们持有香港保险业监管局（IA）颁发的全牌照，为您提供专业香港保险咨询服务。所有产品均由香港持牌保险公司发行，受香港法律规管。',
+    hk1_title:'人寿 · 危疾', hk1_desc:'长期人寿保险及危疾保障计划。为家庭提供财务保障，涵盖重大疾病、身故赔偿等保障，适合有高净值保障需求的客户。',
+    hk2_title:'年金 · MPF强积金', hk2_desc:'香港年金计划及强积金（Mandatory Provident Fund）咨询。退休规划、MPF选择及转换策略，为您的退休生活做好准备。',
+    hk3_title:'投连险 · New CIES', hk3_desc:'投资相连保险计划（ILAS）属香港政府「新资本投资者入境计划」（New CIES）下的合资格投资资产，可用于3,000万港元投资移民申请。详情请联系我们面谈。',
+    hk4_title:'短期旅游险', hk4_desc:'香港本地旅游保险产品（如蓝十字等），适合香港出发或需要香港保单的旅客。可联系我们查询适合您行程的方案。',
+    hk5_title:'财产险', hk5_desc:'香港财产及家居保险咨询，保障个人或商业物业。适合在香港持有资产并需要合适保障方案的客户。',
+    hk6_title:'预约咨询', hk6_desc:'香港保险须面谈或视频会议完成，不能在线直接购买。请通过邮件或 WhatsApp 联系我们，安排专属顾问时间。',
+    cies_title:'关于「新资本投资者入境计划」（New CIES）投连险',
+    cies_p1:'香港特别行政区政府于<strong>2024年3月1日</strong>正式推出「新资本投资者入境计划」（New Capital Investment Entrant Scheme，简称 New CIES），容许合资格人士通过投资<strong>3,000万港元或以上</strong>的金融资产，取得居港资格。',
+    cies_p2:'在计划的合资格投资资产中，<strong>「合资格集体投资计划」</strong>涵盖由香港获授权保险公司发行、经证监会认可的<strong>投资相连保险计划（ILAS）</strong>。相关产品须列于证监会发布的《「新资本投资者入境计划」下的合资格集体投资计划列表》之内，方属合资格投资资产。',
+    cies_p3:'我们持有香港保监局颁发的<strong>第5类保险牌照（投资相连长期保险顾问）</strong>，可为有意通过 ILAS 参与 New CIES 的客户提供专业咨询。<strong>此类产品须面谈，不可在线购买。</strong>如有查询，请通过以下方式联系我们。',
+    cies_disclaimer:'免责声明：以上资讯仅供一般参考，不构成投资或移民建议。New CIES 申请资格及规则以香港入境事务处及证监会最新公告为准。',
+    contact_label:'CONTACT US', contact_title:'联系我们', contact_sub:'无论是旅行保险推荐还是香港保险咨询，欢迎随时联络。',
+    cc1_title:'联系方式', cc1_sub:'旅行保险及香港保险查询均可。首次咨询免费。',
+    label_email:'电子邮件',
+    hours_label:'服务时间', hours_time:'香港时间 10:00 AM – 7:00 PM', hours_sub:'周一至周日（包括公众假期）', hours_reply:'📩 99% 的查询将于 24 小时内回复',
+    proc_title:'咨询流程', proc_sub:'香港保险产品须经面谈或视频会议完成，以下是一般流程：',
+    step1_title:'发送查询', step1_desc:'通过邮件或 WhatsApp 告知您的需求（旅行险推荐 / 人寿危疾 / New CIES投连险等）',
+    step2_title:'顾问回复', step2_desc:'我们将于24小时内回复，了解您的情况，并安排合适的咨询时间',
+    step3_title:'专属咨询', step3_desc:'面谈或视频会议，提供适合您需求的方案分析及建议',
+    step4_title:'跟进服务', step4_desc:'投保后持续跟进，保单管理及年度检视',
+    footer_esim:'购买eSIM', footer_saily:'Saily eSIM', footer_vpn:'VPN', footer_flights:'机票攻略', footer_blog:'签证&出行攻略', footer_privacy:'隐私政策',
+    footer_copy: '© 2026 Juliet and Roland Hong Kong Limited. All rights reserved.<br/>Roammelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    footer_legal:'本页旅行保险比较内容包含联盟推广链接。香港保险咨询服务由持有香港保险业监管局牌照的顾问提供，受香港《保险业条例》规管。以上内容仅供参考，不构成投资、财务或移民建议。New CIES 相关规则以香港入境事务处及证监会最新公告为准。',
+  },
+  'zh-Hant': {
+    nav_back:'返回主頁', nav_cta:'聯絡我們',
+    hero_label:'ROAMMELB INSURANCE',
+    hero_h1_1:'旅行保險', hero_h1_2:'一站比較', hero_h1_3:'香港保險諮詢',
+    hero_sub:'出行前找對保險，不只是省錢，更是保障。<br/>我們提供旅行保險比較推薦，以及香港持牌保險顧問專業諮詢服務。',
+    pill1:'🌍 申根簽證必備險', pill2:'🛡️ 普通旅行險比較', pill3:'🏛️ 香港持牌顧問', pill4:'💼 New CIES 投連險',
+    hero_cta1:'旅行保險比較', hero_cta2:'香港保險諮詢 →',
+    banner_title:'有保險問題？直接聯絡我們',
+    banner_sub:'旅行保險推薦、香港人壽危疾年金MPF投連險諮詢，我們均可協助。所有查詢99%在24小時內回覆。',
+    banner_hours:'服務時間：香港時間 星期一至日 10:00 AM – 7:00 PM',
+    ti_label:'TRAVEL INSURANCE', ti_title:'旅行保險比較',
+    ti_sub:'我們精選三家適合澳洲出發旅客的保險，覆蓋不同需求。點擊連結可前往各品牌官網購買，或聯絡我們諮詢。',
+    axa_tag:'申根簽證專用險', axa_desc:'申請歐洲申根簽證必須提交旅行醫療保險。AXA Schengen 是業內最受領館認可的品牌之一，覆蓋全部27個申根國，中文客服支援。',
+    axa_f1:'符合申根簽證保險要求（最低3萬歐保額）', axa_f2:'覆蓋全部27個申根國家及地區', axa_f3:'醫療緊急救援及遣返', axa_f4:'支援中文客服', axa_cta:'前往 AXA 購買 →',
+    cm_tag:'澳洲本地旅行險首選', cm_desc:'澳洲最大旅行保險品牌，每年逾730萬人使用。從澳洲出發的旅程最適合，理賠流程熟悉，中英雙語服務。',
+    cm_f1:'澳洲出發旅程全覆蓋', cm_f2:'行李損失、航班延誤賠償', cm_f3:'緊急醫療及撤離', cm_f4:'取消及縮短行程保障', cm_cta:'前往 Cover-More 購買 →',
+    sw_tag:'長期旅行 / 數字遊民', sw_desc:'按月訂閱模式，適合長期出行、打工度假、多國流動的旅行者。無需固定行程，全球大部分國家均覆蓋。',
+    sw_f1:'按月訂閱，隨時暫停', sw_f2:'適合打工度假及長期旅行', sw_f3:'覆蓋全球185+個國家', sw_f4:'無需預先定好行程', sw_cta:'前往 SafetyWing 購買 →',
+    affiliate_note:'* 以上連結為聯盟推廣連結，點擊購買我們可能獲得佣金，不影響您的購買價格。',
+    hk_label:'HONG KONG LICENSED ADVISOR', hk_title:'香港保險專業諮詢',
+    hk_sub:'我們持有香港保險業監管局（IA）頒發的全牌照，為您提供專業香港保險諮詢服務。所有產品均由香港持牌保險公司發行，受香港法律規管。',
+    hk1_title:'人壽 · 危疾', hk1_desc:'長期人壽保險及危疾保障計劃。為家庭提供財務保障，涵蓋重大疾病、身故賠償等保障，適合有高淨值保障需求的客戶。',
+    hk2_title:'年金 · MPF強積金', hk2_desc:'香港年金計劃及強積金（Mandatory Provident Fund）諮詢。退休規劃、MPF選擇及轉換策略，為您的退休生活做好準備。',
+    hk3_title:'投連險 · New CIES', hk3_desc:'投資相連保險計劃（ILAS）屬香港政府「新資本投資者入境計劃」（New CIES）下的合資格投資資產，可用於3,000萬港元投資移民申請。詳情請聯絡我們面談。',
+    hk4_title:'短期旅遊險', hk4_desc:'香港本地旅遊保險產品（如藍十字等），適合香港出發或需要香港保單的旅客。可聯絡我們查詢適合您行程的方案。',
+    hk5_title:'財產險', hk5_desc:'香港財產及家居保險諮詢，保障個人或商業物業。適合在香港持有資產並需要合適保障方案的客戶。',
+    hk6_title:'預約諮詢', hk6_desc:'香港保險須面談或視像會議完成，不能在線直接購買。請通過電郵或 WhatsApp 聯絡我們，安排專屬顧問時間。',
+    cies_title:'關於「新資本投資者入境計劃」（New CIES）投連險',
+    cies_p1:'香港特別行政區政府於<strong>2024年3月1日</strong>正式推出「新資本投資者入境計劃」（New Capital Investment Entrant Scheme，簡稱 New CIES），容許合資格人士通過投資<strong>3,000萬港元或以上</strong>的金融資產，取得居港資格。',
+    cies_p2:'在計劃的合資格投資資產中，<strong>「合資格集體投資計劃」</strong>涵蓋由香港獲授權保險公司發行、經證監會認可的<strong>投資相連保險計劃（ILAS）</strong>。相關產品須列於證監會發布的《「新資本投資者入境計劃」下的合資格集體投資計劃列表》之內，方屬合資格投資資產。',
+    cies_p3:'我們持有香港保監局頒發的<strong>第5類保險牌照（投資相連長期保險顧問）</strong>，可為有意通過 ILAS 參與 New CIES 的客戶提供專業諮詢。<strong>此類產品須面談，不可在線購買。</strong>如有查詢，請通過以下方式聯絡我們。',
+    cies_disclaimer:'免責聲明：以上資訊僅供一般參考，不構成投資或移民建議。New CIES 申請資格及規則以香港入境事務處及證監會最新公告為準。',
+    contact_label:'CONTACT US', contact_title:'聯絡我們', contact_sub:'無論是旅行保險推薦還是香港保險諮詢，歡迎隨時聯絡。',
+    cc1_title:'聯絡方式', cc1_sub:'旅行保險及香港保險查詢均可。首次諮詢免費。',
+    label_email:'電子郵件',
+    hours_label:'服務時間', hours_time:'香港時間 10:00 AM – 7:00 PM', hours_sub:'星期一至日（包括公眾假期）', hours_reply:'📩 99% 的查詢將於 24 小時內回覆',
+    proc_title:'諮詢流程', proc_sub:'香港保險產品須經面談或視像會議完成，以下是一般流程：',
+    step1_title:'發送查詢', step1_desc:'通過電郵或 WhatsApp 告知您的需求（旅行險推薦 / 人壽危疾 / New CIES投連險等）',
+    step2_title:'顧問回覆', step2_desc:'我們將於24小時內回覆，了解您的情況，並安排合適的諮詢時間',
+    step3_title:'專屬諮詢', step3_desc:'面談或視像會議，提供適合您需求的方案分析及建議',
+    step4_title:'跟進服務', step4_desc:'投保後持續跟進，保單管理及年度檢視',
+    footer_esim:'購買eSIM', footer_saily:'Saily eSIM', footer_vpn:'VPN', footer_flights:'機票攻略', footer_blog:'簽證&出行攻略', footer_privacy:'隱私政策',
+    footer_copy: '© 2026 Juliet and Roland Hong Kong Limited. All rights reserved.<br/>Roammelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    footer_legal:'本頁旅行保險比較內容包含聯盟推廣連結。香港保險諮詢服務由持有香港保險業監管局牌照的顧問提供，受香港《保險業條例》規管。以上內容僅供參考，不構成投資、財務或移民建議。New CIES 相關規則以香港入境事務處及證監會最新公告為準。',
+  },
+  'en': {
+    nav_back:'Back to Home', nav_cta:'Contact Us',
+    hero_label:'ROAMMELB INSURANCE',
+    hero_h1_1:'Travel Insurance', hero_h1_2:'Compare & Choose', hero_h1_3:'HK Insurance Advisory',
+    hero_sub:'Finding the right insurance isn\'t just about saving money — it\'s about real protection.<br/>We offer travel insurance comparisons and licensed Hong Kong insurance advisory services.',
+    pill1:'🌍 Schengen Visa Insurance', pill2:'🛡️ Travel Insurance Comparison', pill3:'🏛️ HK Licensed Advisor', pill4:'💼 New CIES ILAS',
+    hero_cta1:'Compare Travel Insurance', hero_cta2:'HK Insurance Advisory →',
+    banner_title:'Insurance Questions? Get in Touch',
+    banner_sub:'Travel insurance recommendations, HK life/CI/annuity/MPF/ILAS advisory — we can help. 99% of enquiries answered within 24 hours.',
+    banner_hours:'Hours: Hong Kong Time, Mon–Sun 10:00 AM – 7:00 PM',
+    ti_label:'TRAVEL INSURANCE', ti_title:'Travel Insurance Comparison',
+    ti_sub:'Three carefully selected insurers for travellers departing Australia, each suited to different needs. Click to purchase directly, or contact us for a recommendation.',
+    axa_tag:'Schengen Visa Insurance', axa_desc:'A Schengen visa requires proof of travel medical insurance. AXA Schengen is one of the most widely accepted brands by European consulates, covering all 27 Schengen countries.',
+    axa_f1:'Meets Schengen visa requirements (min. €30,000 coverage)', axa_f2:'Covers all 27 Schengen countries', axa_f3:'Emergency medical evacuation & repatriation', axa_f4:'Multilingual customer support', axa_cta:'Get AXA Schengen →',
+    cm_tag:'Best for Australian Travellers', cm_desc:'Australia\'s largest travel insurer, used by 7.3M+ people annually. Ideal for trips departing Australia with familiar claims processes and bilingual support.',
+    cm_f1:'Full coverage for trips from Australia', cm_f2:'Baggage loss and flight delay compensation', cm_f3:'Emergency medical and evacuation', cm_f4:'Trip cancellation and curtailment', cm_cta:'Get Cover-More →',
+    sw_tag:'Long-term Travel / Digital Nomads', sw_desc:'Monthly subscription model — ideal for long-term travellers, working holiday makers, and those moving between countries. No fixed itinerary needed.',
+    sw_f1:'Monthly subscription, pause anytime', sw_f2:'Ideal for working holidays & extended travel', sw_f3:'Covers 185+ countries worldwide', sw_f4:'No pre-set itinerary required', sw_cta:'Get SafetyWing →',
+    affiliate_note:'* The above links are affiliate links. We may earn a commission if you purchase, at no extra cost to you.',
+    hk_label:'HONG KONG LICENSED ADVISOR', hk_title:'Hong Kong Insurance Advisory',
+    hk_sub:'We hold a full licence issued by the Insurance Authority of Hong Kong (IA). All products are issued by Hong Kong-authorised insurers and regulated under Hong Kong law.',
+    hk1_title:'Life & Critical Illness', hk1_desc:'Long-term life insurance and critical illness cover. Provides financial protection for families against major illness, death, and disability. Suited to high-net-worth clients seeking comprehensive protection.',
+    hk2_title:'Annuity & MPF', hk2_desc:'Hong Kong annuity plans and Mandatory Provident Fund (MPF) advisory. Retirement planning, MPF fund selection and consolidation strategies to prepare for your future.',
+    hk3_title:'ILAS · New CIES', hk3_desc:'Investment-Linked Assurance Schemes (ILAS) issued by HK-authorised insurers are eligible assets under the New Capital Investment Entrant Scheme (New CIES). Can be used toward the HKD 30M investment immigration requirement. Face-to-face consultation required.',
+    hk4_title:'Short-term Travel Insurance', hk4_desc:'Hong Kong-issued travel insurance products (e.g. Blue Cross) for trips departing Hong Kong or clients requiring a HK policy. Contact us for a quote.',
+    hk5_title:'Property Insurance', hk5_desc:'Hong Kong property and home insurance advisory for personal or commercial properties. Suitable for clients with HK assets seeking appropriate coverage.',
+    hk6_title:'Book a Consultation', hk6_desc:'Hong Kong insurance products must be arranged via in-person or video meeting — they cannot be purchased online. Contact us by email or WhatsApp to arrange a time.',
+    cies_title:'About New CIES & Investment-Linked Insurance (ILAS)',
+    cies_p1:'The Hong Kong SAR Government officially launched the <strong>New Capital Investment Entrant Scheme (New CIES)</strong> on <strong>1 March 2024</strong>, allowing eligible applicants to obtain Hong Kong residency by investing <strong>HKD 30 million or more</strong> in permissible financial assets.',
+    cies_p2:'Among the permissible assets, <strong>Eligible Collective Investment Schemes</strong> include <strong>Investment-Linked Assurance Schemes (ILAS)</strong> issued by SFC-authorised Hong Kong insurers. Products must appear on the SFC\'s official <em>List of Eligible Collective Investment Schemes under the New CIES</em> to qualify.',
+    cies_p3:'We hold a <strong>Type 5 Insurance Licence (Long-term Investment-Linked Insurance Advisor)</strong> issued by the Hong Kong Insurance Authority, and can advise clients interested in using an ILAS for New CIES. <strong>These products require a face-to-face or video consultation and cannot be purchased online.</strong> Please contact us for more information.',
+    cies_disclaimer:'Disclaimer: The above is for general reference only and does not constitute investment or immigration advice. New CIES eligibility and rules are subject to the latest announcements from the HK Immigration Department and SFC.',
+    contact_label:'CONTACT US', contact_title:'Contact Us', contact_sub:'Whether you need a travel insurance recommendation or HK insurance advisory, we\'re happy to help.',
+    cc1_title:'Contact Details', cc1_sub:'Open to travel insurance and HK insurance enquiries. First consultation is free.',
+    label_email:'Email',
+    hours_label:'Service Hours', hours_time:'Hong Kong Time 10:00 AM – 7:00 PM', hours_sub:'Monday to Sunday (including public holidays)', hours_reply:'📩 99% of enquiries answered within 24 hours',
+    proc_title:'Consultation Process', proc_sub:'HK insurance products require an in-person or video meeting. Here\'s how it works:',
+    step1_title:'Send an Enquiry', step1_desc:'Email or WhatsApp us your needs (travel insurance / life & CI / New CIES ILAS, etc.)',
+    step2_title:'Advisor Responds', step2_desc:'We\'ll reply within 24 hours, learn about your situation, and schedule a suitable consultation',
+    step3_title:'Personal Consultation', step3_desc:'In-person or video meeting to analyse options and provide tailored recommendations',
+    step4_title:'Ongoing Service', step4_desc:'Post-application follow-up, policy management, and annual review',
+    footer_esim:'Buy eSIM', footer_saily:'Saily eSIM', footer_vpn:'VPN', footer_flights:'Flight Tips', footer_blog:'Visa & Travel Guides', footer_privacy:'Privacy Policy',
+   footer_copy: '© 2026 Juliet and Roland Hong Kong Limited. All rights reserved.<br/>Roammelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    footer_legal:'Travel insurance comparison links on this page are affiliate links. Hong Kong insurance advisory services are provided by an advisor licensed by the Insurance Authority of Hong Kong under the Insurance Ordinance. Content is for general reference only and does not constitute investment, financial, or immigration advice. New CIES rules are subject to the latest HK Immigration Department and SFC announcements.',
+  }
+};
+
+function setLang(lang, e) {
+  const tr = t[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (tr[k] !== undefined) el.innerHTML = tr[k];
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.target) e.target.classList.add('active');
+  const titles = {
+    'zh-Hans': '旅行保险 & 香港保险咨询 | RoamMelb',
+    'zh-Hant': '旅行保險 & 香港保險諮詢 | RoamMelb',
+    'en': 'Travel Insurance & HK Insurance Advisory | RoamMelb'
+  };
+  document.title = titles[lang];
+}
+</script>
+</body>
+</html>
