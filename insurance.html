@@ -308,7 +308,17 @@
     .footer-legal-note { font-size: 0.72rem; color: var(--ink3); font-family: var(--font-mono); width: 100%; line-height: 1.6; padding-top: 12px; border-top: 1px solid var(--border2); }
 
     @media (max-width: 960px) { .insurer-grid { grid-template-columns: 1fr; } .hk-grid { grid-template-columns: 1fr; } .contact-grid { grid-template-columns: 1fr; } .two-col { grid-template-columns: 1fr; } }
-    @media (max-width: 768px) { nav { padding: 16px 20px; } .hero { padding: 120px 20px 56px; } .section { padding: 64px 20px; } .contact-banner { padding: 36px 20px; } footer { padding: 36px 20px; } .cies-box { flex-direction: column; gap: 16px; padding: 28px; } }
+    @media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .hero { padding: 120px 20px 56px; }
+  .section { padding: 64px 20px; }
+  .contact-banner { padding: 36px 20px; }
+  .contact-banner { flex-direction: column; }
+  .contact-methods { flex-direction: column; width: 100%; }
+  .contact-btn { justify-content: center; }
+  footer { padding: 36px 20px; }
+  .cies-box { flex-direction: column; gap: 16px; padding: 28px; }
+}
   </style>
 </head>
 <body>
