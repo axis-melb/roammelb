@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>常见问题 FAQ — RoamMelb</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --lime: #c8f135;
+      --lime-dark: #a8cc1a;
+      --gray-8: #1a1a18;
+      --gray-9: #141412;
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+    .lang-btn {
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.45); padding: 5px 10px; border-radius: 6px;
+      font-size: 0.75rem; cursor: pointer; font-family: 'Noto Sans SC', sans-serif;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .lang-btn.active {
+      background: rgba(200,241,53,0.12); border-color: rgba(200,241,53,0.4); color: var(--lime);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06); gap: 16px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem;
+      letter-spacing: -0.03em; color: var(--white); text-decoration: none; flex-shrink: 0;
+    }
+    .logo span { color: var(--lime); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.88rem; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--lime); color: var(--black) !important;
+      padding: 10px 22px; border-radius: 100px;
+      font-weight: 600 !important; font-size: 0.85rem !important;
+    }
+    .nav-cta:hover { background: var(--lime-dark) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 140px 40px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(200,241,53,0.07) 0%, transparent 70%);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.3);
+      margin-bottom: 20px; position: relative; z-index: 1;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.3); text-decoration: none; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.6); }
+    .breadcrumb span { color: rgba(255,255,255,0.5); }
+    .page-label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--lime); margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .page-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;
+      position: relative; z-index: 1;
+    }
+    .page-title .muted { color: rgba(255,255,255,0.25); font-weight: 400; }
+    .page-sub {
+      margin-top: 16px; font-size: 0.95rem;
+      color: rgba(255,255,255,0.45); line-height: 1.65; max-width: 480px;
+      position: relative; z-index: 1;
+    }
+
+    /* ── QUICK NAV PILLS ── */
+    .quick-nav {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      padding: 28px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: var(--gray-9);
+    }
+    .qn-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px; padding: 8px 16px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.55);
+      text-decoration: none; transition: all 0.2s;
+    }
+    .qn-pill:hover {
+      background: rgba(200,241,53,0.08); border-color: rgba(200,241,53,0.2);
+      color: var(--white);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .faq-page {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      align-items: start;
+    }
+
+    /* ── STICKY SIDEBAR TOC ── */
+    .faq-toc {
+      position: sticky; top: 84px;
+      padding: 48px 32px 48px 40px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+    .toc-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.25);
+      margin-bottom: 16px;
+    }
+    .toc-links { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .toc-links a {
+      display: block; padding: 8px 12px; border-radius: 8px;
+      font-size: 0.82rem; color: rgba(255,255,255,0.4);
+      text-decoration: none; transition: all 0.2s; line-height: 1.45;
+    }
+    .toc-links a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    .toc-links a.active { color: var(--lime); background: rgba(200,241,53,0.08); }
+    .toc-contact {
+      margin-top: 32px; padding: 16px;
+      background: rgba(200,241,53,0.06); border: 1px solid rgba(200,241,53,0.12);
+      border-radius: var(--radius-sm);
+    }
+    .toc-contact p { font-size: 0.75rem; color: rgba(255,255,255,0.4); line-height: 1.55; }
+    .toc-contact a { color: var(--lime); text-decoration: none; }
+    .toc-contact a:hover { text-decoration: underline; }
+
+    /* ── FAQ CONTENT ── */
+    .faq-content { padding: 48px 40px 80px; }
+
+    .faq-section { margin-bottom: 64px; }
+    .faq-section:last-child { margin-bottom: 0; }
+
+    .section-anchor { display: block; height: 84px; margin-top: -84px; visibility: hidden; }
+
+    .faq-section-head {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px; padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .section-icon { font-size: 1.4rem; }
+    .section-title-text {
+      font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
+    }
+    .section-count {
+      margin-left: auto; font-size: 0.72rem;
+      color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 3px 10px; border-radius: 100px;
+    }
+
+    /* ── FAQ ITEMS ── */
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      color: var(--white); text-align: left;
+      padding: 20px 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 16px; font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.9rem; font-weight: 500; line-height: 1.55;
+    }
+    .faq-q:hover { color: rgba(255,255,255,0.8); }
+    .faq-arrow {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: transform 0.25s, background 0.2s;
+      color: rgba(255,255,255,0.4); font-size: 0.7rem; margin-top: 2px;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: rgba(200,241,53,0.12); border-color: rgba(200,241,53,0.3); color: var(--lime);
+    }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.25s;
+      font-size: 0.86rem; color: rgba(255,255,255,0.5); line-height: 1.75;
+    }
+    .faq-item.open .faq-a { max-height: 1200px; padding-bottom: 22px; }
+    .faq-a a { color: var(--lime); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+    .faq-a strong { color: rgba(255,255,255,0.85); }
+
+    /* answer sub-elements */
+    .faq-note {
+      background: rgba(200,241,53,0.06); border: 1px solid rgba(200,241,53,0.15);
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 0.8rem; color: rgba(200,241,53,0.85); margin-top: 14px; line-height: 1.6;
+    }
+    .faq-warn {
+      background: rgba(246,173,85,0.06); border: 1px solid rgba(246,173,85,0.15);
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 0.8rem; color: rgba(246,173,85,0.85); margin-top: 14px; line-height: 1.6;
+    }
+    .faq-table-wrap { overflow-x: auto; margin-top: 14px; }
+    .faq-table {
+      width: 100%; border-collapse: collapse; font-size: 0.8rem;
+    }
+    .faq-table th {
+      text-align: left; padding: 10px 14px;
+      background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 500;
+    }
+    .faq-table td {
+      padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.5); vertical-align: top;
+    }
+    .faq-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .tag-ok { color: #68d391; }
+    .tag-warn { color: #f6ad55; }
+    .tag-no { color: #fc8181; }
+
+    /* data usage table */
+    .usage-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 14px; }
+    .usage-table th {
+      text-align: left; padding: 10px 14px;
+      background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.5);
+      border-bottom: 1px solid rgba(255,255,255,0.07); font-weight: 500;
+    }
+    .usage-table td {
+      padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* steps inline */
+    .install-steps { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .install-step {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm); padding: 12px 16px;
+    }
+    .install-step-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--lime); margin-bottom: 6px;
+    }
+    .install-step-text { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.55; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      margin: 48px 40px 0;
+      background: var(--lime); border-radius: var(--radius);
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .cta-strip h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem;
+      font-weight: 800; color: var(--black); letter-spacing: -0.03em;
+    }
+    .cta-strip p { font-size: 0.9rem; color: rgba(0,0,0,0.5); margin-top: 6px; }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black); color: var(--white);
+      padding: 14px 28px; border-radius: 100px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      white-space: nowrap; flex-shrink: 0; transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 80px; padding: 48px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: flex-start; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--lime); }
+    .footer-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.32); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.65); }
+    .footer-bottom {
+      width: 100%; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.18); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.18); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.42); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .faq-page { grid-template-columns: 1fr; }
+      .faq-toc { display: none; }
+      .faq-content { padding: 40px 20px 60px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 120px 20px 48px; }
+      .quick-nav { padding: 20px; }
+      .cta-strip { margin: 40px 20px 0; padding: 32px 24px; }
+      footer { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">Roam<span>Melb</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/#esim" data-i18n="nav_esim">eSIM</a></li>
+      <li><a href="/#how" data-i18n="nav_how">怎么用</a></li>
+      <li><a href="/#destinations" data-i18n="nav_dest">目的地</a></li>
+      <li><a href="/faq" data-i18n="nav_faq" style="color:var(--white)">常见问题</a></li>
+      <li><a href="/shop" class="nav-cta" data-i18n="nav_buy">立即购买</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('zh-Hans',event)">简体</button>
+      <button class="lang-btn" onclick="setLang('zh-Hant',event)">繁體</button>
+      <button class="lang-btn" onclick="setLang('en',event)">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="/" data-i18n="bc_home">首页</a>
+    <span>›</span>
+    <span data-i18n="bc_faq">常见问题</span>
+  </div>
+  <div class="page-label" data-i18n="page_label">FAQ</div>
+  <h1 class="page-title">
+    <span data-i18n="page_h1a">买之前</span><br/>
+    <span class="muted" data-i18n="page_h1b">你可能想知道的</span>
+  </h1>
+  <p class="page-sub" data-i18n="page_sub">涵盖 eSIM 基础、安装步骤、中国大陆使用、流量估算、付款与退款等常见问题。找不到答案？随时联系我们。</p>
+</div>
+
+<!-- QUICK NAV -->
+<div class="quick-nav">
+  <a href="#basics" class="qn-pill" data-i18n="qn1">📶 eSIM 基础</a>
+  <a href="#china" class="qn-pill" data-i18n="qn2">🇨🇳 中国大陆使用</a>
+  <a href="#install" class="qn-pill" data-i18n="qn3">📲 安装与激活</a>
+  <a href="#data" class="qn-pill" data-i18n="qn4">📊 流量使用</a>
+  <a href="#payment" class="qn-pill" data-i18n="qn5">💳 购买与支付</a>
+  <a href="#tech" class="qn-pill" data-i18n="qn6">🔧 技术问题</a>
+  <a href="#about" class="qn-pill" data-i18n="qn7">🏢 关于 RoamMelb</a>
+</div>
+
+<!-- MAIN: TOC + CONTENT -->
+<div class="faq-page">
+
+  <!-- TOC sidebar -->
+  <nav class="faq-toc">
+    <div class="toc-label" data-i18n="toc_label">目录</div>
+    <ul class="toc-links">
+      <li><a href="#basics" data-i18n="toc1">📶 eSIM 基础</a></li>
+      <li><a href="#china" data-i18n="toc2">🇨🇳 中国大陆</a></li>
+      <li><a href="#install" data-i18n="toc3">📲 安装与激活</a></li>
+      <li><a href="#data" data-i18n="toc4">📊 流量使用</a></li>
+      <li><a href="#payment" data-i18n="toc5">💳 购买与支付</a></li>
+      <li><a href="#tech" data-i18n="toc6">🔧 技术问题</a></li>
+      <li><a href="#about" data-i18n="toc7">🏢 关于我们</a></li>
+    </ul>
+    <div class="toc-contact">
+      <p data-i18n="toc_contact">找不到答案？<br/><a href="mailto:support@roammelb.com">support@roammelb.com</a><br/>2个工作日内回复</p>
+    </div>
+  </nav>
+
+  <!-- FAQ content -->
+  <div class="faq-content">
+
+    <!-- ── SECTION 1: eSIM 基础 ── -->
+    <div class="faq-section" id="basics">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">📶</span>
+        <span class="section-title-text" data-i18n="s1_title">eSIM 基础问题</span>
+        <span class="section-count" data-i18n="s1_count">5 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_1">什么是 eSIM？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_1">eSIM（嵌入式SIM）是直接内置在手机芯片里的虚拟SIM卡，无需插入实体卡。购买后扫描二维码即可激活，即买即用，特别适合出行前准备。<br/><br/>An eSIM (embedded SIM) is a virtual SIM card built directly into your phone — no physical card needed. After purchase, simply scan the QR code to activate. Instant delivery, instant setup.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_2">eSIM 跟实体 SIM 卡有什么区别？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_2">实体SIM需要到机场或门店购买，需要实名登记，可能需要排队等候。eSIM 在线购买，即时发送到邮箱，扫码安装，全程无需登记身份证，也不会占用手机的实体卡槽（可以同时保留澳洲号码使用）。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_3">eSIM 有手机号码吗？需要实名登记吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_3">RoamMelb 销售的是纯数据流量（Data-Only）eSIM，<strong>不含手机号码和短信（SMS）功能</strong>，因此无需实名登记。<br/><br/>您仍然可以正常使用所有基于数据流量的语音服务，例如 WhatsApp 语音/视频通话、微信语音/视频通话、FaceTime 等。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_4">我的手机支持 eSIM 吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_4">以下是主流支持 eSIM 的机型：</span>
+          <div class="faq-table-wrap">
+            <table class="faq-table">
+              <thead><tr>
+                <th data-i18n="th_brand">品牌</th>
+                <th data-i18n="th_models">支持机型</th>
+                <th data-i18n="th_notes">注意事项</th>
+              </tr></thead>
+              <tbody>
+                <tr><td>🍎 iPhone</td><td>XR / XS 及以上所有型号</td><td class="tag-warn" data-i18n="iphone_note">⚠ 中国大陆、香港购买的双实体SIM版本可能不支持</td></tr>
+                <tr><td>Samsung</td><td>S20 / Note 20 / Z Fold / Z Flip / A54、A55、A56</td><td class="tag-warn" data-i18n="samsung_note">⚠ 中国/香港/台湾购买的三星大多不支持</td></tr>
+                <tr><td>Google Pixel</td><td>Pixel 3 及以上</td><td class="tag-ok" data-i18n="pixel_note">✅ 安卓中支持最稳定</td></tr>
+                <tr><td>小米 Xiaomi</td><td data-i18n="xiaomi_models">部分机型（如 12T Pro）</td><td class="tag-warn" data-i18n="xiaomi_note">⚠ 中国版通常不支持</td></tr>
+                <tr><td>华为 Huawei</td><td>P40 / P40 Pro</td><td class="tag-warn" data-i18n="huawei_note">⚠ 国内版基本不支持，P40 Pro+ 不支持</td></tr>
+                <tr><td>OnePlus</td><td>11 / 12 / 13</td><td class="tag-ok">✅</td></tr>
+                <tr><td>Motorola</td><td data-i18n="moto_models">Edge / Razr 部分型号</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="faq-warn" data-i18n="eid_note">⚠ 检查方法：iPhone → 设置 → 通用 → 关于本机 → 查看是否有「可用SIM卡」；Android → 拨打 *#06# → 查看是否有 EID 号码。有 EID 即代表支持 eSIM。不确定请联系 <a href="mailto:support@roammelb.com">support@roammelb.com</a></div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_5">RoamMelb 和 Airalo 是什么关系？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_5">RoamMelb 是 Airalo 官方授权的转售商（Reseller）。您购买的 eSIM 产品与直接在 Airalo 官网购买完全相同，由同一网络运营商提供，品质无异。<br/><br/>RoamMelb 额外提供：中文客服和支持、支付宝 / 微信支付等本地支付方式，以及中文出行资讯服务。</span>
+        </div>
+      </div>
+
+    </div><!-- /basics -->
+
+
+    <!-- ── SECTION 2: 中国大陆使用 ── -->
+    <div class="faq-section" id="china">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">🇨🇳</span>
+        <span class="section-title-text" data-i18n="s2_title">中国大陆使用</span>
+        <span class="section-count" data-i18n="s2_count">4 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_1">在中国大陆用 RoamMelb eSIM 能访问境外网站和应用吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_1">使用国际漫游 eSIM 时，您的数据流量通过香港或新加坡的国际服务器路由，而不是直接进入中国大陆互联网。对于大多数用户而言，这意味着可以正常访问 Google、YouTube、Instagram、WhatsApp、Facebook 等境外平台，<strong>无需额外工具</strong>。</span>
+          <div class="faq-warn" data-i18n="a2_1_note">⚠ 免责说明：Airalo 官方不对境外网站访问功能作出明确保证。实际体验可能因城市、运营商信号、手机型号及网络环境而有所不同。RoamMelb 不对个别情况作出保证。根据用户反馈，成功率整体较高，但无法做到100%。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_2">连上网了，但 IP 地址显示是香港或新加坡，正常吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_2">完全正常。这正是漫游 eSIM 的工作原理——您的手机连接中国联通在大陆的信号塔，但数据经由香港或新加坡路由至国际互联网。<br/><br/>IP 地址显示香港或新加坡是预期行为，不是故障。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_3">香港节点会影响 ChatGPT / Claude 等 AI 工具的访问吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_3">有可能影响。部分 AI 服务（如 ChatGPT、Claude、Gemini）对香港 IP 的访问存在限制，因为这些服务在香港地区不完全开放。<br/><br/>如果遇到 AI 工具无法使用的情况，可以尝试：<br/>• 开启飞行模式 → 等待 10-15 秒 → 关闭飞行模式，强制重新分配 IP 节点（有机会切换到新加坡节点）<br/>• 关闭 eSIM 数据 → 等待 5 秒 → 重新开启<br/>• 在有 Wi-Fi 的地方（酒店、咖啡厅）使用 AI 工具</span>
+          <div class="faq-note" data-i18n="a2_3_note">💡 根据用户反馈，新加坡节点访问 AI 工具的成功率高于香港节点，但两者均无法100%保证。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_4">我已经到了中国大陆，还能安装 eSIM 吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_4">有一定挑战，需满足以下条件：<br/>• eSIM 的二维码通过邮件发送，需要能访问邮箱<br/>• 安装 eSIM 本身需要网络连接（Wi-Fi 或现有数据）<br/>• 如果在中国大陆完全没有网络，则无法完成安装<br/><br/><strong>强烈建议：出发前在澳洲或有稳定网络的地方完成安装。</strong></span>
+          <div class="faq-note" data-i18n="a2_4_note">✅ 最佳做法：在澳洲家中出发前扫码安装好 eSIM，关闭 eSIM 数据。到达中国大陆后，关闭澳洲 SIM 卡的数据漫游，开启 eSIM 数据，自动连接中国联通网络。eSIM 的有效期从首次连接当地网络时开始，不是从购买时开始。</div>
+        </div>
+      </div>
+
+    </div><!-- /china -->
+
+
+    <!-- ── SECTION 3: 安装与激活 ── -->
+    <div class="faq-section" id="install">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">📲</span>
+        <span class="section-title-text" data-i18n="s3_title">安装与激活</span>
+        <span class="section-count" data-i18n="s3_count">4 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_1">如何安装 eSIM？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_1">付款完成后，eSIM 二维码即时发送到注册邮箱。</span>
+          <div class="faq-warn" data-i18n="a3_1_warn">⚠ 重要提示：扫描二维码的手机，必须是您要安装 eSIM 的那台手机。由于扫码和安装在同一台手机上无法同时进行，您需要用另一台设备（第二台手机、平板、电脑）打开邮件显示二维码，再用要安装 eSIM 的手机扫描。</div>
+          <div class="install-steps">
+            <div class="install-step">
+              <div class="install-step-label">🍎 iPhone</div>
+              <div class="install-step-text">设置 → 蜂窝网络 → 添加eSIM → 使用二维码</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label">📱 Samsung</div>
+              <div class="install-step-text">设置 → 连接 → SIM卡管理器 → 添加eSIM → 扫描二维码</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label">📱 Google Pixel</div>
+              <div class="install-step-text">设置 → 网络和互联网 → SIM卡 → 下载SIM → 扫描二维码</div>
+            </div>
+          </div>
+          <div class="faq-note" data-i18n="a3_1_note">💡 安装成功后：设置 → 蜂窝网络（或移动网络）→ 将 eSIM 设为数据SIM → 开启「数据漫游」。建议在出发前在家 Wi-Fi 环境下完成安装，到目的地后再开启数据。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_2">eSIM 什么时候开始计时？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_2">eSIM 从<strong>首次连接到目的地网络时才开始计时</strong>，不是从购买时开始，也不是从安装时开始。<br/><br/>您可以提前几天买好并安装，到达目的地后再打开数据连接，有效期才正式启动，不会浪费任何天数。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_3">一台手机可以装几张 eSIM？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_3">大多数手机可存储 8-10 个 eSIM，但同时激活的通常只能有 1-2 个。<br/><br/>iPhone 13 及以上支持双 eSIM 同时激活。eSIM 可长期保存在手机里，下次出行同一地区直接激活，无需重新购买（前提是套餐未过期）。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_4">换手机了，eSIM 可以转移吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_4">大多数 eSIM 二维码只能使用一次，扫码安装后绑定到该设备。如需转移到新手机，请联系 <a href="mailto:support@roammelb.com">support@roammelb.com</a>，我们将根据实际情况（是否已激活/使用）评估是否可以补发。</span>
+        </div>
+      </div>
+
+    </div><!-- /install -->
+
+
+    <!-- ── SECTION 4: 流量使用 ── -->
+    <div class="faq-section" id="data">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">📊</span>
+        <span class="section-title-text" data-i18n="s4_title">流量使用</span>
+        <span class="section-count" data-i18n="s4_count">3 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q4_1">1GB 流量大概能用多久？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <table class="usage-table">
+            <thead><tr>
+              <th data-i18n="ut_activity">使用场景</th>
+              <th data-i18n="ut_rate">消耗速度</th>
+              <th data-i18n="ut_duration">1GB 大约可用</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>📱 微信/WhatsApp 文字消息</td><td data-i18n="ut_very_low">极低</td><td data-i18n="ut_days">数天</td></tr>
+              <tr><td>📞 微信/WhatsApp 语音通话</td><td>~40 MB/小时</td><td data-i18n="ut_25h">约25小时</td></tr>
+              <tr><td>📹 视频通话</td><td>~300 MB/小时</td><td data-i18n="ut_3h">约3小时</td></tr>
+              <tr><td>🗺 地图导航</td><td>~70 MB/小时</td><td data-i18n="ut_14h">约14小时</td></tr>
+              <tr><td>📸 社交媒体浏览（无视频）</td><td>~150 MB/小时</td><td data-i18n="ut_7h">约7小时</td></tr>
+              <tr><td>🎬 YouTube 480p</td><td>~500 MB/小时</td><td data-i18n="ut_2h">约2小时</td></tr>
+              <tr><td>🎬 YouTube 1080p</td><td>~3 GB/小时</td><td data-i18n="ut_20m">约20分钟</td></tr>
+            </tbody>
+          </table>
+          <div class="faq-note" data-i18n="data_tips">💡 省流量技巧：出发前在家 Wi-Fi 下下载离线地图（Google Maps / 百度地图）· 音乐/播客在 Wi-Fi 下下载后离线播放 · YouTube 视频质量设为 480p 可节省约80%流量 · 关闭 App 后台数据刷新 · 关闭系统自动更新</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q4_2">「无限量」套餐真的无限吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a4_2">Airalo 的「无限量」套餐实际上是：<strong>每日 3GB 高速流量</strong>，用完后自动降速至约 1Mbps（约等于低速网络）。<br/><br/>降速后仍可正常使用：微信文字/语音消息、邮件、导航、轻量网页浏览。视频通话和高清视频流媒体会明显卡顿。<br/><br/>大多数旅行者每日 3GB 高速流量已经足够，除非全天看高清视频或做视频直播。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q4_3">可以用 eSIM 开热点（分享给其他设备）吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a4_3">✅ 支持。大多数套餐允许开启个人热点（Wi-Fi热点），可以与平板、笔记本电脑共享网络。<br/><br/>注意：热点共享会加快流量消耗，建议有限额套餐的用户谨慎使用。</span>
+        </div>
+      </div>
+
+    </div><!-- /data -->
+
+
+    <!-- ── SECTION 5: 购买与支付 ── -->
+    <div class="faq-section" id="payment">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">💳</span>
+        <span class="section-title-text" data-i18n="s5_title">购买与支付</span>
+        <span class="section-count" data-i18n="s5_count">4 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_1">如何购买？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a5_1">访问 <a href="/shop">shop.roammelb.com</a> → 选择目的地和套餐 → 加入购物车 → 结账 → 收到邮件中的二维码 → 扫码安装。全程约 5 分钟，eSIM 即时发送到注册邮箱。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_2">支持哪些付款方式？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a5_2">我们支持以下付款方式：<br/>• 💚 微信支付（WeChat Pay）<br/>• 🔵 支付宝（Alipay）<br/>• 💳 Visa / Mastercard 信用卡及储蓄卡<br/>• 🍎 Apple Pay（iOS 设备）</span>
+          <div class="faq-warn" data-i18n="a5_2_warn">⚠ 信用卡持卡人注意：我们通过 Stripe 处理付款，系统会识别为境外消费（海外交易）。如果您的银行卡设有「境外消费限制」，请在购买前联系发卡银行临时开启境外支付，或改用支付宝 / 微信支付。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_3">价格是否含 GST？可以开发票吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a5_3">RoamMelb 目前年营业额未达到澳大利亚 GST 注册门槛（A$75,000），因此现阶段所有价格均<strong>不含 GST</strong>。当营业额超过门槛后，价格可能须加收 10% GST，届时会提前通知。<br/><br/>如需发票，购买完成后会收到含付款详情的自动确认邮件。如需正式发票，请发邮件至 <a href="mailto:support@roammelb.com">support@roammelb.com</a>。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_4">可以退款吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-table-wrap">
+            <table class="faq-table">
+              <thead><tr><th data-i18n="ref_situation">情况</th><th data-i18n="ref_outcome">退款结果</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="ref_r1">购买后未扫描安装二维码</td><td class="tag-ok" data-i18n="ref_ok">✅ 全额退款</td></tr>
+                <tr><td data-i18n="ref_r2">已安装但未激活（未在目的地使用）</td><td class="tag-warn" data-i18n="ref_case">⚠ 视情况，请联系客服</td></tr>
+                <tr><td data-i18n="ref_r3">已扫码安装并开始使用</td><td class="tag-no" data-i18n="ref_no">❌ 不予退款</td></tr>
+                <tr><td data-i18n="ref_r4">eSIM 无法正常使用（技术故障）</td><td class="tag-ok" data-i18n="ref_replace">✅ 全额退款或补发</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="faq-note" data-i18n="ref_note">退款请求请发邮件至 <a href="mailto:support@roammelb.com">support@roammelb.com</a>，说明订单号及问题，承诺 2 个工作日内回复。</div>
+        </div>
+      </div>
+
+    </div><!-- /payment -->
+
+
+    <!-- ── SECTION 6: 技术问题 ── -->
+    <div class="faq-section" id="tech">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">🔧</span>
+        <span class="section-title-text" data-i18n="s6_title">常见技术问题</span>
+        <span class="section-count" data-i18n="s6_count">3 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_1">装好了但没有信号，怎么办？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_1">按以下步骤逐一排查：<br/>1. 确认已将 eSIM 设为数据SIM（设置 → 蜂窝网络 → 蜂窝数据 → 选择eSIM）<br/>2. 确认已开启「数据漫游」（同一菜单内）<br/>3. 开启飞行模式 → 等待 15 秒 → 关闭，强制重新连接<br/>4. 手动选择网络运营商（设置 → 蜂窝网络 → 网络选择 → 手动），在中国选「中国联通」<br/>5. 重启手机<br/><br/>以上均无效，请联系 <a href="mailto:support@roammelb.com">support@roammelb.com</a></span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_2">流量快用完了，可以续费吗？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_2">可以。通过 Airalo 应用（App Store / Google Play 搜索「Airalo」）可以直接查看剩余流量并在线充值（Top-Up）。充值后继续使用同一张 eSIM，无需重新安装。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_3">如何查看剩余流量？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_3">• Airalo App → 登录 → 我的eSIM → 查看用量（最准确）<br/>• iPhone：设置 → 蜂窝网络 → 对应eSIM → 查看用量（注意：每次重启后数字会重置）<br/>• 部分运营商会发短信提醒剩余流量</span>
+        </div>
+      </div>
+
+    </div><!-- /tech -->
+
+
+    <!-- ── SECTION 7: 关于 RoamMelb ── -->
+    <div class="faq-section" id="about">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">🏢</span>
+        <span class="section-title-text" data-i18n="s7_title">关于 RoamMelb</span>
+        <span class="section-count" data-i18n="s7_count">2 题</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q7_1">RoamMelb 是什么？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a7_1">RoamMelb 是由澳洲华人创立的 eSIM 品牌，专为需要出行数据的华人社群服务。我们通过 Airalo 官方授权渠道销售，产品来源可靠，提供全程中文客服支持。<br/><br/>RoamMelb 是 Juliet and Roland Hong Kong Limited 旗下的注册交易品牌。</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q7_2">如何联系客服？</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a7_2">• 📧 邮件：<a href="mailto:support@roammelb.com">support@roammelb.com</a>（2个工作日内回复）<br/>• 🌐 网站：<a href="/">roammelb.com</a><br/>• 🛒 商店：<a href="/shop">shop.roammelb.com</a></span>
+        </div>
+      </div>
+
+    </div><!-- /about -->
+
+  </div><!-- /faq-content -->
+</div><!-- /faq-page -->
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div>
+    <h2 data-i18n="cta_h2">问题解决了？</h2>
+    <p data-i18n="cta_p">选一个套餐，两分钟搞定出行网络</p>
+  </div>
+  <a href="/shop" class="btn-dark">
+    <span data-i18n="cta_btn">立即选购 eSIM</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">Roam<span>Melb</span></a>
+  <ul class="footer-links">
+    <li><a href="/shop" data-i18n="footer_esim">购买eSIM</a></li>
+    <li><a href="/saily">Saily eSIM</a></li>
+    <li><a href="/vpn" data-i18n="footer_vpn">VPN推荐</a></li>
+    <li><a href="/insurance" data-i18n="footer_ins">旅行保险</a></li>
+    <li><a href="/flights" data-i18n="footer_flights">机票攻略</a></li>
+    <li><a href="/travel-guide" data-i18n="footer_blog">签证 &amp; 攻略</a></li>
+    <li><a href="/faq" data-i18n="footer_faq">常见问题</a></li>
+    <li><a href="/contact" data-i18n="footer_contact">联系我们</a></li>
+  </ul>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2026 Juliet and Roland Hong Kong Limited. All rights reserved. RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.</div>
+    <div class="footer-legal">
+      <a href="/privacy" data-i18n="footer_privacy">隐私政策</a>
+      <a href="/terms" data-i18n="footer_terms">服务条款</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+
+/* ── SCROLL SPY for TOC ── */
+const sections = ['basics','china','install','data','payment','tech','about'];
+function updateToc() {
+  let active = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 120) active = id;
+  });
+  document.querySelectorAll('.toc-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();
+
+/* ── I18N ── */
+const i18n = {
+  'zh-Hans': {
+    nav_esim:'eSIM', nav_how:'怎么用', nav_dest:'目的地', nav_faq:'常见问题', nav_buy:'立即购买',
+    bc_home:'首页', bc_faq:'常见问题',
+    page_label:'FAQ', page_h1a:'买之前', page_h1b:'你可能想知道的',
+    page_sub:'涵盖 eSIM 基础、安装步骤、中国大陆使用、流量估算、付款与退款等常见问题。找不到答案？随时联系我们。',
+    qn1:'📶 eSIM 基础', qn2:'🇨🇳 中国大陆使用', qn3:'📲 安装与激活', qn4:'📊 流量使用', qn5:'💳 购买与支付', qn6:'🔧 技术问题', qn7:'🏢 关于 RoamMelb',
+    toc_label:'目录', toc1:'📶 eSIM 基础', toc2:'🇨🇳 中国大陆', toc3:'📲 安装与激活', toc4:'📊 流量使用', toc5:'💳 购买与支付', toc6:'🔧 技术问题', toc7:'🏢 关于我们',
+    toc_contact:'找不到答案？<br/><a href="mailto:support@roammelb.com">support@roammelb.com</a><br/>2个工作日内回复',
+    s1_title:'eSIM 基础问题', s1_count:'5 题',
+    q1_1:'什么是 eSIM？', a1_1:'eSIM（嵌入式SIM）是直接内置在手机芯片里的虚拟SIM卡，无需插入实体卡。购买后扫描二维码即可激活，即买即用，特别适合出行前准备。<br/><br/>An eSIM (embedded SIM) is a virtual SIM card built directly into your phone — no physical card needed. After purchase, simply scan the QR code to activate. Instant delivery, instant setup.',
+    q1_2:'eSIM 跟实体 SIM 卡有什么区别？', a1_2:'实体SIM需要到机场或门店购买，需要实名登记，可能需要排队等候。eSIM 在线购买，即时发送到邮箱，扫码安装，全程无需登记身份证，也不会占用手机的实体卡槽（可以同时保留澳洲号码使用）。',
+    q1_3:'eSIM 有手机号码吗？需要实名登记吗？', a1_3:'RoamMelb 销售的是纯数据流量（Data-Only）eSIM，<strong>不含手机号码和短信（SMS）功能</strong>，因此无需实名登记。<br/><br/>您仍然可以正常使用所有基于数据流量的语音服务，例如 WhatsApp 语音/视频通话、微信语音/视频通话、FaceTime 等。',
+    q1_4:'我的手机支持 eSIM 吗？',
+    a1_4:'以下是主流支持 eSIM 的机型：',
+    th_brand:'品牌', th_models:'支持机型', th_notes:'注意事项',
+    iphone_note:'⚠ 中国大陆、香港购买的双实体SIM版本可能不支持',
+    samsung_note:'⚠ 中国/香港/台湾购买的三星大多不支持',
+    pixel_note:'✅ 安卓中支持最稳定',
+    xiaomi_models:'部分机型（如 12T Pro）', xiaomi_note:'⚠ 中国版通常不支持',
+    huawei_note:'⚠ 国内版基本不支持，P40 Pro+ 不支持',
+    moto_models:'Edge / Razr 部分型号',
+    eid_note:'⚠ 检查方法：iPhone → 设置 → 通用 → 关于本机 → 查看是否有「可用SIM卡」；Android → 拨打 *#06# → 查看是否有 EID 号码。有 EID 即代表支持 eSIM。不确定请联系 <a href="mailto:support@roammelb.com">support@roammelb.com</a>',
+    q1_5:'RoamMelb 和 Airalo 是什么关系？', a1_5:'RoamMelb 是 Airalo 官方授权的转售商（Reseller）。您购买的 eSIM 产品与直接在 Airalo 官网购买完全相同，由同一网络运营商提供，品质无异。<br/><br/>RoamMelb 额外提供：中文客服和支持、支付宝 / 微信支付等本地支付方式，以及中文出行资讯服务。',
+    s2_title:'中国大陆使用', s2_count:'4 题',
+    q2_1:'在中国大陆用 RoamMelb eSIM 能访问境外网站和应用吗？',
+    a2_1:'使用国际漫游 eSIM 时，您的数据流量通过香港或新加坡的国际服务器路由，而不是直接进入中国大陆互联网。对于大多数用户而言，这意味着可以正常访问 Google、YouTube、Instagram、WhatsApp、Facebook 等境外平台，<strong>无需额外工具</strong>。',
+    a2_1_note:'⚠ 免责说明：Airalo 官方不对境外网站访问功能作出明确保证。实际体验可能因城市、运营商信号、手机型号及网络环境而有所不同。RoamMelb 不对个别情况作出保证。根据用户反馈，成功率整体较高，但无法做到100%。',
+    q2_2:'连上网了，但 IP 地址显示是香港或新加坡，正常吗？',
+    a2_2:'完全正常。这正是漫游 eSIM 的工作原理——您的手机连接中国联通在大陆的信号塔，但数据经由香港或新加坡路由至国际互联网。<br/><br/>IP 地址显示香港或新加坡是预期行为，不是故障。',
+    q2_3:'香港节点会影响 ChatGPT / Claude 等 AI 工具的访问吗？',
+    a2_3:'有可能影响。部分 AI 服务（如 ChatGPT、Claude、Gemini）对香港 IP 的访问存在限制，因为这些服务在香港地区不完全开放。<br/><br/>如果遇到 AI 工具无法使用的情况，可以尝试：<br/>• 开启飞行模式 → 等待 10-15 秒 → 关闭飞行模式，强制重新分配 IP 节点（有机会切换到新加坡节点）<br/>• 关闭 eSIM 数据 → 等待 5 秒 → 重新开启<br/>• 在有 Wi-Fi 的地方（酒店、咖啡厅）使用 AI 工具',
+    a2_3_note:'💡 根据用户反馈，新加坡节点访问 AI 工具的成功率高于香港节点，但两者均无法100%保证。',
+    q2_4:'我已经到了中国大陆，还能安装 eSIM 吗？',
+    a2_4:'有一定挑战，需满足以下条件：<br/>• eSIM 的二维码通过邮件发送，需要能访问邮箱<br/>• 安装 eSIM 本身需要网络连接（Wi-Fi 或现有数据）<br/>• 如果在中国大陆完全没有网络，则无法完成安装<br/><br/><strong>强烈建议：出发前在澳洲或有稳定网络的地方完成安装。</strong>',
+    a2_4_note:'✅ 最佳做法：在澳洲家中出发前扫码安装好 eSIM，关闭 eSIM 数据。到达中国大陆后，关闭澳洲 SIM 卡的数据漫游，开启 eSIM 数据，自动连接中国联通网络。eSIM 的有效期从首次连接当地网络时开始，不是从购买时开始。',
+    s3_title:'安装与激活', s3_count:'4 题',
+    q3_1:'如何安装 eSIM？', a3_1:'付款完成后，eSIM 二维码即时发送到注册邮箱。',
+    a3_1_warn:'⚠ 重要提示：扫描二维码的手机，必须是您要安装 eSIM 的那台手机。由于扫码和安装在同一台手机上无法同时进行，您需要用另一台设备（第二台手机、平板、电脑）打开邮件显示二维码，再用要安装 eSIM 的手机扫描。',
+    a3_1_note:'💡 安装成功后：设置 → 蜂窝网络（或移动网络）→ 将 eSIM 设为数据SIM → 开启「数据漫游」。建议在出发前在家 Wi-Fi 环境下完成安装，到目的地后再开启数据。',
+    q3_2:'eSIM 什么时候开始计时？', a3_2:'eSIM 从<strong>首次连接到目的地网络时才开始计时</strong>，不是从购买时开始，也不是从安装时开始。<br/><br/>您可以提前几天买好并安装，到达目的地后再打开数据连接，有效期才正式启动，不会浪费任何天数。',
+    q3_3:'一台手机可以装几张 eSIM？', a3_3:'大多数手机可存储 8-10 个 eSIM，但同时激活的通常只能有 1-2 个。<br/><br/>iPhone 13 及以上支持双 eSIM 同时激活。eSIM 可长期保存在手机里，下次出行同一地区直接激活，无需重新购买（前提是套餐未过期）。',
+    q3_4:'换手机了，eSIM 可以转移吗？', a3_4:'大多数 eSIM 二维码只能使用一次，扫码安装后绑定到该设备。如需转移到新手机，请联系 <a href="mailto:support@roammelb.com">support@roammelb.com</a>，我们将根据实际情况评估是否可以补发。',
+    s4_title:'流量使用', s4_count:'3 题',
+    q4_1:'1GB 流量大概能用多久？',
+    ut_activity:'使用场景', ut_rate:'消耗速度', ut_duration:'1GB 大约可用',
+    ut_very_low:'极低', ut_days:'数天', ut_25h:'约25小时', ut_3h:'约3小时', ut_14h:'约14小时', ut_7h:'约7小时', ut_2h:'约2小时', ut_20m:'约20分钟',
+    data_tips:'💡 省流量技巧：出发前在家 Wi-Fi 下下载离线地图（Google Maps / 百度地图）· 音乐/播客在 Wi-Fi 下下载后离线播放 · YouTube 视频质量设为 480p 可节省约80%流量 · 关闭 App 后台数据刷新 · 关闭系统自动更新',
+    q4_2:'「无限量」套餐真的无限吗？', a4_2:'Airalo 的「无限量」套餐实际上是：<strong>每日 3GB 高速流量</strong>，用完后自动降速至约 1Mbps（约等于低速网络）。<br/><br/>降速后仍可正常使用：微信文字/语音消息、邮件、导航、轻量网页浏览。视频通话和高清视频流媒体会明显卡顿。<br/><br/>大多数旅行者每日 3GB 高速流量已经足够，除非全天看高清视频或做视频直播。',
+    q4_3:'可以用 eSIM 开热点（分享给其他设备）吗？', a4_3:'✅ 支持。大多数套餐允许开启个人热点（Wi-Fi热点），可以与平板、笔记本电脑共享网络。<br/><br/>注意：热点共享会加快流量消耗，建议有限额套餐的用户谨慎使用。',
+    s5_title:'购买与支付', s5_count:'4 题',
+    q5_1:'如何购买？', a5_1:'访问 <a href="/shop">shop.roammelb.com</a> → 选择目的地和套餐 → 加入购物车 → 结账 → 收到邮件中的二维码 → 扫码安装。全程约 5 分钟，eSIM 即时发送到注册邮箱。',
+    q5_2:'支持哪些付款方式？', a5_2:'我们支持以下付款方式：<br/>• 💚 微信支付（WeChat Pay）<br/>• 🔵 支付宝（Alipay）<br/>• 💳 Visa / Mastercard 信用卡及储蓄卡<br/>• 🍎 Apple Pay（iOS 设备）',
+    a5_2_warn:'⚠ 信用卡持卡人注意：我们通过 Stripe 处理付款，系统会识别为境外消费（海外交易）。如果您的银行卡设有「境外消费限制」，请在购买前联系发卡银行临时开启境外支付，或改用支付宝 / 微信支付。',
+    q5_3:'价格是否含 GST？可以开发票吗？', a5_3:'RoamMelb 目前年营业额未达到澳大利亚 GST 注册门槛（A$75,000），因此现阶段所有价格均<strong>不含 GST</strong>。当营业额超过门槛后，价格可能须加收 10% GST，届时会提前通知。<br/><br/>如需发票，购买完成后会收到含付款详情的自动确认邮件。如需正式发票，请发邮件至 <a href="mailto:support@roammelb.com">support@roammelb.com</a>。',
+    q5_4:'可以退款吗？',
+    ref_situation:'情况', ref_outcome:'退款结果',
+    ref_r1:'购买后未扫描安装二维码', ref_ok:'✅ 全额退款',
+    ref_r2:'已安装但未激活（未在目的地使用）', ref_case:'⚠ 视情况，请联系客服',
+    ref_r3:'已扫码安装并开始使用', ref_no:'❌ 不予退款',
+    ref_r4:'eSIM 无法正常使用（技术故障）', ref_replace:'✅ 全额退款或补发',
+    ref_note:'退款请求请发邮件至 <a href="mailto:support@roammelb.com">support@roammelb.com</a>，说明订单号及问题，承诺 2 个工作日内回复。',
+    s6_title:'常见技术问题', s6_count:'3 题',
+    q6_1:'装好了但没有信号，怎么办？', a6_1:'按以下步骤逐一排查：<br/>1. 确认已将 eSIM 设为数据SIM（设置 → 蜂窝网络 → 蜂窝数据 → 选择eSIM）<br/>2. 确认已开启「数据漫游」（同一菜单内）<br/>3. 开启飞行模式 → 等待 15 秒 → 关闭，强制重新连接<br/>4. 手动选择网络运营商（设置 → 蜂窝网络 → 网络选择 → 手动），在中国选「中国联通」<br/>5. 重启手机<br/><br/>以上均无效，请联系 <a href="mailto:support@roammelb.com">support@roammelb.com</a>',
+    q6_2:'流量快用完了，可以续费吗？', a6_2:'可以。通过 Airalo 应用（App Store / Google Play 搜索「Airalo」）可以直接查看剩余流量并在线充值（Top-Up）。充值后继续使用同一张 eSIM，无需重新安装。',
+    q6_3:'如何查看剩余流量？', a6_3:'• Airalo App → 登录 → 我的eSIM → 查看用量（最准确）<br/>• iPhone：设置 → 蜂窝网络 → 对应eSIM → 查看用量（注意：每次重启后数字会重置）<br/>• 部分运营商会发短信提醒剩余流量',
+    s7_title:'关于 RoamMelb', s7_count:'2 题',
+    q7_1:'RoamMelb 是什么？', a7_1:'RoamMelb 是由澳洲华人创立的 eSIM 品牌，专为需要出行数据的华人社群服务。我们通过 Airalo 官方授权渠道销售，产品来源可靠，提供全程中文客服支持。<br/><br/>RoamMelb 是 Juliet and Roland Hong Kong Limited 旗下的注册交易品牌。',
+    q7_2:'如何联系客服？', a7_2:'• 📧 邮件：<a href="mailto:support@roammelb.com">support@roammelb.com</a>（2个工作日内回复）<br/>• 🌐 网站：<a href="/">roammelb.com</a><br/>• 🛒 商店：<a href="/shop">shop.roammelb.com</a>',
+    cta_h2:'问题解决了？', cta_p:'选一个套餐，两分钟搞定出行网络', cta_btn:'立即选购 eSIM',
+    footer_esim:'购买eSIM', footer_vpn:'VPN推荐', footer_ins:'旅行保险', footer_flights:'机票攻略', footer_blog:'签证 & 攻略', footer_faq:'常见问题', footer_contact:'联系我们',
+    footer_copy:'© 2026 Juliet and Roland Hong Kong Limited. All rights reserved. RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    footer_privacy:'隐私政策', footer_terms:'服务条款',
+  },
+  'zh-Hant': {
+    nav_esim:'eSIM', nav_how:'怎麼用', nav_dest:'目的地', nav_faq:'常見問題', nav_buy:'立即購買',
+    bc_home:'首頁', bc_faq:'常見問題',
+    page_label:'FAQ', page_h1a:'買之前', page_h1b:'你可能想知道的',
+    page_sub:'涵蓋 eSIM 基礎、安裝步驟、中國大陸使用、流量估算、付款與退款等常見問題。找不到答案？隨時聯絡我們。',
+    qn1:'📶 eSIM 基礎', qn2:'🇨🇳 中國大陸使用', qn3:'📲 安裝與啟用', qn4:'📊 流量使用', qn5:'💳 購買與支付', qn6:'🔧 技術問題', qn7:'🏢 關於 RoamMelb',
+    toc_label:'目錄', toc1:'📶 eSIM 基礎', toc2:'🇨🇳 中國大陸', toc3:'📲 安裝與啟用', toc4:'📊 流量使用', toc5:'💳 購買與支付', toc6:'🔧 技術問題', toc7:'🏢 關於我們',
+    toc_contact:'找不到答案？<br/><a href="mailto:support@roammelb.com">support@roammelb.com</a><br/>2個工作日內回覆',
+    s1_title:'eSIM 基礎問題', s1_count:'5 題',
+    q1_1:'什麼是 eSIM？', a1_1:'eSIM（嵌入式SIM）是直接內置在手機晶片裡的虛擬SIM卡，無需插入實體卡。購買後掃描二維碼即可啟用，即買即用，特別適合出行前準備。<br/><br/>An eSIM is a virtual SIM card built directly into your phone — no physical card needed. Scan the QR code to activate instantly.',
+    q1_2:'eSIM 跟實體 SIM 卡有什麼區別？', a1_2:'實體SIM需要到機場或門店購買，需要實名登記，可能需要排隊等候。eSIM 在線購買，即時發送到信箱，掃碼安裝，全程無需登記身份證，也不會佔用手機的實體卡槽（可以同時保留澳洲號碼使用）。',
+    q1_3:'eSIM 有手機號碼嗎？需要實名登記嗎？', a1_3:'RoamMelb 銷售的是純數據流量（Data-Only）eSIM，<strong>不含手機號碼和短信（SMS）功能</strong>，因此無需實名登記。<br/><br/>您仍然可以正常使用所有基於數據流量的語音服務，例如 WhatsApp 語音/視訊通話、微信語音/視訊通話、FaceTime 等。',
+    q1_4:'我的手機支援 eSIM 嗎？', a1_4:'以下是主流支援 eSIM 的機型：',
+    th_brand:'品牌', th_models:'支援機型', th_notes:'注意事項',
+    iphone_note:'⚠ 中國大陸、香港購買的雙實體SIM版本可能不支援',
+    samsung_note:'⚠ 中國/香港/台灣購買的三星大多不支援',
+    pixel_note:'✅ 安卓中支援最穩定',
+    xiaomi_models:'部分機型（如 12T Pro）', xiaomi_note:'⚠ 中國版通常不支援',
+    huawei_note:'⚠ 國內版基本不支援，P40 Pro+ 不支援',
+    moto_models:'Edge / Razr 部分型號',
+    eid_note:'⚠ 檢查方法：iPhone → 設定 → 一般 → 關於本機；Android → 撥打 *#06# 查看是否有 EID 號碼。不確定請聯絡 <a href="mailto:support@roammelb.com">support@roammelb.com</a>',
+    q1_5:'RoamMelb 和 Airalo 是什麼關係？', a1_5:'RoamMelb 是 Airalo 官方授權的轉售商（Reseller）。您購買的 eSIM 與直接在 Airalo 購買完全相同，品質無異。RoamMelb 額外提供：中文客服、支付寶 / 微信支付等本地支付方式，以及中文出行資訊。',
+    s2_title:'中國大陸使用', s2_count:'4 題',
+    q2_1:'在中國大陸用 RoamMelb eSIM 能訪問境外網站和應用嗎？',
+    a2_1:'使用國際漫遊 eSIM 時，您的數據流量通過香港或新加坡的國際伺服器路由，不直接進入中國大陸互聯網。對於大多數用戶而言，這意味著可以正常訪問 Google、YouTube、Instagram、WhatsApp 等境外平台，<strong>無需額外工具</strong>。',
+    a2_1_note:'⚠ 免責說明：Airalo 官方不對境外網站訪問功能作出明確保證。實際體驗可能因城市、訊號、手機型號及網路環境而有所不同。RoamMelb 不對個別情況作出保證。',
+    q2_2:'連上網了，但 IP 顯示是香港或新加坡，正常嗎？',
+    a2_2:'完全正常。這正是漫遊 eSIM 的工作原理——您的手機連接中國聯通在大陸的訊號塔，但數據經由香港或新加坡路由至國際互聯網。IP 顯示香港或新加坡是預期行為，不是故障。',
+    q2_3:'香港節點會影響 ChatGPT / Claude 等 AI 工具嗎？',
+    a2_3:'有可能影響。部分 AI 服務對香港 IP 存在限制。可嘗試：開啟飛行模式 → 等待 15 秒 → 關閉，強制重新分配 IP 節點（有機會切換到新加坡節點）。',
+    a2_3_note:'💡 根據用戶反饋，新加坡節點訪問 AI 工具的成功率高於香港節點，但兩者均無法100%保證。',
+    q2_4:'已到中國大陸，還能安裝 eSIM 嗎？',
+    a2_4:'有一定挑戰，需要能訪問信箱及有網路連接（Wi-Fi 或現有數據）才能完成安裝。<strong>強烈建議出發前在澳洲完成安裝。</strong>',
+    a2_4_note:'✅ 最佳做法：在澳洲出發前掃碼安裝好 eSIM，關閉 eSIM 數據。到達目的地後開啟 eSIM 數據，eSIM 有效期從首次連接當地網路時開始計算。',
+    s3_title:'安裝與啟用', s3_count:'4 題',
+    q3_1:'如何安裝 eSIM？', a3_1:'付款完成後，eSIM 二維碼即時發送到註冊信箱。',
+    a3_1_warn:'⚠ 重要提示：掃描二維碼的手機，必須是您要安裝 eSIM 的那台手機。由於掃碼和安裝在同一台手機上無法同時進行，您需要用另一台設備（第二台手機、平板、電腦）打開信件顯示二維碼，再用要安裝 eSIM 的手機掃描。',
+    a3_1_note:'💡 安裝後：設定 → 行動網路 → 將 eSIM 設為數據SIM → 開啟「數據漫遊」。建議在出發前在家 Wi-Fi 環境下完成安裝。',
+    q3_2:'eSIM 什麼時候開始計時？', a3_2:'eSIM 從<strong>首次連接到目的地網路時才開始計時</strong>，不是從購買或安裝時開始。可提前安裝，落地後再開啟數據，不會浪費天數。',
+    q3_3:'一台手機可以裝幾張 eSIM？', a3_3:'大多數手機可存儲 8-10 個 eSIM，但同時啟用的通常只能有 1-2 個。iPhone 13 及以上支援雙 eSIM 同時啟用。eSIM 可長期保存在手機裡，下次出行同一地區直接啟用。',
+    q3_4:'換手機了，eSIM 可以轉移嗎？', a3_4:'大多數 eSIM 二維碼只能使用一次。如需轉移，請聯絡 <a href="mailto:support@roammelb.com">support@roammelb.com</a> 評估是否可補發。',
+    s4_title:'流量使用', s4_count:'3 題',
+    q4_1:'1GB 流量大概能用多久？',
+    ut_activity:'使用場景', ut_rate:'消耗速度', ut_duration:'1GB 大約可用',
+    ut_very_low:'極低', ut_days:'數天', ut_25h:'約25小時', ut_3h:'約3小時', ut_14h:'約14小時', ut_7h:'約7小時', ut_2h:'約2小時', ut_20m:'約20分鐘',
+    data_tips:'💡 省流量技巧：出發前在 Wi-Fi 下下載離線地圖 · 音樂在 Wi-Fi 下下載後離線播放 · YouTube 設為 480p · 關閉 App 後台數據刷新',
+    q4_2:'「無限量」套餐真的無限嗎？', a4_2:'Airalo 無限量套餐是每日 3GB 高速流量，用完後自動降速至約 1Mbps。降速後微信文字、郵件、導航仍可正常使用；視訊通話和高清視頻會卡頓。',
+    q4_3:'可以開熱點分享給其他設備嗎？', a4_3:'✅ 支援。大多數套餐允許開啟個人熱點，可與平板、筆電共享網路。熱點共享會加快流量消耗，請謹慎使用。',
+    s5_title:'購買與支付', s5_count:'4 題',
+    q5_1:'如何購買？', a5_1:'訪問 <a href="/shop">shop.roammelb.com</a> → 選擇目的地和套餐 → 加入購物車 → 結帳 → 收到信件中的二維碼 → 掃碼安裝。全程約 5 分鐘。',
+    q5_2:'支援哪些付款方式？', a5_2:'我們支援：<br/>• 💚 微信支付（WeChat Pay）<br/>• 🔵 支付寶（Alipay）<br/>• 💳 Visa / Mastercard 信用卡及儲蓄卡<br/>• 🍎 Apple Pay（iOS 設備）',
+    a5_2_warn:'⚠ 信用卡持卡人注意：付款通過 Stripe 處理，系統識別為境外消費。如您的銀行卡設有境外消費限制，請事先聯絡銀行開啟，或改用支付寶 / 微信支付。',
+    q5_3:'價格是否含 GST？可以開發票嗎？', a5_3:'RoamMelb 目前年營業額未達 GST 門檻（A$75,000），現階段所有價格均<strong>不含 GST</strong>。如需發票，請發信至 <a href="mailto:support@roammelb.com">support@roammelb.com</a>。',
+    q5_4:'可以退款嗎？',
+    ref_situation:'情況', ref_outcome:'退款結果',
+    ref_r1:'購買後未掃描安裝二維碼', ref_ok:'✅ 全額退款',
+    ref_r2:'已安裝但未啟用（未在目的地使用）', ref_case:'⚠ 視情況，請聯絡客服',
+    ref_r3:'已掃碼安裝並開始使用', ref_no:'❌ 不予退款',
+    ref_r4:'eSIM 無法正常使用（技術故障）', ref_replace:'✅ 全額退款或補發',
+    ref_note:'退款請發信至 <a href="mailto:support@roammelb.com">support@roammelb.com</a>，說明訂單號及問題，2 個工作日內回覆。',
+    s6_title:'常見技術問題', s6_count:'3 題',
+    q6_1:'裝好了但沒有訊號，怎麼辦？', a6_1:'按以下步驟排查：<br/>1. 確認已將 eSIM 設為數據SIM<br/>2. 確認已開啟「數據漫遊」<br/>3. 開啟飛行模式 → 等待 15 秒 → 關閉<br/>4. 手動選擇網路運營商，中國選「中國聯通」<br/>5. 重啟手機<br/><br/>以上均無效，請聯絡 <a href="mailto:support@roammelb.com">support@roammelb.com</a>',
+    q6_2:'流量快用完了，可以續費嗎？', a6_2:'可以。透過 Airalo App（App Store / Google Play 搜尋「Airalo」）可查看剩餘流量並線上儲值（Top-Up），無需重新安裝 eSIM。',
+    q6_3:'如何查看剩餘流量？', a6_3:'• Airalo App → 登入 → 我的eSIM → 查看用量（最準確）<br/>• iPhone：設定 → 行動網路 → 對應eSIM → 查看用量<br/>• 部分運營商會發短信提醒',
+    s7_title:'關於 RoamMelb', s7_count:'2 題',
+    q7_1:'RoamMelb 是什麼？', a7_1:'RoamMelb 是由澳洲華人創立的 eSIM 品牌，透過 Airalo 官方授權渠道銷售，提供全程中文客服支援。RoamMelb 是 Juliet and Roland Hong Kong Limited 旗下的註冊交易品牌。',
+    q7_2:'如何聯絡客服？', a7_2:'• 📧 信件：<a href="mailto:support@roammelb.com">support@roammelb.com</a>（2個工作日內回覆）<br/>• 🌐 網站：<a href="/">roammelb.com</a><br/>• 🛒 商店：<a href="/shop">shop.roammelb.com</a>',
+    cta_h2:'問題解決了？', cta_p:'選一個套餐，兩分鐘搞定出行網路', cta_btn:'立即選購 eSIM',
+    footer_esim:'購買eSIM', footer_vpn:'VPN推薦', footer_ins:'旅行保險', footer_flights:'機票攻略', footer_blog:'簽證 & 攻略', footer_faq:'常見問題', footer_contact:'聯絡我們',
+    footer_copy:'© 2026 Juliet and Roland Hong Kong Limited. All rights reserved. RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    footer_privacy:'隱私政策', footer_terms:'服務條款',
+  },
+  'en': {
+    nav_esim:'eSIM', nav_how:'How it works', nav_dest:'Destinations', nav_faq:'FAQ', nav_buy:'Buy Now',
+    bc_home:'Home', bc_faq:'FAQ',
+    page_label:'FAQ', page_h1a:'Before you buy', page_h1b:'things you might wonder',
+    page_sub:'Covers eSIM basics, installation steps, China usage, data estimates, payment and refunds. Can\'t find your answer? Contact us anytime.',
+    qn1:'📶 eSIM Basics', qn2:'🇨🇳 Using in China', qn3:'📲 Install & Activate', qn4:'📊 Data Usage', qn5:'💳 Payment & Refunds', qn6:'🔧 Troubleshooting', qn7:'🏢 About RoamMelb',
+    toc_label:'Contents', toc1:'📶 eSIM Basics', toc2:'🇨🇳 Using in China', toc3:'📲 Install & Activate', toc4:'📊 Data Usage', toc5:'💳 Payment & Refunds', toc6:'🔧 Troubleshooting', toc7:'🏢 About Us',
+    toc_contact:'Can\'t find the answer?<br/><a href="mailto:support@roammelb.com">support@roammelb.com</a><br/>Reply within 2 business days',
+    s1_title:'eSIM Basics', s1_count:'5 Q&As',
+    q1_1:'What is an eSIM?', a1_1:'An eSIM (embedded SIM) is a virtual SIM card built directly into your phone — no physical card needed. After purchase, you receive a QR code instantly by email. Scan it to activate. Instant delivery, instant setup.',
+    q1_2:'How is eSIM different from a physical SIM?', a1_2:'A physical SIM requires visiting a store or airport, registering ID, and often queuing. An eSIM is purchased online, delivered instantly to your email, installed by scanning a QR code — no ID registration required. It also doesn\'t take up your physical SIM slot, so you can keep your Australian number active simultaneously.',
+    q1_3:'Does the eSIM come with a phone number? Do I need to verify my identity?', a1_3:'RoamMelb sells Data-Only eSIMs — <strong>no phone number and no SMS function are included</strong>. This means no ID verification is required.<br/><br/>You can still use all data-based voice services normally: WhatsApp calls, WeChat voice/video calls, FaceTime, etc.',
+    q1_4:'Is my phone eSIM compatible?', a1_4:'Common compatible devices:',
+    th_brand:'Brand', th_models:'Compatible Models', th_notes:'Notes',
+    iphone_note:'⚠ Dual physical-SIM models bought in mainland China or Hong Kong may not support eSIM',
+    samsung_note:'⚠ Samsung models from China/HK/Taiwan mostly do not support eSIM',
+    pixel_note:'✅ Most stable eSIM support on Android',
+    xiaomi_models:'Select models (e.g. 12T Pro)', xiaomi_note:'⚠ Chinese market versions usually unsupported',
+    huawei_note:'⚠ Mainland versions largely unsupported. P40 Pro+ not supported.',
+    moto_models:'Select Edge / Razr models',
+    eid_note:'⚠ To check: iPhone → Settings → General → About (look for Available SIM); Android → dial *#06# and look for an EID number. If you have an EID, your phone supports eSIM. Not sure? Email <a href="mailto:support@roammelb.com">support@roammelb.com</a>',
+    q1_5:'What\'s the relationship between RoamMelb and Airalo?', a1_5:'RoamMelb is an officially authorized Airalo Reseller. The eSIM you purchase is identical to buying directly from Airalo — same networks, same quality.<br/><br/>RoamMelb adds: bilingual Chinese customer support, local payment methods (Alipay & WeChat Pay), and Chinese-language travel guidance.',
+    s2_title:'Using in China', s2_count:'4 Q&As',
+    q2_1:'Can I access overseas websites and apps with RoamMelb eSIM in mainland China?',
+    a2_1:'When using an international roaming eSIM, your data traffic routes through international servers in Hong Kong or Singapore, bypassing the mainland Chinese internet. For most users, this means you can access Google, YouTube, Instagram, WhatsApp, Facebook and other overseas platforms <strong>without any additional tools</strong>.',
+    a2_1_note:'⚠ Disclaimer: Airalo does not explicitly guarantee access to overseas websites. Actual results may vary depending on your city, carrier signal, device model and network environment. RoamMelb cannot guarantee results for individual cases. Based on user feedback, the overall success rate is high, but 100% is not guaranteed.',
+    q2_2:'I\'m connected but my IP shows Hong Kong or Singapore — is that normal?',
+    a2_2:'Completely normal. This is exactly how roaming eSIMs work — your phone connects to China Unicom\'s towers in mainland China, but your data is routed through Hong Kong or Singapore to the international internet.<br/><br/>An IP address showing Hong Kong or Singapore is expected behaviour, not a fault.',
+    q2_3:'Will a Hong Kong IP affect access to AI tools like ChatGPT or Claude?',
+    a2_3:'It may. Some AI services (ChatGPT, Claude, Gemini) restrict access from Hong Kong IPs as these services aren\'t fully available in Hong Kong.<br/><br/>If you encounter issues with AI tools, try:<br/>• Enable flight mode → wait 10–15 seconds → disable, to force reconnection and potentially get a Singapore IP<br/>• Turn eSIM data off → wait 5 seconds → turn back on<br/>• Use AI tools on hotel or café Wi-Fi instead',
+    a2_3_note:'💡 Based on user feedback, a Singapore IP has a higher success rate with AI tools than a Hong Kong IP — but neither is guaranteed.',
+    q2_4:'I\'m already in mainland China — can I still install the eSIM?',
+    a2_4:'It\'s possible but challenging. You\'ll need: access to your email to receive the QR code, and a working internet connection (Wi-Fi or existing data) to complete the installation. If you have no connectivity at all, installation won\'t be possible.<br/><br/><strong>We strongly recommend installing before you leave Australia.</strong>',
+    a2_4_note:'✅ Best practice: Install the eSIM at home before you fly. Keep eSIM data off. After landing in China, turn off data roaming on your Australian SIM and turn on the eSIM data — it connects automatically to China Unicom. The validity period starts from first connection, not from purchase.',
+    s3_title:'Install & Activate', s3_count:'4 Q&As',
+    q3_1:'How do I install the eSIM?', a3_1:'After payment, the QR code is sent instantly to your registered email.',
+    a3_1_warn:'⚠ Important: The phone that scans the QR code must be the phone you\'re installing the eSIM on. Since you can\'t scan and install on the same device at the same time, use a second device (another phone, tablet, or computer) to open the email and display the QR code, then scan it with the target phone.',
+    a3_1_note:'💡 After installation: Settings → Cellular → set eSIM as your Data SIM → enable "Data Roaming". We recommend installing at home on Wi-Fi before travel, and turning eSIM data on only after landing.',
+    q3_2:'When does the timer start?', a3_2:'The eSIM timer starts when you <strong>first connect to a local network at your destination</strong> — not from purchase and not from installation.<br/><br/>You can buy and install days in advance, then activate at your destination without wasting any validity.',
+    q3_3:'How many eSIMs can I store on one phone?', a3_3:'Most phones can store 8–10 eSIMs, but typically only 1–2 can be active simultaneously.<br/><br/>iPhone 13 and above supports two active eSIMs at once. eSIMs remain stored on your phone, so you can reactivate for future trips to the same destination without repurchasing (as long as the plan hasn\'t expired).',
+    q3_4:'I got a new phone — can I transfer my eSIM?', a3_4:'Most eSIM QR codes are single-use and bind to the device once scanned. If you need to transfer, email <a href="mailto:support@roammelb.com">support@roammelb.com</a> and we\'ll assess whether a replacement can be issued based on your situation.',
+    s4_title:'Data Usage', s4_count:'3 Q&As',
+    q4_1:'How long does 1GB last?',
+    ut_activity:'Activity', ut_rate:'Data rate', ut_duration:'Duration per 1GB',
+    ut_very_low:'Very low', ut_days:'Several days', ut_25h:'~25 hours', ut_3h:'~3 hours', ut_14h:'~14 hours', ut_7h:'~7 hours', ut_2h:'~2 hours', ut_20m:'~20 minutes',
+    data_tips:'💡 Data-saving tips: Download offline maps (Google Maps) on Wi-Fi before you go · Download music/podcasts offline · Set YouTube to 480p (saves ~80%) · Disable background app refresh · Turn off automatic system updates',
+    q4_2:'Is the unlimited plan really unlimited?', a4_2:'Airalo\'s "unlimited" plans provide <strong>3GB of high-speed data per day</strong>. After that, speed throttles to around 1Mbps (roughly 2G speed).<br/><br/>Throttled speed is still fine for: WeChat text/voice messages, email, navigation, and light browsing. Video calls and HD streaming will lag.<br/><br/>For most travellers, 3GB/day is more than enough unless you\'re streaming HD video all day.',
+    q4_3:'Can I use the eSIM as a hotspot?', a4_3:'✅ Yes. Most plans support personal hotspot (Wi-Fi tethering), so you can share with a tablet or laptop.<br/><br/>Note: tethering uses data much faster — use mindfully on limited plans.',
+    s5_title:'Payment & Refunds', s5_count:'4 Q&As',
+    q5_1:'How do I purchase?', a5_1:'Visit <a href="/shop">shop.roammelb.com</a> → choose destination and plan → add to cart → checkout → receive QR code by email → scan to install. The whole process takes about 5 minutes.',
+    q5_2:'What payment methods are accepted?', a5_2:'We accept:<br/>• 💚 WeChat Pay<br/>• 🔵 Alipay<br/>• 💳 Visa / Mastercard credit & debit cards<br/>• 🍎 Apple Pay (iOS devices)',
+    a5_2_warn:'⚠ Card holders note: Payments are processed via Stripe and may be flagged as an overseas transaction. If your card has overseas spending restrictions, contact your bank before purchasing, or use Alipay / WeChat Pay instead.',
+    q5_3:'Does the price include GST? Can I get an invoice?', a5_3:'RoamMelb\'s annual turnover is currently below the Australian GST registration threshold (A$75,000), so <strong>GST is not currently charged</strong>. If our turnover exceeds the threshold, we\'ll notify customers in advance.<br/><br/>A payment confirmation email is sent automatically after purchase. For a formal invoice, email <a href="mailto:support@roammelb.com">support@roammelb.com</a>.',
+    q5_4:'Can I get a refund?',
+    ref_situation:'Situation', ref_outcome:'Refund outcome',
+    ref_r1:'QR code not yet scanned / installed', ref_ok:'✅ Full refund',
+    ref_r2:'Installed but not activated (not used at destination)', ref_case:'⚠ Case-by-case — contact us',
+    ref_r3:'Installed and used', ref_no:'❌ No refund',
+    ref_r4:'eSIM technical fault', ref_replace:'✅ Full refund or replacement',
+    ref_note:'To request a refund, email <a href="mailto:support@roammelb.com">support@roammelb.com</a> with your order number and a description of the issue. We respond within 2 business days.',
+    s6_title:'Troubleshooting', s6_count:'3 Q&As',
+    q6_1:'My eSIM is installed but there\'s no signal — what do I do?', a6_1:'Work through these steps in order:<br/>1. Confirm eSIM is set as your Data SIM (Settings → Cellular → Cellular Data → select eSIM)<br/>2. Confirm "Data Roaming" is enabled (same menu)<br/>3. Enable flight mode → wait 15 seconds → disable, to force reconnection<br/>4. Manually select network operator (Settings → Cellular → Network Selection → Manual) — in China, select China Unicom<br/>5. Restart your phone<br/><br/>If none of the above works, email <a href="mailto:support@roammelb.com">support@roammelb.com</a>',
+    q6_2:'I\'m running low on data — can I top up?', a6_2:'Yes. Download the Airalo App (search "Airalo" on App Store or Google Play), log in, and top up directly from the app. No reinstallation needed.',
+    q6_3:'How do I check my remaining data?', a6_3:'• Airalo App → log in → My eSIMs → view usage (most accurate)<br/>• iPhone: Settings → Cellular → select eSIM → view usage (note: resets on each reboot)<br/>• Some carriers send SMS alerts when data is low',
+    s7_title:'About RoamMelb', s7_count:'2 Q&As',
+    q7_1:'What is RoamMelb?', a7_1:'RoamMelb is an eSIM brand founded by Australians of Chinese background, serving the Chinese-speaking community. We sell through Airalo\'s official authorized channel, ensuring product quality.<br/><br/>RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    q7_2:'How do I contact support?', a7_2:'• 📧 Email: <a href="mailto:support@roammelb.com">support@roammelb.com</a> (reply within 2 business days)<br/>• 🌐 Website: <a href="/">roammelb.com</a><br/>• 🛒 Shop: <a href="/shop">shop.roammelb.com</a>',
+    cta_h2:'Got your answers?', cta_p:'Pick a plan and get connected in 2 minutes', cta_btn:'Shop eSIMs',
+    footer_esim:'Buy eSIM', footer_vpn:'VPN', footer_ins:'Travel Insurance', footer_flights:'Flight Tips', footer_blog:'Visa & Guides', footer_faq:'FAQ', footer_contact:'Contact',
+    footer_copy:'© 2026 Juliet and Roland Hong Kong Limited. All rights reserved. RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.',
+    footer_privacy:'Privacy Policy', footer_terms:'Terms of Service',
+  }
+};
+
+let currentLang = 'zh-Hans';
+function setLang(lang, e) {
+  currentLang = lang;
+  const t = i18n[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if (e && e.target) e.target.classList.add('active');
+  const titles = { 'zh-Hans':'常见问题 FAQ — RoamMelb', 'zh-Hant':'常見問題 FAQ — RoamMelb', 'en':'FAQ — RoamMelb' };
+  document.title = titles[lang];
+}
+</script>
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c8eef8a47eba426aa87d25fa8febb90a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
