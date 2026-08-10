@@ -555,6 +555,26 @@
         grid-template-columns: 1fr;
       }
     }
+    /* ── FLOATING CONTACT WIDGET ── */
+.toc-contact {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  padding: 24px; width: 288px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  z-index: 1000;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+.toc-contact p { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+.toc-contact a { color: var(--lime); text-decoration: none; display: block; margin-top: 4px; }
+.toc-contact a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .toc-contact { display: none; }
+}
   </style>
 </head>
 <body>
@@ -1183,5 +1203,11 @@ function setLang(lang, e) {
 </script>
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"c8eef8a47eba426aa87d25fa8febb90a","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<div class="toc-contact">
+  <p>找不到答案？</p>
+  <a href="mailto:contact@roammelb.com">📧 contact@roammelb.com</a>
+  
+  <p style="margin-top:8px">2个工作日内回复</p>
+</div>
 </body>
 </html>
