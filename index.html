@@ -832,7 +832,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q9">流量快用完了怎么办？<span class="faq-arrow">▾</span></button>
-          <div class="faq-a" data-i18n="faq_a9">可以通过 Airalo App（App Store / Google Play 搜索「Airalo」）查看剩余流量并在线充值（Top-Up），无需重新安装 eSIM。</div>
+          <div class="faq-a" data-i18n="faq_a9">不可以。RoamMelb 销售的是一次性 eSIM 套餐，<strong>不支持在线续费或充值（Top-Up）</strong>。流量即将用完时，请前往 <a href="https://shop.roammelb.com/">shop.roammelb.com</a> 购买新的 eSIM 套餐（可在同一手机上再装一个）。</div>
         </div>
       </div>
 
@@ -845,7 +845,7 @@
         </div>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q11">可以退款吗？<span class="faq-arrow">▾</span></button>
-          <div class="faq-a" data-i18n="faq_a11">未安装二维码：全额退款 ✅ · 已安装但未激活：视情况，请联系客服 ⚠️ · 已安装并使用：不予退款 ❌ · eSIM 技术故障：全额退款或补发 ✅。<br/><br/>退款请发邮件至 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>，注明订单号及问题，2个工作日内回复。</div>
+          <div class="faq-a" data-i18n="faq_a11">未安装二维码：全额退款 ✅ · 已安装但未激活：视情况，请联系客服 ⚠️ · 已安装并使用：不予退款 ❌ · eSIM 技术故障：全额退款或补发 ✅。<br/><br/>⚠ 退款政策适用于购买后 30 天内的订单，超过30天视情况另行评估。<br/><br/>退款请发邮件至 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>，注明订单号及问题，2个工作日内回复。</div>
         </div>
       </div>
 
@@ -1023,11 +1023,11 @@ const i18n = {
     faq_q8:'可以开热点分享给其他设备吗？<span class="faq-arrow">▾</span>',
     faq_a8:'大多数套餐支持开启个人热点，可与平板、笔记本共享网络。热点共享会加快流量消耗，有限额套餐请谨慎使用。',
     faq_q9:'流量快用完了怎么办？<span class="faq-arrow">▾</span>',
-    faq_a9:'可以通过 Airalo App（App Store / Google Play 搜索「Airalo」）查看剩余流量并在线充值（Top-Up），无需重新安装 eSIM。',
+    faq_a9:'不可以。RoamMelb 销售的是一次性 eSIM 套餐，<strong>不支持在线续费或充值（Top-Up）</strong>。流量即将用完时，请前往 <a href="https://shop.roammelb.com/">shop.roammelb.com</a> 购买新的 eSIM 套餐（可在同一手机上再装一个）。',
     faq_q10:'支持哪些付款方式？<span class="faq-arrow">▾</span>',
     faq_a10:'支持：微信支付（WeChat Pay）· Visa / Mastercard 信用卡及储蓄卡 · Apple Pay。<br/><br/>⚠️ 信用卡持卡人注意：系统识别为境外消费。如您的银行卡设有境外消费限制，请在购买前联系发卡银行临时开启，或改用微信支付。',
     faq_q11:'可以退款吗？<span class="faq-arrow">▾</span>',
-    faq_a11:'未安装二维码：全额退款 ✅ · 已安装但未激活：视情况，请联系客服 ⚠️ · 已安装并使用：不予退款 ❌ · eSIM 技术故障：全额退款或补发 ✅。<br/><br/>退款请发邮件至 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>，注明订单号，2个工作日内回复。',
+    faq_a11:'未安装二维码：全额退款 ✅ · 已安装但未激活：视情况，请联系客服 ⚠️ · 已安装并使用：不予退款 ❌ · eSIM 技术故障：全额退款或补发 ✅。<br/><br/>⚠ 退款政策适用于购买后 30 天内的订单，超过30天视情况另行评估。<br/><br/>退款请发邮件至 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>，注明订单号，2个工作日内回复。',
     faq_more:'查看完整FAQ',
     sb_label:'更多服务',
     sb_saily_title:'Saily eSIM', sb_saily_badge:'含虚拟IP', sb_saily_desc:'NordVPN 同团队，内置虚拟IP切换，可访问更多境外服务。广告拦截 + 安全防护。', sb_saily_cta:'了解 Saily',
@@ -1060,16 +1060,16 @@ const i18n = {
     ef3:'<strong>網路語音通話正常</strong>WhatsApp / 微信均可用',
     ef4:'<strong>落地才開始計時</strong>提前安裝不影響有效期',
     ef5:'<strong>即時發到信箱</strong>掃碼安裝，30秒完成',
-    ef6:'<strong>支付寶 / 微信支付</strong>信用卡 / Apple Pay 均支援',
+    ef6:'<strong>微信支付</strong>信用卡 / Apple Pay 均支援',
     esim_cta:'瀏覽所有套餐', esim_cta_note:'支援 AUD 結算 · 人民幣匯率參考即時牌價',
     how_label:'操作步驟', how_title1:'三步搞定', how_title2:'比想像中簡單',
-    step1_title:'選套餐 · 付款', step1_desc:'選好目的地和數據量，支援支付寶、微信支付、Apple Pay / 信用卡，一鍵付款。',
+    step1_title:'選套餐 · 付款', step1_desc:'選好目的地和數據量，支援微信支付、Apple Pay / 信用卡，一鍵付款。',
     step2_title:'掃碼安裝', step2_desc:'郵件收到二維碼後，用另一台手機或列印出來，在要安裝 eSIM 的手機上掃描，30秒完成安裝。',
     step3_title:'落地即上網', step3_desc:'飛機落地後開啟 eSIM 數據，自動連接當地網路，開始計時。不用找 WiFi，不用排隊。',
     dest_label:'熱門目的地', dest_title1:'去哪都有', dest_title2:'你要的那個國家',
     dest_cn:'中國大陸', dest_jp:'日本', dest_uk:'英國', dest_fr:'法國', dest_de:'德國', dest_it:'意大利',
     dest_th:'泰國', dest_sg:'新加坡', dest_kr:'韓國', dest_us:'美國', dest_hk:'香港', dest_more:'更多 200+ 國',
-    trust1:'Airalo 官方授權轉售商', trust2:'中文客服支援', trust3:'付款後即時出貨', trust4:'純流量無需實名', trust5:'支援支付寶 / 微信支付',
+    trust1:'Airalo 官方授權轉售商', trust2:'中文客服支援', trust3:'付款後即時出貨', trust4:'純流量無需實名', trust5:'支援微信支付',
     faq_label:'常見問題', faq_title1:'買之前', faq_title2:'你可能想知道的',
     faq_g1:'📶 eSIM 基礎', faq_g2:'📲 安裝與啟用', faq_g3:'📊 使用與流量', faq_g4:'💳 購買與支付',
     faq_q1:'什麼是 eSIM？和實體SIM有什麼區別？<span class="faq-arrow">▾</span>',
@@ -1079,7 +1079,7 @@ const i18n = {
     faq_q3:'我的手機支援 eSIM 嗎？<span class="faq-arrow">▾</span>',
     faq_a3:'主流支援機型：iPhone XR / XS 及以上 · Samsung Galaxy S20系列及以上 · Google Pixel 3 及以上 · OnePlus 11/12/13。<br/><br/>⚠️ 注意：在中國大陸、香港購買的手機很多不支援eSIM。不確定請聯絡 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>',
     faq_q_airalo:'RoamMelb 和 Airalo 是什麼關係？<span class="faq-arrow">▾</span>',
-    faq_a_airalo:'RoamMelb 是 Airalo 官方授權的轉售商。您購買的 eSIM 與直接在 Airalo 購買完全相同，品質無異。RoamMelb 額外提供：中文客服、支付寶 / 微信支付等本地支付方式。',
+    faq_a_airalo:'RoamMelb 是 Airalo 官方授權的轉售商。您購買的 eSIM 與直接在 Airalo 購買完全相同，品質無異。RoamMelb 額外提供：中文客服、微信支付等本地支付方式。',
     faq_q4:'怎麼安裝 eSIM？<span class="faq-arrow">▾</span>',
     faq_a4:'付款後，eSIM 二維碼即時發送到您的註冊信箱。<br/><br/><strong>重要提示：</strong>掃描二維碼的手機，必須是要安裝 eSIM 的那台手機。由於掃碼和安裝在同一台手機上無法同時進行，您需要用另一台設備打開信件顯示二維碼，再用要安裝的手機掃描。<div class="faq-note">💡 建議在出發前在家 Wi-Fi 環境下完成安裝。</div>',
     faq_a4_note:'💡 建議在出發前在家 Wi-Fi 環境下完成安裝。',
@@ -1092,11 +1092,11 @@ const i18n = {
     faq_q8:'可以開熱點分享給其他設備嗎？<span class="faq-arrow">▾</span>',
     faq_a8:'大多數套餐支援開啟個人熱點，可與平板、筆電共享網路。熱點共享會加快流量消耗，請謹慎使用。',
     faq_q9:'流量快用完了怎麼辦？<span class="faq-arrow">▾</span>',
-    faq_a9:'可以透過 Airalo App（App Store / Google Play 搜尋「Airalo」）查看剩餘流量並線上儲值（Top-Up），無需重新安裝 eSIM。',
+    faq_a9:'不可以。RoamMelb 銷售的是一次性 eSIM 套餐，<strong>不支援線上續費或儲值（Top-Up）</strong>。流量即將用完時，請前往 <a href="https://shop.roammelb.com/">shop.roammelb.com</a> 購買新的 eSIM 套餐（可在同一手機上再安裝一個）。',
     faq_q10:'支援哪些付款方式？<span class="faq-arrow">▾</span>',
     faq_a10:'支援：微信支付（WeChat Pay）· Visa / Mastercard 信用卡及儲蓄卡 · Apple Pay。',
     faq_q11:'可以退款嗎？<span class="faq-arrow">▾</span>',
-    faq_a11:'未安裝二維碼：全額退款 ✅ · 已安裝但未啟用：視情況 ⚠️ · 已安裝並使用：不予退款 ❌ · 技術故障：全額退款或補發 ✅。<br/>退款請發信至 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>',
+    faq_a11:'未安裝二維碼：全額退款 ✅ · 已安裝但未啟用：視情況 ⚠️ · 已安裝並使用：不予退款 ❌ · 技術故障：全額退款或補發 ✅。<br/><br/>⚠ 退款政策適用於購買後 30 天內的訂單，超過30天視情況另行評估。<br/>退款請發信至 <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>',
     faq_more:'查看完整FAQ',
     sb_label:'更多服務',
     sb_saily_title:'Saily eSIM', sb_saily_badge:'含虛擬IP', sb_saily_desc:'NordVPN 同團隊，內置虛擬IP切換，可訪問更多境外服務。廣告攔截 + 安全防護。', sb_saily_cta:'了解 Saily',
@@ -1161,11 +1161,11 @@ const i18n = {
     faq_q8:'Can I use the eSIM as a hotspot?<span class="faq-arrow">▾</span>',
     faq_a8:'Most plans support personal hotspot / tethering, so you can share with a tablet or laptop. Hotspot use drains data faster — use mindfully on limited plans.',
     faq_q9:'What if I run out of data?<span class="faq-arrow">▾</span>',
-    faq_a9:'You can top up through the Airalo App (search "Airalo" on App Store or Google Play). Check your balance and add more data without reinstalling the eSIM.',
+    faq_a9:'No. RoamMelb eSIM plans are one-time use and <strong>do not support online top-up or renewal</strong>. If you\'re running low on data, visit <a href="https://shop.roammelb.com/">shop.roammelb.com</a> to purchase a new eSIM plan (you can install a second eSIM on the same phone).',
     faq_q10:'What payment methods are accepted?<span class="faq-arrow">▾</span>',
     faq_a10:'We accept: WeChat Pay · Visa / Mastercard credit & debit cards · Apple Pay.<br/><br/>⚠️ Note: Payments are processed via Stripe and may be flagged as an overseas transaction by your bank. If your card has overseas transaction restrictions, contact your bank first or use WeChat Pay.',
     faq_q11:'Can I get a refund?<span class="faq-arrow">▾</span>',
-    faq_a11:'Not installed: Full refund ✅ · Installed but not activated: Case-by-case ⚠️ · Installed & used: No refund ❌ · Technical fault: Full refund or replacement ✅.<br/><br/>Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> with your order number. We reply within 2 business days.',
+    faq_a11:'Not installed: Full refund ✅ · Installed but not activated: Case-by-case ⚠️ · Installed & used: No refund ❌ · Technical fault: Full refund or replacement ✅.<br/><br/>⚠ Our refund policy applies to orders within 30 days of purchase; orders past 30 days are assessed case-by-case.<br/><br/>Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> with your order number. We reply within 2 business days.',
     faq_more:'View full FAQ',
     sb_label:'More services',
     sb_saily_title:'Saily eSIM', sb_saily_badge:'Incl. Virtual IP', sb_saily_desc:'By the NordVPN team. Built-in virtual IP switching for accessing more services abroad. Ad blocker + security.', sb_saily_cta:'Learn about Saily',
