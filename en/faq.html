@@ -1,0 +1,919 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — RoamMelb</title>
+  <meta name="description" content="RoamMelb eSIM FAQ: installation, activation timing, using in mainland China, data estimates, and refund policy — essential reading for Melbourne travellers.">
+<link rel="canonical" href="https://roammelb.com/en/faq">
+<link rel="alternate" hreflang="zh-Hans" href="https://roammelb.com/faq">
+<link rel="alternate" hreflang="zh-Hant" href="https://roammelb.com/zh-hant/faq">
+<link rel="alternate" hreflang="en" href="https://roammelb.com/en/faq">
+<link rel="alternate" hreflang="x-default" href="https://roammelb.com/faq">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RoamMelb">
+<meta property="og:title" content="FAQ — RoamMelb">
+<meta property="og:description" content="Answers on eSIM install, activation, refunds, and using it in mainland China.">
+<meta property="og:url" content="https://roammelb.com/en/faq">
+<meta property="og:locale" content="en_AU">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Noto+Sans+SC:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #050505;
+      --white: #ffffff;
+      --lime: #c8f135;
+      --lime-dark: #a8cc1a;
+      --gray-8: #111111;
+      --gray-9: #0a0a0a;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+    .lang-btn {
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.55); padding: 5px 10px; border-radius: 6px;
+      font-size: 0.75rem; cursor: pointer; font-family: 'Noto Sans SC', sans-serif;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .lang-btn.active {
+      background: rgba(200,241,53,0.12); border-color: rgba(200,241,53,0.4); color: var(--lime);
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 32px;
+      background: #0a0a0a; border-bottom: 1px solid rgba(255,255,255,0.1); gap: 16px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem;
+      letter-spacing: -0.03em; color: var(--white); text-decoration: none; flex-shrink: 0;
+    }
+    .logo span { color: var(--lime); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.88rem; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: transparent !important; color: var(--white) !important;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 6px 16px; border-radius: 100px;
+      font-weight: 400 !important; font-size: 0.85rem !important;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { background: var(--white) !important; color: var(--black) !important; }
+    .page-header {
+      padding: 140px 40px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(200,241,53,0.06) 0%, transparent 70%);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+      margin-bottom: 20px; position: relative; z-index: 1;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+    .breadcrumb a:hover { color: rgba(255,255,255,0.7); }
+    .breadcrumb span { color: rgba(255,255,255,0.5); }
+    .page-label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--lime); margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .page-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.0;
+      position: relative; z-index: 1;
+    }
+    .page-title .muted { color: rgba(255,255,255,0.3); font-weight: 400; }
+    .page-sub {
+      margin-top: 16px; font-size: 0.95rem;
+      color: rgba(255,255,255,0.6); line-height: 1.65; max-width: 480px;
+      position: relative; z-index: 1;
+    }
+    .quick-nav {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      padding: 28px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      background: var(--gray-9);
+    }
+    .qn-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px; padding: 8px 16px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.65);
+      text-decoration: none; transition: all 0.2s;
+    }
+    .qn-pill:hover {
+      background: rgba(200,241,53,0.08); border-color: rgba(200,241,53,0.2);
+      color: var(--white);
+    }
+    .faq-page {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+      background: var(--black);
+    }
+    .faq-toc {
+      position: sticky; top: 84px;
+      padding: 48px 32px 48px 40px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .toc-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+      margin-bottom: 16px;
+    }
+    .toc-links { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+    .toc-links a {
+      display: block; padding: 8px 12px; border-radius: 8px;
+      font-size: 0.82rem; color: rgba(255,255,255,0.5);
+      text-decoration: none; transition: all 0.2s; line-height: 1.45;
+    }
+    .toc-links a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    .toc-links a.active {
+      color: var(--lime); background: transparent;
+      border-left: 2px solid var(--lime); border-radius: 0; padding-left: 10px;
+    }
+    .toc-contact {
+      position: fixed;
+      bottom: 32px; right: 32px;
+      padding: 24px; width: 288px;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      z-index: 1000;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+    }
+    .toc-contact p { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+    .toc-contact a { color: var(--lime); text-decoration: none; }
+    .toc-contact a:hover { text-decoration: underline; }
+    .faq-content {
+      padding: 48px 40px 80px;
+      background: var(--black);
+    }
+    .faq-section {
+      margin-bottom: 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .faq-section:last-child { margin-bottom: 0; }
+    .section-anchor {
+      display: block; height: 84px; margin-top: -84px;
+      visibility: hidden; grid-column: 1 / -1;
+    }
+    .faq-section-head {
+      display: flex; align-items: center; gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      grid-column: 1 / -1;
+    }
+    .section-icon { font-size: 1.4rem; }
+    .section-title-text {
+      font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 700;
+    }
+    .section-count {
+      margin-left: auto; font-size: 0.72rem;
+      color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 3px 10px; border-radius: 100px;
+    }
+    .faq-item {
+      background: var(--gray-8);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover { border-color: rgba(255,255,255,0.2); }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      color: var(--white); text-align: left;
+      padding: 24px; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 16px; font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.9rem; font-weight: 500; line-height: 1.55;
+    }
+    .faq-arrow {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: transform 0.25s, background 0.2s;
+      color: rgba(255,255,255,0.5); font-size: 0.7rem; margin-top: 2px;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: rgba(200,241,53,0.12); border-color: rgba(200,241,53,0.3);
+      color: var(--lime);
+    }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      padding: 0 24px;
+      transition: max-height 0.4s ease, padding 0.25s;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+    }
+    .faq-item.open .faq-a { max-height: 1400px; padding-bottom: 24px; }
+    .faq-a a { color: var(--lime); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+    .faq-a strong { color: var(--white); }
+    .faq-note {
+      background: rgba(200,241,53,0.06); border: 1px solid rgba(200,241,53,0.18);
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 0.8rem; color: rgba(200,241,53,0.9); margin-top: 14px; line-height: 1.6;
+    }
+    .faq-warn {
+      background: rgba(246,173,85,0.07); border: 1px solid rgba(246,173,85,0.2);
+      border-radius: 8px; padding: 12px 16px;
+      font-size: 0.8rem; color: rgba(246,173,85,0.95); margin-top: 14px; line-height: 1.6;
+    }
+    .faq-table-wrap { overflow-x: auto; margin-top: 14px; }
+    .faq-table {
+      width: 100%; border-collapse: collapse; font-size: 0.8rem;
+    }
+    .faq-table th {
+      text-align: left; padding: 10px 14px;
+      background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.08); font-weight: 500;
+    }
+    .faq-table td {
+      padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.72); vertical-align: top;
+    }
+    .faq-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .tag-ok { color: #68d391; }
+    .tag-warn { color: #f6ad55; }
+    .tag-no { color: #fc8181; }
+    .usage-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 14px; }
+    .usage-table th {
+      text-align: left; padding: 10px 14px;
+      background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.65);
+      border-bottom: 1px solid rgba(255,255,255,0.07); font-weight: 500;
+    }
+    .usage-table td {
+      padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.72);
+    }
+    .install-steps { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+    .install-step {
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm); padding: 12px 16px;
+    }
+    .install-step-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--lime); margin-bottom: 6px;
+    }
+    .install-step-text { font-size: 0.82rem; color: rgba(255,255,255,0.78); line-height: 1.55; }
+    .cta-strip {
+      margin: 48px 40px 0;
+      background: var(--gray-8); border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.05);
+      background-image: radial-gradient(ellipse at center, rgba(200,241,53,0.08) 0%, transparent 60%);
+      padding: 40px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .cta-strip h2 {
+      font-family: 'Syne', sans-serif; font-size: 1.5rem;
+      font-weight: 800; color: var(--white); letter-spacing: -0.03em;
+    }
+    .cta-strip p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-top: 6px; }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--lime); color: var(--black);
+      padding: 14px 28px; border-radius: 100px;
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      white-space: nowrap; flex-shrink: 0; transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
+    footer {
+      margin-top: 80px; padding: 48px 40px; background: #0a0a0a;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: flex-start; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--lime); }
+    .footer-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.75); }
+    .footer-bottom {
+      width: 100%; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.28); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.28); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.55); }
+    @media (max-width: 900px) {
+      .faq-page { grid-template-columns: 1fr; }
+      .faq-toc { display: none; }
+      .faq-content { padding: 32px 20px 60px; }
+      .faq-section { grid-template-columns: 1fr; gap: 16px; }
+      .toc-contact { display: none; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 110px 20px 40px; }
+      .quick-nav { padding: 16px 20px; gap: 8px; }
+      .qn-pill { font-size: 0.75rem; padding: 7px 13px; }
+      .cta-strip { margin: 32px 20px 0; padding: 28px 24px; }
+      footer { padding: 36px 20px; }
+      .faq-a {
+        font-size: 0.88rem;
+        color: rgba(255,255,255,0.85);
+      }
+      .faq-table td { color: rgba(255,255,255,0.82); }
+      .usage-table td { color: rgba(255,255,255,0.82); }
+      .install-step-text { color: rgba(255,255,255,0.85); }
+      .faq-q { font-size: 0.88rem; padding: 20px; }
+      .faq-a { padding: 0 20px; }
+      .faq-item.open .faq-a { padding-bottom: 20px; }
+      .page-sub { color: rgba(255,255,255,0.7); }
+      .breadcrumb { color: rgba(255,255,255,0.55); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/en/" class="logo">Roam<span>Melb</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="/#esim" data-i18n="nav_esim">eSIM</a></li>
+      <li><a href="/#how" data-i18n="nav_how">How it works</a></li>
+      <li><a href="/#destinations" data-i18n="nav_dest">Destinations</a></li>
+      <li><a href="/faq" data-i18n="nav_faq" style="color:var(--white)">FAQ</a></li>
+      <li><a href="/shop" class="nav-cta" data-i18n="nav_buy">Buy Now</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <a href="/faq" class="lang-btn">简体</a>
+      <a href="/zh-hant/faq" class="lang-btn">繁體</a>
+      <a href="/en/faq" class="lang-btn active">EN</a></div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="breadcrumb">
+    <a href="/en/" data-i18n="bc_home">Home</a>
+    <span>›</span>
+    <span data-i18n="bc_faq">FAQ</span>
+  </div>
+  <div class="page-label" data-i18n="page_label">FAQ</div>
+  <h1 class="page-title">
+    <span data-i18n="page_h1a">Before you buy</span><br>
+    <span class="muted" data-i18n="page_h1b">things you might wonder</span>
+  </h1>
+  <p class="page-sub" data-i18n="page_sub">Covers eSIM basics, installation steps, China usage, data estimates, payment and refunds. Can't find your answer? Contact us anytime.</p>
+</div>
+
+<div class="quick-nav">
+  <a href="#basics" class="qn-pill" data-i18n="qn1">📶 eSIM Basics</a>
+  <a href="#china" class="qn-pill" data-i18n="qn2">🇨🇳 Using in China</a>
+  <a href="#install" class="qn-pill" data-i18n="qn3">📲 Install &amp; Activate</a>
+  <a href="#data" class="qn-pill" data-i18n="qn4">📊 Data Usage</a>
+  <a href="#payment" class="qn-pill" data-i18n="qn5">💳 Payment &amp; Refunds</a>
+  <a href="#tech" class="qn-pill" data-i18n="qn6">🔧 Troubleshooting</a>
+  <a href="#about" class="qn-pill" data-i18n="qn7">🏢 About RoamMelb</a>
+</div>
+
+<div class="faq-page">
+
+  <nav class="faq-toc">
+    <div class="toc-label" data-i18n="toc_label">Contents</div>
+    <ul class="toc-links">
+      <li><a href="#basics" data-i18n="toc1">📶 eSIM Basics</a></li>
+      <li><a href="#china" data-i18n="toc2">🇨🇳 Using in China</a></li>
+      <li><a href="#install" data-i18n="toc3">📲 Install &amp; Activate</a></li>
+      <li><a href="#data" data-i18n="toc4">📊 Data Usage</a></li>
+      <li><a href="#payment" data-i18n="toc5">💳 Payment &amp; Refunds</a></li>
+      <li><a href="#tech" data-i18n="toc6">🔧 Troubleshooting</a></li>
+      <li><a href="#about" data-i18n="toc7">🏢 About Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="faq-content">
+
+    <div class="faq-section" id="basics">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">📶</span>
+        <span class="section-title-text" data-i18n="s1_title">eSIM Basics</span>
+        <span class="section-count" data-i18n="s1_count">5 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_1">What is an eSIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_1">An eSIM (embedded SIM) is a virtual SIM card built directly into your phone — no physical card needed. After purchase, you receive a QR code instantly by email. Scan it to activate. Instant delivery, instant setup.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_2">How is eSIM different from a physical SIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_2">A physical SIM requires visiting a store or airport, registering ID, and often queuing. An eSIM is purchased online, delivered instantly to your email, installed by scanning a QR code — no ID registration required. It also doesn't take up your physical SIM slot, so you can keep your Australian number active simultaneously.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_3">Does the eSIM come with a phone number? Do I need to verify my identity?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_3">RoamMelb sells Data-Only eSIMs — <strong>no phone number and no SMS function are included</strong>. No ID verification is required.<br><br>You can still use all data-based voice services: WhatsApp calls, WeChat voice/video calls, FaceTime, etc.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_4">Is my phone eSIM compatible?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_4">Common compatible devices:</span>
+          <div class="faq-table-wrap">
+            <table class="faq-table">
+              <thead><tr>
+                <th data-i18n="th_brand">Brand</th>
+                <th data-i18n="th_models">Compatible Models</th>
+                <th data-i18n="th_notes">Notes</th>
+              </tr></thead>
+              <tbody>
+                <tr><td>🍎 iPhone</td><td>XR / XS 及以上所有型号</td><td class="tag-warn" data-i18n="iphone_note">⚠ Dual physical-SIM models from mainland China or HK may not support eSIM</td></tr>
+                <tr><td>Samsung</td><td>S20 / Note 20 / Z Fold / Z Flip / A54、A55、A56</td><td class="tag-warn" data-i18n="samsung_note">⚠ Samsung models from China/HK/Taiwan mostly do not support eSIM</td></tr>
+                <tr><td>Google Pixel</td><td>Pixel 3 及以上</td><td class="tag-ok" data-i18n="pixel_note">✅ Most stable eSIM support on Android</td></tr>
+                <tr><td>小米 Xiaomi</td><td data-i18n="xiaomi_models">Select models (e.g. 12T Pro)</td><td class="tag-warn" data-i18n="xiaomi_note">⚠ Chinese market versions usually unsupported</td></tr>
+                <tr><td>华为 Huawei</td><td>P40 / P40 Pro</td><td class="tag-warn" data-i18n="huawei_note">⚠ Mainland versions largely unsupported. P40 Pro+ not supported.</td></tr>
+                <tr><td>OnePlus</td><td>11 / 12 / 13</td><td class="tag-ok">✅</td></tr>
+                <tr><td>Motorola</td><td data-i18n="moto_models">Select Edge / Razr models</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="faq-warn" data-i18n="eid_note">⚠ To check: iPhone → Settings → General → About (look for Available SIM); Android → dial *#06# and look for an EID number. Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> if unsure.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q1_5">What's the relationship between RoamMelb and Airalo?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a1_5">RoamMelb is an officially authorized Airalo Reseller. The eSIM you purchase is identical to buying directly from Airalo — same networks, same quality.<br><br>RoamMelb adds: bilingual Chinese customer support, local payment methods (see "What payment methods are accepted?"), and Chinese-language travel guidance.</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-section" id="china">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">🇨🇳</span>
+        <span class="section-title-text" data-i18n="s2_title">Using in China</span>
+        <span class="section-count" data-i18n="s2_count">4 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_1">Can I access overseas websites and apps in mainland China with RoamMelb eSIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_1">When using an international roaming eSIM, your data routes through international servers in Hong Kong or Singapore, bypassing the mainland Chinese internet. For most users, this means you can access Google, YouTube, Instagram, WhatsApp, Facebook and other overseas platforms <strong>without any additional tools</strong>.</span>
+          <div class="faq-warn" data-i18n="a2_1_note">⚠ Disclaimer: Airalo does not explicitly guarantee access to overseas websites. Results may vary depending on your city, carrier signal, device and network environment. RoamMelb cannot guarantee outcomes for individual cases. Based on user feedback, the overall success rate is high, but 100% cannot be guaranteed.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_2">I'm connected but my IP shows Hong Kong or Singapore — is that normal?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_2">Completely normal. This is exactly how roaming eSIMs work — your phone connects to China Unicom's towers in mainland China, but your data routes through Hong Kong or Singapore to the international internet.<br><br>An IP showing Hong Kong or Singapore is expected behaviour, not a fault.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_3">Will a Hong Kong IP affect access to AI tools like ChatGPT or Claude?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_3">It may. Some AI services (ChatGPT, Claude, Gemini) restrict access from Hong Kong IPs as these services aren't fully available in Hong Kong.<br><br>If you encounter issues, try:<br>• Enable flight mode → wait 10–15 seconds → disable, to force reconnection and potentially get a Singapore IP<br>• Turn eSIM data off → wait 5 seconds → turn back on<br>• Use AI tools on hotel or café Wi-Fi</span>
+          <div class="faq-note" data-i18n="a2_3_note">💡 Based on user feedback, a Singapore IP has a higher success rate with AI tools than a Hong Kong IP — but neither is guaranteed.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q2_4">I'm already in mainland China — can I still install the eSIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a2_4">It's possible but challenging. You'll need access to your email to get the QR code, and a working internet connection (Wi-Fi or existing data) to complete installation. If you have no connectivity at all, installation won't be possible.<br><br><strong>We strongly recommend installing before you leave Australia.</strong></span>
+          <div class="faq-note" data-i18n="a2_4_note">✅ Best practice: Install the eSIM at home before you fly. Keep eSIM data off. After landing in China, turn off data roaming on your Australian SIM and turn on the eSIM data — it connects automatically to China Unicom. For validity start timing, please check the activation policy for your specific plan, or contact us to confirm.</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-section" id="install">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">📲</span>
+        <span class="section-title-text" data-i18n="s3_title">Install &amp; Activate</span>
+        <span class="section-count" data-i18n="s3_count">5 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_1">How do I install the eSIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_1">After payment, the QR code is sent instantly to your registered email.</span>
+          <div class="faq-warn" data-i18n="a3_1_warn">⚠ Important: The phone that scans the QR code must be the phone you're installing the eSIM on. Since you can't scan and install on the same device simultaneously, use a second device (another phone, tablet, or computer) to open the email and display the QR code, then scan it with the target phone.</div>
+          <div class="install-steps">
+            <div class="install-step">
+              <div class="install-step-label">🍎 iPhone</div>
+              <div class="install-step-text">设置 → 蜂窝网络 → 添加eSIM → 使用二维码</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label">📱 Samsung</div>
+              <div class="install-step-text">设置 → 连接 → SIM卡管理器 → 添加eSIM → 扫描二维码</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label">📱 Google Pixel</div>
+              <div class="install-step-text">设置 → 网络和互联网 → SIM卡 → 下载SIM → 扫描二维码</div>
+            </div>
+          </div>
+          <div class="faq-note" data-i18n="a3_1_note">💡 After installation: Settings → Cellular → set eSIM as your Data SIM → enable "Data Roaming". We recommend installing at home on Wi-Fi before travel, and turning eSIM data on only after landing.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_2">When does the timer start?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_2">Activation timing varies by plan. Most plans start counting from when you <strong>first connect to a local network at your destination</strong> — installation alone does not trigger the timer. However, a small number of plans activate immediately upon installation.<br><br>We recommend checking the activation policy for your specific plan before travel, or <a href="mailto:contact@roammelb.com">contact us</a> to confirm.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_3">How many eSIMs can I store on one phone?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_3">Most phones can store 8–10 eSIMs, but typically only 1–2 can be active simultaneously.<br><br>iPhone 13 and above supports two active eSIMs at once. eSIMs stay stored on your phone, so you can reactivate for future trips without repurchasing (as long as the plan hasn't expired).</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_4">I got a new phone — can I transfer my eSIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_4">We've confirmed with Airalo directly: eSIM QR codes are single-use and bind to the device the moment they're scanned. <strong>Transferring to a different phone is not possible</strong>, including when you upgrade to a new phone.<br><br>If you're planning to switch phones, we recommend using up the data on your current eSIM first, then purchasing a new eSIM plan on your new phone. Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> if you have questions.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q3_5">Is there an expiry deadline for activating my eSIM?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a3_5">Based on confirmation from Airalo, we recommend <strong>installing and activating your eSIM within 30 days of purchase</strong> to make sure it works properly.<br><br>If it isn't installed and activated within 30 days, the eSIM may no longer work.<br><br>Please note: our refund policy is also based on a 30-day window from purchase (see "Can I get a refund?"). We recommend installing and activating as soon as possible after purchase to avoid issues with usage or refund eligibility.</span>
+          <div class="faq-note" data-i18n="a3_5_note">💡 Buying more than 30 days before you travel? Be sure to install and activate within 30 days of purchase, or email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> ahead of time to confirm your eSIM's status.</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-section" id="data">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">📊</span>
+        <span class="section-title-text" data-i18n="s4_title">Data Usage</span>
+        <span class="section-count" data-i18n="s4_count">3 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q4_1">How long does 1GB last?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <table class="usage-table">
+            <thead><tr>
+              <th data-i18n="ut_activity">Activity</th>
+              <th data-i18n="ut_rate">Data rate</th>
+              <th data-i18n="ut_duration">Duration per 1GB</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>📱 微信/WhatsApp 文字消息</td><td data-i18n="ut_very_low">Very low</td><td data-i18n="ut_days">Several days</td></tr>
+              <tr><td>📞 微信/WhatsApp 语音通话</td><td>~40 MB/小时</td><td data-i18n="ut_25h">~25 hours</td></tr>
+              <tr><td>📹 视频通话</td><td>~300 MB/小时</td><td data-i18n="ut_3h">~3 hours</td></tr>
+              <tr><td>🗺 地图导航</td><td>~70 MB/小时</td><td data-i18n="ut_14h">~14 hours</td></tr>
+              <tr><td>📸 社交媒体浏览（无视频）</td><td>~150 MB/小时</td><td data-i18n="ut_7h">~7 hours</td></tr>
+              <tr><td>🎬 YouTube 480p</td><td>~500 MB/小时</td><td data-i18n="ut_2h">~2 hours</td></tr>
+              <tr><td>🎬 YouTube 1080p</td><td>~3 GB/小时</td><td data-i18n="ut_20m">~20 minutes</td></tr>
+            </tbody>
+          </table>
+          <div class="faq-note" data-i18n="data_tips">💡 Data-saving tips: Download offline maps (Google Maps) on Wi-Fi before you go · Download music/podcasts offline · Set YouTube to 480p (saves ~80%) · Disable background app refresh · Turn off automatic updates</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q4_2">Is the "unlimited" plan really unlimited?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a4_2">Airalo's "unlimited" plans provide <strong>3GB of high-speed data per day</strong>. After that, speed throttles to around 1Mbps.<br><br>Throttled speed is still fine for: WeChat messages, email, navigation, and light browsing. Video calls and HD streaming will lag.<br><br>For most travellers, 3GB/day is more than enough unless streaming HD video all day.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q4_3">Can I use the eSIM as a hotspot?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a4_3">✅ Yes. Most plans support personal hotspot (Wi-Fi tethering), so you can share with a tablet or laptop.<br><br>Note: tethering uses data much faster — use mindfully on limited plans.</span>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-section" id="payment">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">💳</span>
+        <span class="section-title-text" data-i18n="s5_title">Payment &amp; Refunds</span>
+        <span class="section-count" data-i18n="s5_count">4 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_1">How do I purchase?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a5_1">Visit <a href="/shop">shop.roammelb.com</a> → choose destination and plan → add to cart → checkout → receive QR code by email → scan to install. The whole process takes about 5 minutes.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_2">What payment methods are accepted?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a5_2">We do not store your payment information. All payments are securely processed via Stripe. We currently support the following payment methods:<br>• 💚 WeChat Pay<br>• 💳 Visa / Mastercard credit &amp; debit cards<br>• 🍎 Apple Pay (iOS devices)</span>
+          <div class="faq-warn" data-i18n="a5_2_alipay">⚠ Alipay is temporarily unavailable while we resolve an issue on our end — we'll update this page once it's back. Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> if you specifically need to pay via Alipay.</div>
+          <div class="faq-warn" data-i18n="a5_2_warn">⚠ Card holders note: Payments are processed via Stripe and may be flagged as an overseas (Hong Kong) transaction. If your card has overseas spending restrictions, contact your bank before purchasing, or use WeChat Pay instead.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_3">Does the price include GST? Can I get an invoice?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a5_3">RoamMelb's annual turnover is currently below the Australian GST registration threshold (A$75,000), so <strong>GST is not currently charged</strong>. If turnover exceeds the threshold, customers will be notified in advance.<br><br>A payment confirmation email is sent automatically after purchase. For a formal invoice, email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a>.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q5_4">Can I get a refund?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-table-wrap">
+            <table class="faq-table">
+              <thead><tr><th data-i18n="ref_situation">Situation</th><th data-i18n="ref_outcome">Refund outcome</th></tr></thead>
+              <tbody>
+                <tr><td data-i18n="ref_r1">QR code not yet scanned / installed</td><td class="tag-ok" data-i18n="ref_ok">✅ Full refund</td></tr>
+                <tr><td data-i18n="ref_r2">Installed but not activated (not used at destination)</td><td class="tag-warn" data-i18n="ref_case">⚠ Case-by-case — contact us</td></tr>
+                <tr><td data-i18n="ref_r3">Installed and used</td><td class="tag-no" data-i18n="ref_no">❌ No refund</td></tr>
+                <tr><td data-i18n="ref_r4">eSIM technical fault</td><td class="tag-ok" data-i18n="ref_replace">✅ Full refund or replacement</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="faq-warn" data-i18n="ref_window">⚠ Our refund policy applies to orders <strong>within 30 days of purchase</strong> (the window Airalo has confirmed to us). Refunds for orders past 30 days are assessed case-by-case — please contact support with details.</div>
+          <div class="faq-note" data-i18n="ref_note">To request a refund, email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> with your order number and a description of the issue. We respond within 2 business days.</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-section" id="tech">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">🔧</span>
+        <span class="section-title-text" data-i18n="s6_title">Troubleshooting</span>
+        <span class="section-count" data-i18n="s6_count">4 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_1">My eSIM is installed but there's no signal — what do I do?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_1">Work through these steps in order:<br>1. Confirm eSIM is set as your Data SIM (Settings → Cellular → Cellular Data → select eSIM)<br>2. Confirm "Data Roaming" is enabled<br>3. Enable flight mode → wait 15 seconds → disable to force reconnection<br>4. Manually select network operator — in China, select China Unicom<br>5. Restart your phone<br><br>If none of the above works, email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a></span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_2">I'm running low on data — can I top up?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_2">No. RoamMelb eSIM plans are one-time use and <strong>do not support online top-up or renewal</strong>.<br><br>If you're running low on data, visit <a href="/shop">shop.roammelb.com</a> to purchase a new eSIM plan (you can install a second eSIM on the same phone).</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_3">How do I check my remaining data?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_3">RoamMelb doesn't currently have a companion app for checking data usage — please check it yourself in your phone's built-in data settings:<br>• iPhone: Settings → Cellular → scroll down to see current-period usage for the eSIM<br>• Android: Settings → Network &amp; Internet → Data usage → select the eSIM to view usage<br><br>⚠ Your phone's data counter is only an estimate and may differ slightly from the carrier's actual billing, and it resets on reboot or when the usage cycle changes. We recommend leaving a buffer and buying a new plan before you run out.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q6_4">I got an error when installing my eSIM — what went wrong?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a6_4">Common installation errors and fixes:</span>
+          <div class="install-steps">
+            <div class="install-step">
+              <div class="install-step-label" data-i18n="a6_4_e1_title">❌ Device does not support eSIM</div>
+              <div class="install-step-text" data-i18n="a6_4_e1_text">Your phone may not have eSIM capability, or it may be a region-specific model that blocks eSIM (e.g. dual physical SIM models sold in mainland China). Check compatibility first — see "Does my phone support eSIM?"</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label" data-i18n="a6_4_e2_title">❌ No internet connection during install</div>
+              <div class="install-step-text" data-i18n="a6_4_e2_text">Downloading an eSIM profile requires a stable internet connection (Wi-Fi or existing mobile data). Make sure you are connected before attempting installation.</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label" data-i18n="a6_4_e3_title">❌ QR code already used</div>
+              <div class="install-step-text" data-i18n="a6_4_e3_text">Each eSIM QR code can typically only be scanned once. If it has already been installed on a device, the code is no longer valid for a second device. Contact us if this happens.</div>
+            </div>
+            <div class="install-step">
+              <div class="install-step-label" data-i18n="a6_4_e4_title">❌ Android error: "Could not activate service"</div>
+              <div class="install-step-text" data-i18n="a6_4_e4_text">This error occasionally occurs on Android and may be caused by a corrupted profile or incomplete download. Try deleting the eSIM and reinstalling by scanning the QR code again. If the problem persists, contact support.</div>
+            </div>
+          </div>
+          <div class="faq-note" data-i18n="a6_4_note">None of the above helped? Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> with your order number and a screenshot of the error. We reply within 2 business days.</div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="faq-section" id="about">
+      <span class="section-anchor"></span>
+      <div class="faq-section-head">
+        <span class="section-icon">🏢</span>
+        <span class="section-title-text" data-i18n="s7_title">About RoamMelb</span>
+        <span class="section-count" data-i18n="s7_count">2 Q&amp;As</span>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q7_1">What is RoamMelb?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a7_1">RoamMelb is an eSIM brand founded by Australians of Chinese background, serving the Chinese-speaking community. We sell through Airalo's official authorized channel, ensuring product quality and reliability.<br><br>RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.</span>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          <span data-i18n="q7_2">How do I contact support?</span>
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">
+          <span data-i18n="a7_2">• 📧 Email: <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> (reply within 2 business days)<br>• 🌐 Website: <a href="/">roammelb.com</a><br>• 🛒 Shop: <a href="/shop">shop.roammelb.com</a></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="toc-contact">
+  <p data-i18n="toc_contact">Can't find the answer?<br><a href="mailto:contact@roammelb.com">contact@roammelb.com</a><br>Reply within 2 business days</p>
+</div>
+
+
+<div class="cta-strip">
+  <div>
+    <h2 data-i18n="cta_h2">Got your answers?</h2>
+    <p data-i18n="cta_p">Pick a plan and get connected in 2 minutes</p>
+  </div>
+  <a href="/shop" class="btn-dark">
+    <span data-i18n="cta_btn">Shop eSIMs</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </a>
+</div>
+
+
+<footer>
+  <a href="/en/" class="footer-logo">Roam<span>Melb</span></a>
+  <ul class="footer-links">
+    <li><a href="/shop" data-i18n="footer_esim">Buy eSIM</a></li>
+    <li><a href="/saily">Saily eSIM</a></li>
+    <li><a href="/vpn" data-i18n="footer_vpn">VPN</a></li>
+    <li><a href="/insurance" data-i18n="footer_ins">Travel Insurance</a></li>
+    <li><a href="/flights" data-i18n="footer_flights">Flight Tips</a></li>
+    <li><a href="/travel-guide" data-i18n="footer_blog">Visa &amp; Guides</a></li>
+    <li><a href="/faq" data-i18n="footer_faq">FAQ</a></li>
+    <li><a href="/contact" data-i18n="footer_contact">Contact</a></li>
+  </ul>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2026 Juliet and Roland Hong Kong Limited. All rights reserved. RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.</div>
+    <div class="footer-legal">
+      <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="/terms" data-i18n="footer_terms">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+const sections = ['basics','china','install','data','payment','tech','about'];
+function updateToc() {
+  let active = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= 120) active = id;
+  });
+  document.querySelectorAll('.toc-links a').forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + active);
+  });
+}
+window.addEventListener('scroll', updateToc, { passive: true });
+updateToc();</script>
+
+
+</body></html>
