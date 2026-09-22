@@ -1,0 +1,1009 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoamMelb — Melbourne Travel eSIM</title>
+  <meta name="description" content="RoamMelb is an official Airalo authorized eSIM reseller for Melbourne's Chinese travellers. WeChat Pay &amp; Apple Pay supported, data-only with no ID required, 200+ countries covered, 2-minute activation.">
+<link rel="canonical" href="https://roammelb.com/en/">
+<link rel="alternate" hreflang="zh-Hans" href="https://roammelb.com/">
+<link rel="alternate" hreflang="zh-Hant" href="https://roammelb.com/zh-hant/">
+<link rel="alternate" hreflang="en" href="https://roammelb.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://roammelb.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RoamMelb">
+<meta property="og:title" content="RoamMelb — Melbourne Travel eSIM">
+<meta property="og:description" content="Official Airalo reseller. WeChat Pay accepted, data-only, no ID required, covering 200+ countries.">
+<meta property="og:url" content="https://roammelb.com/en/">
+<meta property="og:locale" content="en_AU">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RoamMelb — Melbourne Travel eSIM">
+<meta name="twitter:description" content="Official Airalo reseller. WeChat Pay accepted, data-only, no ID required, covering 200+ countries.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "RoamMelb",
+  "url": "https://roammelb.com",
+  "description": "RoamMelb 是 Airalo 官方授权的 eSIM 转售商，专为墨尔本及全球华人旅客提供出行数据流量服务，支持微信支付。",
+  "email": "contact@roammelb.com",
+  "areaServed": ["AU", "HK", "CN"],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Juliet and Roland Hong Kong Limited"
+  }
+}
+</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=Noto+Sans+SC:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --lime: #c8f135;
+      --lime-dark: #a8cc1a;
+      --gray-1: #f5f5f3;
+      --gray-2: #e8e8e4;
+      --gray-5: #888880;
+      --gray-8: #1a1a18;
+      --gray-9: #141412;
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── LANG SWITCHER ── */
+    .lang-switcher { display: flex; gap: 4px; align-items: center; }
+    .lang-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.45);
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: 'Noto Sans SC', sans-serif;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+    .lang-btn.active {
+      background: rgba(200,241,53,0.12);
+      border-color: rgba(200,241,53,0.4);
+      color: var(--lime);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+    }
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.4rem;
+      letter-spacing: -0.03em;
+      color: var(--white); text-decoration: none; flex-shrink: 0;
+    }
+    .logo span { color: var(--lime); }
+    .nav-right { display: flex; align-items: center; gap: 24px; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.88rem; font-weight: 400; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--lime); color: var(--black) !important;
+      padding: 10px 22px; border-radius: 100px;
+      font-weight: 600 !important; font-size: 0.85rem !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--lime-dark) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: flex-start;
+      padding: 140px 40px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(200,241,53,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(200,241,53,0.05) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+    }
+    .hero-tag {
+      position: relative; z-index: 1;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,241,53,0.12);
+      border: 1px solid rgba(200,241,53,0.3);
+      color: var(--lime); padding: 6px 16px; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500; margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-tag::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--lime); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    h1 {
+      position: relative; z-index: 1;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800; line-height: 1.0;
+      letter-spacing: -0.04em; max-width: 750px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+    h1 .accent { color: var(--lime); }
+    h1 .thin { font-weight: 400; color: rgba(255,255,255,0.45); }
+    .hero-sub {
+      position: relative; z-index: 1;
+      margin-top: 24px; font-size: 1.05rem;
+      color: rgba(255,255,255,0.55); line-height: 1.7; max-width: 520px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+    .hero-actions {
+      position: relative; z-index: 1;
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-top: 40px; animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--lime); color: var(--black);
+      padding: 16px 32px; border-radius: 100px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-primary:hover { background: var(--lime-dark); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white); padding: 16px 32px; border-radius: 100px;
+      font-weight: 500; font-size: 1rem; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+
+    /* ── SELL POINTS STRIP ── */
+    .sell-points {
+      position: relative; z-index: 1;
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-top: 40px;
+      animation: fadeUp 0.6s 0.35s ease both;
+    }
+    .sell-point {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px; max-width: 260px;
+    }
+    .sell-point-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 1px; }
+    .sell-point-text { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+    .sell-point-text strong { color: var(--white); display: block; margin-bottom: 2px; font-size: 0.88rem; }
+
+    .hero-stats {
+      position: relative; z-index: 1;
+      display: flex; gap: 48px; flex-wrap: wrap;
+      margin-top: 56px; padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 700; color: var(--lime);
+    }
+    .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── MAIN LAYOUT (content + sidebar) ── */
+    .page-body {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 0;
+      align-items: start;
+    }
+    .main-col { min-width: 0; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 84px;
+      padding: 40px 32px 40px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .sidebar-label {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 4px;
+    }
+    .sidebar-card {
+      background: var(--gray-8);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm);
+      padding: 20px 22px;
+      text-decoration: none; color: var(--white);
+      display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .sidebar-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--lime); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .sidebar-card:hover { border-color: rgba(200,241,53,0.2); transform: translateX(3px); }
+    .sidebar-card:hover::before { transform: scaleX(1); }
+    .sidebar-card.card-saily::before { background: #63b3ed; }
+    .sidebar-card.card-saily:hover { border-color: rgba(99,179,237,0.2); }
+    .sidebar-card.card-insurance::before { background: #4fd1c5; }
+    .sidebar-card.card-insurance:hover { border-color: rgba(79,209,197,0.2); }
+    .sidebar-card.card-flights::before { background: #f6ad55; }
+    .sidebar-card.card-flights:hover { border-color: rgba(246,173,85,0.2); }
+    .sidebar-card.card-vpn::before { background: #a78bfa; }
+    .sidebar-card.card-vpn:hover { border-color: rgba(167,139,250,0.2); }
+    .sc-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .sc-icon { font-size: 1.3rem; }
+    .sc-title { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; }
+    .sc-badge {
+      margin-left: auto; font-size: 0.65rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 100px;
+      background: rgba(200,241,53,0.12); color: var(--lime);
+      border: 1px solid rgba(200,241,53,0.25); white-space: nowrap;
+    }
+    .sc-badge.blue { background: rgba(99,179,237,0.12); color: #90cdf4; border-color: rgba(99,179,237,0.3); }
+    .sc-badge.teal { background: rgba(79,209,197,0.12); color: #4fd1c5; border-color: rgba(79,209,197,0.3); }
+    .sc-badge.amber { background: rgba(246,173,85,0.12); color: #f6ad55; border-color: rgba(246,173,85,0.3); }
+    .sc-badge.purple { background: rgba(167,139,250,0.12); color: #a78bfa; border-color: rgba(167,139,250,0.3); }
+    .sc-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.55; }
+    .sc-cta {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 12px; font-size: 0.78rem; font-weight: 600; color: var(--lime);
+    }
+    .sc-cta.blue { color: #63b3ed; }
+    .sc-cta.teal { color: #4fd1c5; }
+    .sc-cta.amber { color: #f6ad55; }
+    .sc-cta.purple { color: #a78bfa; }
+
+    /* ── SECTIONS ── */
+    .section { padding: 80px 40px; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--lime); margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 40px; max-width: 520px;
+    }
+    .section-title .muted { color: rgba(255,255,255,0.3); }
+
+    /* ── ESIM CORE PRODUCT ── */
+    .esim-hero-card {
+      background: linear-gradient(135deg, rgba(200,241,53,0.08) 0%, rgba(200,241,53,0.02) 100%);
+      border: 1px solid rgba(200,241,53,0.2);
+      border-radius: var(--radius);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .esim-hero-card::after {
+      content: 'eSIM';
+      position: absolute; right: -10px; bottom: -20px;
+      font-family: 'Syne', sans-serif; font-size: 8rem; font-weight: 800;
+      color: rgba(200,241,53,0.06); pointer-events: none;
+    }
+    .esim-hero-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(200,241,53,0.15); color: var(--lime);
+      font-size: 0.75rem; font-weight: 600;
+      padding: 4px 14px; border-radius: 100px;
+      border: 1px solid rgba(200,241,53,0.3);
+      margin-bottom: 20px;
+    }
+    .esim-hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800; line-height: 1.15; margin-bottom: 16px;
+      letter-spacing: -0.03em;
+    }
+    .esim-hero-desc {
+      font-size: 0.95rem; color: rgba(255,255,255,0.6);
+      line-height: 1.7; max-width: 540px; margin-bottom: 32px;
+    }
+    .esim-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px; margin-bottom: 36px;
+    }
+    .esim-feature {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .esim-feature-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(200,241,53,0.15);
+      border: 1px solid rgba(200,241,53,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+      color: var(--lime); font-size: 0.7rem;
+    }
+    .esim-feature-text { font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
+    .esim-feature-text strong { color: var(--white); display: block; font-size: 0.88rem; }
+    .esim-cta-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .esim-cta-note { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px; background: rgba(255,255,255,0.05);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .step { background: var(--black); padding: 36px 28px; }
+    .step-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem; font-weight: 800;
+      color: rgba(200,241,53,0.13); line-height: 1; margin-bottom: 14px;
+    }
+    .step-title { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .step-desc { font-size: 0.83rem; color: rgba(255,255,255,0.42); line-height: 1.65; }
+
+    /* ── DESTINATIONS ── */
+    .dest-section {
+      background: var(--gray-8);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+    }
+    .dest-pill {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-sm); padding: 12px 16px;
+      font-size: 0.85rem; color: rgba(255,255,255,0.7);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .dest-pill:hover {
+      background: rgba(200,241,53,0.06);
+      border-color: rgba(200,241,53,0.2); color: var(--white);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      display: flex; align-items: center; justify-content: center;
+      flex-wrap: wrap; gap: 36px; padding: 44px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: rgba(255,255,255,0.42); }
+    .trust-item span:first-child { font-size: 1.1rem; }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--gray-9); }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 0;
+    }
+    .faq-group { padding: 0; }
+    .faq-group-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--lime); margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(200,241,53,0.15);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      color: var(--white); text-align: left;
+      padding: 18px 0; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 12px; font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.88rem; font-weight: 500; line-height: 1.5;
+    }
+    .faq-q:hover { color: rgba(255,255,255,0.8); }
+    .faq-arrow {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: transform 0.25s, background 0.2s;
+      color: rgba(255,255,255,0.5); font-size: 0.7rem; margin-top: 1px;
+    }
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: rgba(200,241,53,0.12);
+      border-color: rgba(200,241,53,0.3);
+      color: var(--lime);
+    }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+      font-size: 0.83rem; color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-a { max-height: 800px; padding-bottom: 18px; }
+    .faq-a a { color: var(--lime); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+    .faq-note {
+      background: rgba(200,241,53,0.06);
+      border: 1px solid rgba(200,241,53,0.15);
+      border-radius: 8px; padding: 10px 14px;
+      font-size: 0.78rem; color: rgba(200,241,53,0.8);
+      margin-top: 10px; line-height: 1.55;
+    }
+    .faq-all-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--lime); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; margin-top: 32px;
+    }
+    .faq-all-link:hover { text-decoration: underline; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      margin: 0 40px 80px;
+      background: var(--lime); border-radius: var(--radius);
+      padding: 56px 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: 'ROAM';
+      position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+      font-family: 'Syne', sans-serif; font-size: 11rem; font-weight: 800;
+      color: rgba(0,0,0,0.06); pointer-events: none; white-space: nowrap;
+    }
+    .cta-text h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800; color: var(--black);
+      letter-spacing: -0.03em; line-height: 1.1;
+    }
+    .cta-text p { font-size: 0.95rem; color: rgba(0,0,0,0.52); margin-top: 8px; }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black); color: var(--white);
+      padding: 16px 32px; border-radius: 100px;
+      font-weight: 700; font-size: 0.95rem; text-decoration: none;
+      white-space: nowrap; flex-shrink: 0;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: flex-start; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem;
+      color: var(--white); text-decoration: none;
+    }
+    .footer-logo span { color: var(--lime); }
+    .footer-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+    .footer-links a {
+      color: rgba(255,255,255,0.32); text-decoration: none;
+      font-size: 0.82rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.65); }
+    .footer-bottom {
+      width: 100%; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.18); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a {
+      font-size: 0.78rem; color: rgba(255,255,255,0.18);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,0.42); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .page-body { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        padding: 0 40px 60px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+      .sidebar-label { grid-column: 1 / -1; }
+      .sidebar-card { transform: none !important; }
+      .sidebar-card:hover { transform: translateY(-3px) !important; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 120px 20px 60px; }
+      .hero-stats { gap: 24px; }
+      .section { padding: 56px 20px; }
+      .esim-hero-card { padding: 32px 24px; }
+      .cta-banner { margin: 0 20px 60px; padding: 40px 28px; }
+      .cta-banner::before { display: none; }
+      footer { padding: 40px 20px; }
+      .trust-bar { padding: 36px 20px; gap: 20px; }
+      .faq-section .section { padding: 56px 20px; }
+      .sidebar {
+        padding: 0 20px 48px;
+        grid-template-columns: 1fr;
+      }
+    }
+    /* ── FLOATING CONTACT WIDGET ── */
+.toc-contact {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  padding: 24px; width: 288px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  z-index: 1000;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+.toc-contact p { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+.toc-contact a { color: var(--lime); text-decoration: none; display: block; margin-top: 4px; }
+.toc-contact a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .toc-contact { display: none; }
+}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/en/" class="logo">Roam<span>Melb</span></a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#esim" data-i18n="nav_esim">eSIM</a></li>
+      <li><a href="#how" data-i18n="nav_how">How it works</a></li>
+      <li><a href="#destinations" data-i18n="nav_dest">Destinations</a></li>
+      <li><a href="/faq" data-i18n="nav_faq">FAQ</a></li>
+      <li><a href="https://shop.roammelb.com/" class="nav-cta" data-i18n="nav_buy">Buy Now</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <a href="/" class="lang-btn">简体</a>
+      <a href="/zh-hant/" class="lang-btn">繁體</a>
+      <a href="/en/" class="lang-btn active">EN</a></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-tag" data-i18n="hero_tag">🇦🇺 Melbourne's Travel eSIM Store</div>
+
+  <h1>
+    <span data-i18n="hero_h1_1">Connected</span><br>
+    <span class="accent" data-i18n="hero_h1_2">in 2 mins</span><br>
+    <span class="thin" data-i18n="hero_h1_3">wherever you go</span>
+  </h1>
+
+  <p class="hero-sub" data-i18n="hero_sub">Global eSIM · No SIM swap · Scan &amp; go<br>China, Europe, Asia &amp; 200+ countries</p>
+
+  <div class="hero-actions">
+    <a href="https://shop.roammelb.com/" class="btn-primary">
+      <span data-i18n="hero_cta1">Shop eSIMs</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+    <a href="#how" class="btn-secondary" data-i18n="hero_cta2">How does it work?</a>
+  </div>
+
+  <div class="sell-points">
+    <div class="sell-point">
+      <div class="sell-point-icon">✅</div>
+      <div class="sell-point-text" data-i18n="sp1"><strong>Official Airalo Reseller</strong>Same network quality as buying direct from Airalo</div>
+    </div>
+    <div class="sell-point">
+      <div class="sell-point-icon">🔓</div>
+      <div class="sell-point-text" data-i18n="sp2"><strong>Data-Only · No ID Verification</strong>No phone number, no registration required</div>
+    </div>
+    <div class="sell-point">
+      <div class="sell-point-icon">📞</div>
+      <div class="sell-point-text" data-i18n="sp3"><strong>WhatsApp &amp; WeChat calls work fine</strong>All data-based voice calls supported</div>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">200+</div>
+      <div class="stat-label" data-i18n="stat1">Countries</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2<span data-i18n="stat2_unit">min</span></div>
+      <div class="stat-label" data-i18n="stat2">Activation</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-i18n="stat3_num">No</div>
+      <div class="stat-label" data-i18n="stat3">Physical SIM needed</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label" data-i18n="stat4">Support</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE BODY: main + sidebar -->
+<div class="page-body">
+  <div class="main-col">
+
+    <!-- ESIM CORE PRODUCT -->
+    <section class="section" id="esim">
+      <div class="section-label" data-i18n="esim_label">Core Product</div>
+      <div class="section-title">
+        <span data-i18n="esim_title1">Travel eSIM</span><br>
+        <span class="muted" data-i18n="esim_title2">Connect on landing</span>
+      </div>
+
+      <div class="esim-hero-card">
+        <div class="esim-hero-label">
+          <span>📡</span>
+          <span data-i18n="esim_badge">Airalo Authorized · Same Quality</span>
+        </div>
+        <div class="esim-hero-title" data-i18n="esim_card_title">China · Europe · Asia<br>200+ countries worldwide</div>
+        <div class="esim-hero-desc" data-i18n="esim_card_desc">No queuing, no physical card, install at home before you fly, auto-connect on landing. Data-only plan — no phone number, no ID required.</div>
+
+        <div class="esim-features">
+          <div class="esim-feature">
+            <div class="esim-feature-check">✓</div>
+            <div class="esim-feature-text" data-i18n="ef1"><strong>Official Airalo Reseller</strong>Same network as direct purchase</div>
+          </div>
+          <div class="esim-feature">
+            <div class="esim-feature-check">✓</div>
+            <div class="esim-feature-text" data-i18n="ef2"><strong>Data-Only · No ID needed</strong>No phone number / SMS</div>
+          </div>
+          <div class="esim-feature">
+            <div class="esim-feature-check">✓</div>
+            <div class="esim-feature-text" data-i18n="ef3"><strong>Voice calls work normally</strong>WhatsApp / WeChat voice supported</div>
+          </div>
+          <div class="esim-feature">
+            <div class="esim-feature-check">✓</div>
+            <div class="esim-feature-text" data-i18n="ef4"><strong>Timer starts on landing</strong>Install early, no wasted days</div>
+          </div>
+          <div class="esim-feature">
+            <div class="esim-feature-check">✓</div>
+            <div class="esim-feature-text" data-i18n="ef5"><strong>Instant email delivery</strong>Scan &amp; install in 30 seconds</div>
+          </div>
+          <div class="esim-feature">
+            <div class="esim-feature-check">✓</div>
+            <div class="esim-feature-text" data-i18n="ef6"><strong>WeChat Pay</strong>Credit card / Apple Pay also accepted</div>
+          </div>
+        </div>
+
+        <div class="esim-cta-row">
+          <a href="https://shop.roammelb.com/" class="btn-primary">
+            <span data-i18n="esim_cta">Browse all plans</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </a>
+          <span class="esim-cta-note" data-i18n="esim_cta_note">Priced in AUD · All major payment methods accepted</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how">
+      <div class="section-label" data-i18n="how_label">How it works</div>
+      <div class="section-title">
+        <span data-i18n="how_title1">3 simple steps</span><br>
+        <span class="muted" data-i18n="how_title2">easier than you think</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title" data-i18n="step1_title">Pick a plan &amp; pay</div>
+          <div class="step-desc" data-i18n="step1_desc">Choose your destination and data amount. Pay with WeChat Pay, Apple Pay, or credit card.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title" data-i18n="step2_title">Scan &amp; install</div>
+          <div class="step-desc" data-i18n="step2_desc">You'll receive a QR code by email. Use a second device to display the QR code, then scan it on the phone you're installing the eSIM on. Done in 30 seconds.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title" data-i18n="step3_title">Land &amp; connect</div>
+          <div class="step-desc" data-i18n="step3_desc">Turn on eSIM data after landing — your phone connects automatically. No WiFi hunting, no SIM swapping.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section class="section dest-section" id="destinations">
+      <div class="section-label" data-i18n="dest_label">Popular destinations</div>
+      <div class="section-title" style="margin-bottom:28px;">
+        <span data-i18n="dest_title1">Wherever</span><br>
+        <span class="muted" data-i18n="dest_title2">you're headed</span>
+      </div>
+      <div class="dest-grid">
+        <div class="dest-pill"><span>🇨🇳</span> <span data-i18n="dest_cn">China</span></div>
+        <div class="dest-pill"><span>🇯🇵</span> <span data-i18n="dest_jp">Japan</span></div>
+        <div class="dest-pill"><span>🇬🇧</span> <span data-i18n="dest_uk">UK</span></div>
+        <div class="dest-pill"><span>🇫🇷</span> <span data-i18n="dest_fr">France</span></div>
+        <div class="dest-pill"><span>🇩🇪</span> <span data-i18n="dest_de">Germany</span></div>
+        <div class="dest-pill"><span>🇮🇹</span> <span data-i18n="dest_it">Italy</span></div>
+        <div class="dest-pill"><span>🇹🇭</span> <span data-i18n="dest_th">Thailand</span></div>
+        <div class="dest-pill"><span>🇸🇬</span> <span data-i18n="dest_sg">Singapore</span></div>
+        <div class="dest-pill"><span>🇰🇷</span> <span data-i18n="dest_kr">South Korea</span></div>
+        <div class="dest-pill"><span>🇺🇸</span> <span data-i18n="dest_us">USA</span></div>
+        <div class="dest-pill"><span>🇭🇰</span> <span data-i18n="dest_hk">Hong Kong</span></div>
+        <div class="dest-pill"><span>🌏</span> <span data-i18n="dest_more">200+ more</span></div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+      <div class="trust-item"><span>🛡️</span><span data-i18n="trust1">Official Airalo Reseller</span></div>
+      <div class="trust-item"><span>💬</span><span data-i18n="trust2">Bilingual support</span></div>
+      <div class="trust-item"><span>⚡</span><span data-i18n="trust3">Instant delivery</span></div>
+      <div class="trust-item"><span>🔓</span><span data-i18n="trust4">Data-Only, No ID needed</span></div>
+      <div class="trust-item"><span>💳</span><span data-i18n="trust5">WeChat Pay</span></div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="section faq-section" id="faq">
+      <div class="section-label" data-i18n="faq_label">FAQ</div>
+      <div class="section-title">
+        <span data-i18n="faq_title1">Before you buy</span><br>
+        <span class="muted" data-i18n="faq_title2">things you might wonder</span>
+      </div>
+
+      <!-- FAQ Group 1: eSIM 基础 -->
+      <div style="margin-bottom:40px;">
+        <div class="faq-group-title" data-i18n="faq_g1">📶 eSIM Basics</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q1">What is an eSIM and how is it different from a physical SIM?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a1">An eSIM is a virtual SIM card built into your phone — no physical card needed. After purchase, you instantly receive a QR code by email, scan it to install, all done online. Key differences from a physical SIM: no airport queuing, no ID registration, doesn't use your physical SIM slot, so you keep your home number active at the same time.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q2">Does the eSIM come with a phone number? Do I need to register my ID?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a2">RoamMelb sells Data-Only eSIMs — no phone number and no SMS function are included. This means no ID registration is required. You can still use all data-based voice services normally, such as WhatsApp, WeChat voice calls, FaceTime, etc.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q3">Is my phone eSIM compatible?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a3">Commonly supported: iPhone XR / XS and above · Samsung Galaxy S20 series and above / Z Fold / Z Flip · Google Pixel 3 and above · OnePlus 11/12/13.<br><br>⚠️ Note: Phones purchased in mainland China or Hong Kong (Samsung, Xiaomi, Huawei) often do NOT support eSIM, even if the same model sold in Australia does. To check: iPhone → Settings → General → About; Android → dial *#06# and look for an EID number. Unsure? Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q_airalo">What's the relationship between RoamMelb and Airalo?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a_airalo">RoamMelb is an officially authorized Airalo Reseller. The eSIM you purchase is identical to buying directly from Airalo — same networks, same quality. RoamMelb adds: bilingual Chinese support, local payment methods (WeChat Pay), and Chinese-language travel guidance.</div>
+        </div>
+      </div>
+
+      <!-- FAQ Group 2: 安装与激活 -->
+      <div style="margin-bottom:40px;">
+        <div class="faq-group-title" data-i18n="faq_g2">📲 Install &amp; Activate</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q4">How do I install the eSIM?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a4">After payment, the QR code is sent instantly to your email.<br><br><strong>Important:</strong> The phone you scan the QR code with must be the phone you're installing the eSIM on. Since you can't scan and install simultaneously on one device, use a second device (another phone, tablet, or computer) to open the email and display the QR code, then scan it with the target phone.<br><br>iPhone: Settings → Cellular → Add eSIM → Scan QR code<br>Samsung: Settings → Connections → SIM manager → Add eSIM<br>Pixel: Settings → Network &amp; internet → SIM → Download SIM<div class="faq-note">💡 Tip: Install at home on Wi-Fi before you travel. Just keep eSIM data off until you land.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q5">When does the timer start? Can I install in advance?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a5">The eSIM timer starts when you first connect to the local network at your destination — not when you purchase or install. You can buy and install days in advance, then activate it at your destination without wasting any validity.</div>
+        </div>
+      </div>
+
+      <!-- FAQ Group 3: 使用与流量 -->
+      <div style="margin-bottom:40px;">
+        <div class="faq-group-title" data-i18n="faq_g3">📊 Data Usage</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q6">How long does 1GB last?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a6">WeChat/WhatsApp messages: several days · Voice calls (~40MB/hr): ~25 hours · Video calls (~300MB/hr): ~3 hours · Maps navigation: ~14 hours · Social media browsing: ~7 hours · YouTube 480p: ~2 hours.<br><br>Tips: download offline maps on Wi-Fi before you go; disable background app refresh; set YouTube to 480p.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q7">Is the unlimited plan really unlimited?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a7">Airalo's unlimited plans provide 3GB of high-speed data per day. After that, speed is throttled to around 1Mbps. Throttled speed is fine for messaging, email, and maps, but video calls and HD streaming will be choppy. For most travellers, 3GB/day is more than enough.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q8">Can I use the eSIM as a hotspot?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a8">Most plans support personal hotspot / tethering, so you can share with a tablet or laptop. Hotspot use drains data faster — use mindfully on limited plans.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q9">What if I run out of data?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a9">No. RoamMelb eSIM plans are one-time use and <strong>do not support online top-up or renewal</strong>. If you're running low on data, visit <a href="https://shop.roammelb.com/">shop.roammelb.com</a> to purchase a new eSIM plan (you can install a second eSIM on the same phone).</div>
+        </div>
+      </div>
+
+      <!-- FAQ Group 4: 购买与支付 -->
+      <div style="margin-bottom:40px;">
+        <div class="faq-group-title" data-i18n="faq_g4">💳 Payment &amp; Refunds</div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q10">What payment methods are accepted?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a10">We accept: WeChat Pay · Visa / Mastercard credit &amp; debit cards · Apple Pay.<br><br>⚠️ Note: Payments are processed via Stripe and may be flagged as an overseas transaction by your bank. If your card has overseas transaction restrictions, contact your bank first or use WeChat Pay.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)" data-i18n="faq_q11">Can I get a refund?<span class="faq-arrow">▾</span></button>
+          <div class="faq-a" data-i18n="faq_a11">Not installed: Full refund ✅ · Installed but not activated: Case-by-case ⚠️ · Installed &amp; used: No refund ❌ · Technical fault: Full refund or replacement ✅.<br><br>⚠ Our refund policy applies to orders within 30 days of purchase; orders past 30 days are assessed case-by-case.<br><br>Email <a href="mailto:contact@roammelb.com">contact@roammelb.com</a> with your order number. We reply within 2 business days.</div>
+        </div>
+      </div>
+
+      <a href="/faq" class="faq-all-link">
+        <span data-i18n="faq_more">View full FAQ</span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </section>
+
+  </div><!-- /main-col -->
+
+  <!-- SIDEBAR: Affiliate Cards -->
+  <aside class="sidebar">
+    <div class="sidebar-label" data-i18n="sb_label">More services</div>
+
+    <a href="/saily" class="sidebar-card card-saily">
+      <div class="sc-head">
+        <span class="sc-icon">🌐</span>
+        <span class="sc-title" data-i18n="sb_saily_title">Saily eSIM</span>
+        <span class="sc-badge blue" data-i18n="sb_saily_badge">Incl. Virtual IP</span>
+      </div>
+      <div class="sc-desc" data-i18n="sb_saily_desc">By the NordVPN team. Built-in virtual IP switching for accessing more services abroad. Ad blocker + security.</div>
+      <div class="sc-cta blue">
+        <span data-i18n="sb_saily_cta">Learn about Saily</span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </a>
+
+    <a href="/vpn" class="sidebar-card card-vpn">
+      <div class="sc-head">
+        <span class="sc-icon">🔒</span>
+        <span class="sc-title" data-i18n="sb_vpn_title">Travel VPN</span>
+        <span class="sc-badge purple" data-i18n="sb_vpn_badge">Recommended</span>
+      </div>
+      <div class="sc-desc" data-i18n="sb_vpn_desc">Hotel &amp; airport public Wi-Fi is a security risk. One-tap encryption protects your banking and personal data.</div>
+      <div class="sc-cta purple">
+        <span data-i18n="sb_vpn_cta">Learn more</span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </a>
+
+    <a href="/travel-guide" class="sidebar-card">
+      <div class="sc-head">
+        <span class="sc-icon">✍️</span>
+        <span class="sc-title" data-i18n="sb_guide_title">Visa &amp; Travel Guides</span>
+      </div>
+      <div class="sc-desc" data-i18n="sb_guide_desc">eSIM for China — what works? Best eSIM for Europe? Honest guides from a Melbourne local.</div>
+      <div class="sc-cta">
+        <span data-i18n="sb_guide_cta">Read guides</span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </a>
+
+    <a href="/insurance" class="sidebar-card card-insurance">
+      <div class="sc-head">
+        <span class="sc-icon">🛡️</span>
+        <span class="sc-title" data-i18n="sb_ins_title">Travel Insurance</span>
+        <span class="sc-badge teal" data-i18n="sb_ins_badge">New</span>
+      </div>
+      <div class="sc-desc" data-i18n="sb_ins_desc">Schengen visa insurance &amp; general travel cover. AXA, Cover-More, SafetyWing — transparent pricing comparison.</div>
+      <div class="sc-cta teal">
+        <span data-i18n="sb_ins_cta">Compare plans</span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </a>
+
+    <a href="/flights" class="sidebar-card card-flights">
+      <div class="sc-head">
+        <span class="sc-icon">✈️</span>
+        <span class="sc-title" data-i18n="sb_fly_title">Flights &amp; Points</span>
+        <span class="sc-badge amber" data-i18n="sb_fly_badge">Guide</span>
+      </div>
+      <div class="sc-desc" data-i18n="sb_fly_desc">Best routes from Melbourne. Qantas / Air China / China Eastern points guides.</div>
+      <div class="sc-cta amber">
+        <span data-i18n="sb_fly_cta">Read flight tips</span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </div>
+    </a>
+
+  </aside>
+</div><!-- /page-body -->
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-text">
+    <h2 data-i18n="cta_title">Next trip?<br>Sort your data now</h2>
+    <p data-i18n="cta_sub">Takes 2 minutes — faster than queuing at the airport</p>
+  </div>
+  <a href="https://shop.roammelb.com/" class="btn-dark">
+    <span data-i18n="cta_btn">Shop eSIMs</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/en/" class="footer-logo">Roam<span>Melb</span></a>
+  <ul class="footer-links">
+    <li><a href="https://shop.roammelb.com/" data-i18n="footer_esim">Buy eSIM</a></li>
+    <li><a href="/saily" data-i18n="footer_saily">Saily eSIM</a></li>
+    <li><a href="/vpn" data-i18n="footer_vpn">VPN</a></li>
+    <li><a href="/insurance" data-i18n="footer_insurance">Travel Insurance</a></li>
+    
+  
+    <li><a href="/faq" data-i18n="footer_faq">FAQ</a></li>
+
+  </ul>
+  <div class="footer-bottom">
+    <div class="footer-copy" data-i18n="footer_copy">© 2026 Juliet and Roland Hong Kong Limited. All rights reserved. RoamMelb is a registered trading brand of Juliet and Roland Hong Kong Limited.</div>
+    <div class="footer-legal">
+      <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="/terms" data-i18n="footer_terms">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  item.classList.toggle('open', !wasOpen);
+}</script>
+
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;c8eef8a47eba426aa87d25fa8febb90a&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+<div class="toc-contact">
+  <p>找不到答案？無法找到答案？Can't find the answer？</p>
+  <a href="mailto:contact@roammelb.com">📧 contact@roammelb.com</a>
+  <a href="https://wa.me/85259226628" target="_blank">💬 WhatsApp </a>
+  <p style="margin-top:8px">2个工作日内回复 2個工作日內回覆 Reply within 2 business days</p>
+</div>
+
+
+</body></html>
